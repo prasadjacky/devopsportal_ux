@@ -1,0 +1,92 @@
+<h4>Continuous Integration</h4>
+<form #continuousintegrationForm="ngForm" id="cif" >
+    <div class="form-align"></div>
+    <div class="row">
+        <div class="css3input col-xs-6">
+            <select name="tool" [(ngModel)]="ContinuousIntegration.tool" #tool="ngModel" required>
+                    <option value="" selected disabled></option>
+                    <option value="Jenkins">Jenkins</option>
+            </select>
+            <label>Continuous Integration Tool</label>
+            <div *ngIf="tool.invalid && showValidations" class="errorMessageNew">Please select a continuous integration tool</div>
+        </div>
+        <div class="css3input col-xs-6">
+            <select name="platform_tool" [(ngModel)]="ContinuousIntegration.platform_tool" #platform_tool="ngModel" required>
+                <option value="" selected disabled></option>
+                <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+            </select>
+            <label>Tool Instance</label>
+            <div *ngIf="platform_tool.invalid && showValidations" class="errorMessageNew">Please select a tool instance</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="css3input col-xs-6">
+            <select name="trigger_type" [(ngModel)]="ContinuousIntegration.trigger_type" #trigger_type="ngModel" required>
+                    <option value="" selected disabled></option>
+                    <option value="Manual">Manual</option>
+            </select>
+            <label>Trigger Type</label>
+            <div *ngIf="trigger_type.invalid && showValidations" class="errorMessageNew">Please select a trigger type</div>
+        </div>
+        <div class="css3input col-xs-6">
+            <input name="build_agent_label" [(ngModel)]="ContinuousIntegration.build_agent_label" #build_agent_label="ngModel" (input)="onChange($event.target.value)" required autocomplete="off">
+            <label>Agent Label</label>
+            <div *ngIf="build_agent_label.invalid && showValidations" class="errorMessageNew">Please enter an agent label</div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="css3input col-xs-6">
+            <input name="ci_email" [(ngModel)]="ContinuousIntegration.ci_email" #ci_email="ngModel" required autocomplete="off">
+            <label>Notification Email</label>
+            <div *ngIf="ci_email.invalid && showValidations" class="errorMessageNew">Please enter an valid email address</div>
+        </div>
+    </div>-->
+    <!--<div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <label class="col-md-2" for="tool">CI Tool</label>
+                <select name="tool" class="col-md-4" [(ngModel)]="ContinuousIntegration.tool" #tool="ngModel" required>
+                    <option value="" selected disabled>Select CI Tool</option>
+                    <option value="Jenkins">Jenkins</option>
+                </select>
+                <div class="col-md-1 validation" *ngIf="tool.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-xs-2" for="toolInstance">Tool Instance</label>
+                <select name="toolInstance" class="col-xs-4" [(ngModel)]="ContinuousIntegration.platform_tool" #toolInstance="ngModel" required>
+                        <option value="" selected disabled>Select Tool Instance</option>
+                        <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+                    </select>
+                <div class="col-md-1 validation" *ngIf="toolInstance.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2" for="trigger">Trigger</label>
+                <select name="trigger" class="col-md-4" [(ngModel)]="ContinuousIntegration.trigger_type" #trigger="ngModel" required>
+                    <option value="" selected disabled>Select Trigger</option>
+                    <option value="Manual">Manual</option> 
+                </select>
+                <div class="col-md-1 validation" *ngIf="trigger.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Trigger</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2" for="result_notification">Email</label>
+                <input class="col-md-4" placeholder="Enter notification Email" name="resultNotification" [(ngModel)]="ContinuousIntegration.ci_email" #result_notification="ngModel" required>
+                <div class="col-md-1 validation" *ngIf="result_notification.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Enter an Email</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2" for="agent_label">Agent Label</label>
+                <input class="col-md-4" placeholder="Enter Agent Label" name="agentLabel" [(ngModel)]="ContinuousIntegration.build_agent_label" #agent_label="ngModel" required>
+                <div class="col-md-1 validation" *ngIf="agent_label.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Enter an Agent Label</span></div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</form>

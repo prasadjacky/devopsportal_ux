@@ -1,0 +1,957 @@
+#IconsWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*margin: 15px 15px 0px;*/
+    padding: 15px 15px 0px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.selector,
+.connector {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.selector {
+    min-width: 50px;
+    max-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    transition: all 0.2s ease-out;
+}
+
+.selector.current {
+    background: #3498db;
+}
+
+.selector.done {
+    background: #27ae60;
+}
+
+.selector img {
+    width: 33px;
+    margin-right: 1px;
+}
+
+.selectorLabel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.connector {
+    width: 100px;
+    height: 5px;
+    margin-top: 25px;
+    transition: all 0.2s ease-out;
+}
+
+.connector.done {
+    background: #27ae60;
+}
+
+.arrow {
+    width: 0px;
+    height: 0px;
+    margin: 0px auto;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.arrow.visible {
+    border-bottom: 15px solid rgba(0, 0, 0, 0.03);
+}
+
+#TabsWrapper {
+    padding: 15px;
+    height: 381px;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.03);
+    /*border: 10px solid rgba(0, 0, 0, 0.03);*/
+}
+
+#TabsWrapper>.tab-pane {
+    background-color: #fff;
+    border: 1px solid #e9e9e9;
+    height: 350px!important;
+    border-bottom: 0px;
+    padding: 15px 0px;
+    box-shadow: 0px 5px 3px -3px rgba(0, 0, 0, 0.1);
+    overflow-y: hidden;
+}
+
+#TabsWrapper>.tab-pane {
+    display: none;
+}
+
+#TabsWrapper>.tab-pane.active {
+    display: block;
+}
+
+button[disabled],
+select[disabled] {
+    cursor: not-allowed;
+}
+
+#ButtonWrapper {
+    text-align: center;
+    padding: 15px;
+}
+
+.btn {
+    background: #3498db;
+    min-width: 100px;
+    color: white;
+    outline: 0px;
+    border-radius: 0px;
+}
+
+.btn:hover,
+.btn:focus {
+    color: white;
+}
+
+#NextButton,
+#BackButton {
+    transition: all 0.2s ease-out;
+}
+
+#NextButton {
+    float: right;
+}
+
+#BackButton {
+    float: right;
+    margin-right: 5px;
+}
+
+
+/*#NextButton:hover,
+#BackButton:hover {
+    box-shadow: 0px 10px 15px -5px #AAA;
+    transform: translateY(-3px);
+}*/
+
+#BackButton.removed {
+    display: none !important;
+}
+
+#TabsWrapper input::placeholder {
+    font-family: 'Comfortaa' !important;
+    font-size: smaller;
+}
+
+#TabsWrapper h3 {
+    color: #4b4d4e;
+}
+
+#TabsWrapper h4.subheading {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #3498db;
+}
+
+#TabsWrapper label {
+    font-size: inherit;
+    font-weight: 500;
+    /*margin-bottom: 15px !important;
+    margin-left: 15px !important;*/
+}
+
+#TabsWrapper label.labelAbove {
+    margin-bottom: 0px !important;
+    margin-top: 10px;
+    margin-left: 0px !important;
+}
+
+#TabsWrapper select {
+    height: 23px !important;
+    padding-left: 12px !important;
+}
+
+#TabsWrapper select.ng-invalid {
+    color: #757575 !important;
+    font-size: smaller;
+}
+
+#TabsWrapper select option {
+    color: #000 !important;
+    font-size: 15px !important;
+}
+
+#TabsWrapper select option:disabled {
+    color: #757575 !important;
+    font-size: 15px !important;
+}
+
+.validation {
+    margin-top: 3px;
+}
+
+.fields {
+    padding: 15px;
+}
+
+.subfields {
+    padding: 15px;
+    border: 1px solid #3498db;
+    border-width: 1px 0px 0px;
+}
+
+.highlight {
+    background-color: rgba(41, 128, 185, 0.1);
+    padding: 10px !important;
+}
+
+.cmn-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+
+.cmn-toggle+label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+input.cmn-toggle-round-flat+label {
+    padding: 2px;
+    width: 30px;
+    height: 20px;
+    background-color: #dddddd;
+    border-radius: 60px;
+    transition: background 0.3s;
+}
+
+input.cmn-toggle-round-flat+label:before,
+input.cmn-toggle-round-flat+label:after {
+    display: block;
+    position: absolute;
+    content: "";
+}
+
+input.cmn-toggle-round-flat+label:before {
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    background-color: #fff;
+    border-radius: 60px;
+    transition: background 0.3s;
+}
+
+input.cmn-toggle-round-flat+label:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 12px;
+    background-color: #dddddd;
+    border-radius: 52px;
+    transition: margin 0.3s, background 0.3s;
+}
+
+input.cmn-toggle-round-flat:checked+label {
+    background-color: #3498db;
+}
+
+input.cmn-toggle-round-flat:checked+label:after {
+    margin-left: 10px;
+    background-color: #3498db;
+}
+
+.form-align {
+    margin: 32px;
+}
+
+#TabsWrapper .toggle {
+    display: flex;
+}
+
+#TabsWrapper .switch {
+    padding-right: 5px;
+}
+
+#TabsWrapper .text {
+    font-size: 12px;
+    padding-top: 3px;
+    padding-right: 3px;
+}
+
+
+/* VALIDATIONS */
+
+
+/*.validationIcon {
+    position: relative;
+    display: inline-block;
+    color: #e74c3c;
+    animation: bounce 0.5s ease-out;
+}
+
+.validationIcon .validationMessage {
+    visibility: hidden;
+    width: 300px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 50%;
+    right: 50%;
+    margin-right: -12px;
+    transition: all 0.2s ease-out;
+}
+
+.validationIcon .validationMessage::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 3%;
+    margin-right: -3px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #e74c3c transparent transparent transparent;
+}
+
+.validationIcon:hover .validationMessage {
+    visibility: visible;
+    bottom: 150%;
+}*/
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0px)
+    }
+    30%,
+    70% {
+        transform: translateX(-3px)
+    }
+    50% {
+        transform: translateX(3px)
+    }
+    100% {
+        transform: translateX(0px)
+    }
+}
+
+
+/*portal settings styling---------------------------------------------------------------------------------------------*/
+
+.navbar-default {
+    border: none;
+    background: transparent;
+}
+
+.navbar-default.top-nav {
+    margin-bottom: 0px;
+    border-bottom: 1px solid #e9e9e9 !important;
+}
+
+.navbar-default.top-nav li a {
+    border-top: 1px solid #e9e9e9;
+    box-shadow: inset 0px 1px #e9e9e9;
+    margin-right: 5px;
+}
+
+.navbar-default.top-nav li.active a {
+    border: 1px solid #e9e9e9;
+    border-bottom: 0px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.03) !important;
+}
+
+.navbar-default.bottom-nav {
+    margin-bottom: 0px;
+    border-top: 1px solid #e9e9e9 !important;
+    background: #efefef;
+}
+
+#TabsWrapper .navbar-default.bottom-nav li a {
+    border-bottom: 2px solid #d4d4d4;
+    margin-right: 5px;
+    cursor: default;
+}
+
+.navbar-default.bottom-nav li.active a {
+    background-color: #fff !important;
+    border: 1px solid #e9e9e9;
+    border-top: 0px;
+    font-weight: bold;
+    color: #3498db !important;
+    text-decoration: none;
+    border-bottom: 3px solid #3498db!important;
+    box-shadow: 0px -1px 0px #fff, 0px 5px 3px -3px rgba(0, 0, 0, 0.1);
+}
+
+#TabsWrapper .navbar-default.bottom-nav li.enabled a {
+    border-bottom: 2px solid #27ae60;
+}
+
+#TabsWrapper .navbar-default.bottom-nav li.notenabled a {
+    border-bottom: 2px solid #638eab;
+}
+
+.settingsHead {
+    margin: 0px;
+    font-weight: bold;
+    color: grey;
+}
+
+.scroll {
+    /*max-width: 1045px;*/
+    overflow-x: auto;
+    min-height: 270px;
+    overflow-y: auto;
+    padding: 15px;
+    /*margin: 0px 15px;*/
+    border: 1px solid #e9e9e9;
+}
+
+
+/** TABLE **/
+
+.scroll .table {
+    margin-bottom: 0px;
+    table-layout: fixed;
+}
+
+.scroll th {
+    font-size: larger;
+    height: 40px;
+    padding-top: 0px !important;
+    vertical-align: top !important;
+    border-bottom: 2px solid #ddd !important;
+}
+
+.scroll td {
+    padding: 0px 8px 6px !important;
+    height: 40px !important;
+    vertical-align: bottom !important;
+}
+
+.scroll th:last-child,
+.scroll td:last-child {
+    text-align: center;
+}
+
+td i.material-icons.link,
+.scroll td i.link {
+    font-size: 20px;
+    color: #808080;
+    cursor: pointer;
+}
+
+
+/** BUTTON BROUP **/
+
+#IconsWrapper .css3btn-group,
+#TabsWrapper .css3btn-group,
+#ButtonWrapper .css3btn-group {
+    background: #34aae8;
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#IconsWrapper .css3btn-group>.css3btn,
+#TabsWrapper .css3btn-group>.css3btn,
+#ButtonWrapper .css3btn-group>.css3btn {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+#IconsWrapper .css3btn-group .css3btn-head,
+#TabsWrapper .css3btn-group .css3btn-head,
+#ButtonWrapper .css3btn-group .css3btn-head {
+    min-width: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    height: 30px;
+}
+
+#IconsWrapper .css3btn-group .css3btn-head i.fa-search-plus,
+#TabsWrapper .css3btn-group .css3btn-head i.fa-search-plus,
+#ButtonWrapper .css3btn-group .css3btn-head i.fa-search-plus {
+    font-size: 21px;
+}
+
+#IconsWrapper .css3btn-group-outline,
+#TabsWrapper .css3btn-group-outline,
+#ButtonWrapper .css3btn-group-outline {
+    background: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-left: 5px;
+    float: right;
+    height: 30px;
+    cursor: pointer;
+}
+
+#IconsWrapper .css3btn-group-outline>.css3btn,
+#TabsWrapper .css3btn-group-outline>.css3btn,
+#ButtonWrapper .css3btn-group-outline>.css3btn {
+    border-radius: 0px;
+    color: #666666;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+#IconsWrapper .css3btn-group-outline .css3btn-head,
+#TabsWrapper .css3btn-group-outline .css3btn-head,
+#ButtonWrapper .css3btn-group-outline .css3btn-head {
+    min-width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#IconsWrapper .css3btn-head i.fa-check,
+#TabsWrapper .css3btn-head i.fa-check,
+#ButtonWrapper .css3btn-head i.fa-check {
+    position: relative;
+    bottom: 1px;
+}
+
+#IconsWrapper .css3btn-head i.fa-times,
+#TabsWrapper .css3btn-head i.fa-times,
+#ButtonWrapper .css3btn-head i.fa-times {
+    position: relative;
+    bottom: 2px;
+}
+
+#IconsWrapper .css3btn.css3btn-body,
+#TabsWrapper .css3btn.css3btn-body,
+#ButtonWrapper .css3btn.css3btn-body {
+    min-width: 60px;
+    margin-right: 3px;
+}
+
+
+/** MODAL **/
+
+#IconsWrapper .modal-dialog,
+#TabsWrapper .modal-dialog,
+#ButtonWrapper .modal-dialog {
+    margin-top: 10%;
+}
+
+#IconsWrapper .modal-header,
+#TabsWrapper .modal-header,
+#ButtonWrapper .modal-header {
+    color: white;
+    background: #3498db;
+    height: 50px;
+    padding: 12px;
+}
+
+#IconsWrapper .modal-content,
+#TabsWrapper .modal-content,
+#ButtonWrapper .modal-content {
+    border-radius: 0px!important;
+}
+
+#IconsWrapper .modal-body,
+#TabsWrapper .modal-body,
+#ButtonWrapper .modal-body {
+    padding: 25px 15px;
+    height: 250px !important;
+}
+
+#IconsWrapper .modal-title,
+#TabsWrapper .modal-title,
+#ButtonWrapper .modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/** FORM **/
+
+#TabsWrapper .css3input {
+    height: 55px;
+}
+
+#TabsWrapper .css3input input {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    padding-top: 12px;
+    padding-left: 4px;
+    height: 30px;
+    width: 100%;
+    z-index: 3;
+    transition: all 0.2s ease-out;
+}
+
+#TabsWrapper .css3input input:focus {
+    outline: none;
+    border-bottom: 2px solid #3498db !important;
+}
+
+#TabsWrapper .css3input input.ng-valid+label,
+#TabsWrapper .css3input select.ng-valid+label {
+    top: -35px;
+    font-size: smaller;
+}
+
+#TabsWrapper .css3input input.filled+label {
+    top: -35px;
+    font-size: smaller;
+}
+
+#TabsWrapper .css3input input:focus+label,
+#TabsWrapper .css3input select:focus+label {
+    color: #3498db;
+    top: -35px;
+    font-size: smaller;
+}
+
+#TabsWrapper .css3input select {
+    /*-webkit-appearance: none;*/
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    padding-top: 12px;
+    padding-left: 0px !important;
+    height: 30px!important;
+    width: 100%;
+    z-index: 3;
+    transition: all 0.2s ease-out;
+}
+
+#TabsWrapper .css3input select option:disabled {
+    display: none;
+}
+
+#TabsWrapper .css3input select:focus {
+    outline: none;
+    border-bottom: 2px solid #3498db !important;
+}
+
+#TabsWrapper .css3input label {
+    font-weight: normal;
+    margin-bottom: 0px;
+    position: relative;
+    top: -20px;
+    color: #AAA;
+    z-index: 0;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.top label {
+    top: 0px!important;
+}
+
+#TabsWrapper .errorMessageNew {
+    font-weight: 800;
+    padding-top: 2px;
+    position: relative;
+    top: -18px;
+    font-size: smaller;
+    color: red;
+}
+
+
+/*.modal button.css3button-fill {
+    background: #3498db;
+    border: none;
+    color: white;
+    height: 30px;
+    min-width: 75px;
+    outline: 0px;
+}
+
+.modal button.css3button-outline {
+    background: #ffffff;
+    border: 1px solid;
+    color: #3498db;
+    font-weight: bold;
+    height: 30px;
+    min-width: 75px;
+    outline: 0px;
+}*/
+
+
+/** TOGGLE **/
+
+.cmn-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+
+.cmn-toggle+label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+input.cmn-toggle-round-flat+label {
+    padding: 2px;
+    width: 30px;
+    height: 20px;
+    background-color: #dddddd;
+    border-radius: 60px;
+    transition: background 0.3s;
+}
+
+input.cmn-toggle-round-flat+label:before,
+input.cmn-toggle-round-flat+label:after {
+    display: block;
+    position: absolute;
+    content: "";
+}
+
+input.cmn-toggle-round-flat+label:before {
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    background-color: #fff;
+    border-radius: 60px;
+    transition: background 0.3s;
+}
+
+input.cmn-toggle-round-flat+label:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 12px;
+    background-color: #dddddd;
+    border-radius: 52px;
+    transition: margin 0.3s, background 0.3s;
+}
+
+input.cmn-toggle-round-flat:checked+label {
+    background-color: #3498db;
+}
+
+input.cmn-toggle-round-flat:checked+label:after {
+    margin-left: 10px;
+    background-color: #3498db;
+}
+
+#SettingsTab .toggle {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+#SettingsTab .switch {
+    padding-right: 5px;
+}
+
+#SettingsTab .text {
+    font-size: 12px;
+    padding-top: 3px;
+}
+
+
+/** EXISTING **/
+
+
+/*select.form-control {
+    height: 34px!important;
+}*/
+
+label {
+    font-weight: 600;
+    padding-left: 0px!important;
+    margin: 0px!important;
+}
+
+.lead {
+    font-size: 19px!important;
+}
+
+
+/** EXTRA **/
+
+#ALMTab {
+    padding: 0px !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.searchButton {
+    float: left;
+    right: 50px;
+    position: relative;
+    /* bottom: 55px; */
+    z-index: 5;
+}
+
+.mw {
+    height: 30px !important;
+    /*min-width: initial!important;*/
+}
+
+.mw1 {
+    width: 30px !important;
+    height: 30px !important;
+    /*min-width: initial!important;*/
+}
+
+.mw2 {
+    position: relative;
+    /*bottom: 2px;*/
+    height: 30px !important;
+    /*min-width: initial!important;*/
+}
+
+#confirmUserDeletionModal .modal-body {
+    min-height: initial!important;
+}
+
+.modalTemplateContainer{
+    margin-left: 70px;
+    margin-right: 70px;
+   /*  background-color: rgba(186, 186, 188, 0.52); */
+}
+
+.centered-modal.in {
+    display: flex !important;
+}
+.centered-modal .modal-dialog {
+    margin: auto;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen snackbarDuplicateError*/
+#snackbarSuccess {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: rgb(51, 51, 51); /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+#snackbarError {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: rgb(219, 60, 60); /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+#snackbarDuplicateError {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: rgb(219, 60, 60); /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbarSuccess.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s !important;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s !important;
+}
+#snackbarError.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s !important;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s !important;
+}
+#snackbarDuplicateError.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s !important;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s !important;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+.errorMessageNew {
+    padding-top: 10px;
+    font-size: small;
+    color: red;
+}

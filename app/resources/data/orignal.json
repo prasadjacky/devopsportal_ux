@@ -1,0 +1,93 @@
+{
+    "data": [{
+            "project_name": "Sapphire",
+            "release_completion": "93%",
+            "velocity": 33,
+            "defect_ratio": "12%",
+            "code_coverage": "52%",
+            "release_stability": "Warning",
+            "work_completed": "30%",
+            "health": "Smooth"
+        },
+        {
+            "project_name": "CampusNext",
+            "release_completion": "87%",
+            "velocity": 45,
+            "defect_ratio": "07%",
+            "code_coverage": "14%",
+            "release_stability": "At Risk",
+            "work_completed": "15%",
+            "health": "Warning"
+        },
+        {
+            "project_name": "Digicopy",
+            "release_completion": "33%",
+            "velocity": 12,
+            "defect_ratio": "02%",
+            "code_coverage": "11%",
+            "release_stability": "Smooth",
+            "work_completed": "55%",
+            "health": "At Risk"
+        },
+        {
+            "project_name": "Sapphire",
+            "release_completion": "93%",
+            "velocity": 33,
+            "defect_ratio": "12%",
+            "code_coverage": "52%",
+            "release_stability": "At Risk",
+            "work_completed": "30%",
+            "health": "Smooth"
+        },
+        {
+            "project_name": "HD Power",
+            "release_completion": "77%",
+            "velocity": 11,
+            "defect_ratio": "10%",
+            "code_coverage": "45%",
+            "release_stability": "Smooth",
+            "work_completed": "12%",
+            "health": "At Risk"
+        },
+        {
+            "project_name": "GNP",
+            "release_completion": "32%",
+            "velocity": 33,
+            "defect_ratio": "8%",
+            "code_coverage": "77%",
+            "release_stability": "Warning",
+            "work_completed": "10%",
+            "health": "Smooth"
+        },
+        {
+            "project_name": "HAVOC",
+            "release_completion": "87%",
+            "velocity": 52,
+            "defect_ratio": "10%",
+            "code_coverage": "77%",
+            "release_stability": "At Risk",
+            "work_completed": "10%",
+            "health": "Smooth"
+        },
+        {
+            "project_name": "Cerebro",
+            "release_completion": "87%",
+            "velocity": 52,
+            "defect_ratio": "10%",
+            "code_coverage": "77%",
+            "release_stability": "Smooth",
+            "work_completed": "10%",
+            "health": "Smooth"
+        },
+        {
+            "project_name": "GDNHQU",
+            "release_completion": "32%",
+            "velocity": 33,
+            "defect_ratio": "8%",
+            "code_coverage": "77%",
+            "release_stability": "Warning",
+            "work_completed": "10%",
+            "health": "Smooth"
+        }
+    ]
+}

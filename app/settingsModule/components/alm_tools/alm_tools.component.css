@@ -1,0 +1,34 @@
+.response{
+    float: left;
+}
+
+.failure{
+    font-size: 16px;
+    color: #ce2020;
+}
+
+.success{
+    color: #00a024;
+    font-size: 16px;
+}
+
+.sidenav {
+    background-color: #fff;
+    border: 1px solid #e9e9e9;
+    border-bottom: 0px;
+    padding: 0px 0px 15px 0px;
+    box-shadow: 0px 5px 3px -3px rgba(0, 0, 0, 0.1);
+}
+
+div#AlmToolsTabs {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid #e9e9e9;
+    border-top: 0px;
+}
+
+hr {
+    border-color: #3498db;
+    margin: 0px;
+    border-top-width: 3px;
+}

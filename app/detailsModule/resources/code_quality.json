@@ -1,0 +1,11 @@
+{
+    "data": {
+        "Bugs": 5,
+        "Vulnerabilities": 8,
+        "Code Smells": 100,
+        "Duplication": 20,
+        "Technical Debt": 20,
+        "Documentation": 35,
+        "Coverage": 57.7
+    }
+}

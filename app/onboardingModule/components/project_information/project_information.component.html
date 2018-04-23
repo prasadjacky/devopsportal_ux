@@ -1,0 +1,92 @@
+<div class="container-fluid ">
+    <h4>Project Information</h4>
+    <form #projectInformationForm="ngForm" novalidate id="prf">
+        <div class="form-align"></div>
+        <div class="row">
+                <div class="css3input col-xs-4">
+                    <input name="project_name" [(ngModel)]="ProjectInformation.project_name" #project_name="ngModel" required autocomplete="off">
+                    <label>Project Name</label>
+                    <div *ngIf="project_name.invalid && showValidations" class="errorMessageNew">Please enter project name</div>
+                </div>
+                <div class="css3input col-xs-4">
+                    <input id="project_key" name="project_key" (change)="checkKey()" [(ngModel)]="ProjectInformation.project_key" #project_key="ngModel" required autocomplete="off" minlength="2" maxlength="10" style="text-transform:uppercase">
+                    <label>Project Key</label>
+                    <div *ngIf="project_key.invalid && showValidations" class="errorMessageNew">Please enter project key (2-10 char)</div>
+                    <div *ngIf="keyExists" class="errorMessageNew">A project with same key already exists</div>
+                </div>
+                <div class="css3input col-xs-4">
+                        <select name="project_type" [(ngModel)]="ProjectInformation.project_type" #project_type="ngModel" required>
+                            <option value="" selected disabled></option>
+                            <option value="Development">Development</option>
+                            <option value="Maintenance">Maintenance</option>
+                        </select>
+                        <label>Project Type</label>
+                        <div *ngIf="project_type.invalid && showValidations" class="errorMessageNew">Please select project type</div>
+                    </div>
+        </div>
+        <div class="row">
+            <div class="css3input col-xs-4">
+                <input name="line_of_business" [(ngModel)]="ProjectInformation.project_organization.line_of_business" #line_of_business="ngModel" required autocomplete="off">
+                <label>Line of Bussiness</label>
+                <div *ngIf="line_of_business.invalid && showValidations" class="errorMessageNew">Please enter line of business</div>
+            </div>
+            <div class="css3input col-xs-4">
+                <input name="region" [(ngModel)]="ProjectInformation.project_organization.region" #region="ngModel" required autocomplete="off">
+                <label>Region</label>
+                <div *ngIf="region.invalid && showValidations" class="errorMessageNew">Please enter region</div>
+            </div>
+            <div class="css3input col-xs-4">
+                    <input name="technology" [(ngModel)]="ProjectInformation.project_organization.technology" #technology="ngModel" required autocomplete="off">
+                    <label>Technology</label>
+                    <div *ngIf="technology.invalid && showValidations" class="errorMessageNew">Please enter technology</div>
+                </div>
+        </div>
+        <div class="row">
+           
+                <div class="css3input col-xs-4">
+                    <input data-toggle="modal" data-target="#searchManager" role="group" aria-label="..." name="manager" [(ngModel)]="ProjectInformation.project_organization.manager" #manager="ngModel" required autocomplete="off" readonly>
+                    <label>Manager</label>
+                    <div *ngIf="manager.invalid && showValidations" class="errorMessageNew">Please select a manager from search results</div>
+                </div>
+                <div class="searchButton">
+                    <div class="css3btn-group" data-toggle="modal" data-target="#searchManager" role="group" aria-label="...">
+                        <button class="css3btn css3btn-head"><i class="fa fa-search-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        <div class="modal fade" tabindex="-1" id="searchManager" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Select Manager</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>User-id</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let manager of managersAvailable" style="cursor: pointer" (click)="pushManager(manager)">
+                                    <td>{{manager.user_full_name}}</td>
+                                    <td>{{manager.user_id}}</td>
+                                    <td>{{manager.email_id}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal">
+                            <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                            <button class="css3btn css3btn-body">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,96 @@
+.color {
+    /*color: white;*/
+    font-size: 25px;
+}
+
+.text {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.centerAlign {
+    text-align: left;
+    word-wrap: break-word;
+    height: 69.7px;
+    padding: 22px 0 0 25px;
+    border-bottom: 1px solid #dcd9d9;
+    background-color: white;
+}
+
+.myCard {
+    margin-top: 7px;
+    border: 0px;
+    /*border-right:1px solid #dcd9d9;*/
+    background-color: white;
+}
+
+.myCardBlock {
+    padding: 0;
+    border: 1px solid #dcd9d9;
+    border-right: 2px solid #dcd9d9;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .1);
+    /*box-shadow: 5px 5px 5px #888888 !important;*/
+}
+
+.myCard-header {
+    padding: 0 0 0 5px;
+    font-size: small;
+    background-color: #efefef;
+    font-weight: 600;
+    color: #716e6e;
+}
+
+.pada {
+    padding: 0 14px 0 15px;
+    color: #1c5f3f;
+    background-clip: content-box;
+}
+
+.padb {
+    padding: 0 14px 0 15px;
+    color: #71965d;
+    background-clip: content-box;
+}
+
+.padc {
+    padding: 0 14px 0 15px;
+    color: #7a8045;
+    background-clip: content-box;
+}
+
+.pad1 {
+    padding: 0 14px 0 15px;
+    color: #964479;
+    background-clip: content-box;
+}
+
+.pad2 {
+    padding: 0 14px 0 15px;
+    color: #148ab9;
+    background-clip: content-box;
+}
+
+.pad3 {
+    padding: 0 14px 0 15px;
+    color: #b3ac14;
+    background-clip: content-box;
+}
+
+.pad4 {
+    padding: 0 14px 0 15px;
+    color: #ff7650;
+    background-clip: content-box;
+    height: 69px;
+}
+
+@media screen and (max-width:1244px) and (min-width:501px) {
+    .centerAlign {
+        padding-left: 40%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .centerAlign {
+        padding-left: 30%;
+    }
+}

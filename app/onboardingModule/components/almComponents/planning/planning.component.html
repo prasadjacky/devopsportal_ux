@@ -1,0 +1,76 @@
+<h4>Planning</h4>
+<div class="toggle">
+    <div class="switch">
+        <input id="enablePlanning" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabled" (change)="toggleCheck()">
+        <label for="enablePlanning"></label>
+    </div>
+    <div class="text">Disable</div>
+</div>
+<div *ngIf="Planning.configured">
+    <form #planningForm="ngForm" id="pf">
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <select name="tool" [(ngModel)]="Planning.tool" #tool="ngModel" required>
+                    <option value="" selected disabled></option>
+                    <option value="JIRA">JIRA</option>
+                </select>
+                <label>Planning Tool</label>
+                <div *ngIf="tool.invalid && showValidations" class="errorMessageNew">Please select a planning tool</div>
+            </div>
+            <div class="css3input col-xs-6">
+                <select name="platform_tool" [(ngModel)]="Planning.platform_tool" #platform_tool="ngModel" required>
+                    <option value="" selected disabled></option>
+                    <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+                </select>
+                <label>Tool Instance</label>
+                <div *ngIf="platform_tool.invalid && showValidations" class="errorMessageNew">Please select a tool instance</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <select name="workflow_type" [(ngModel)]="Planning.workflow_type" #workflow_type="ngModel" required>
+                    <option value="" selected disabled></option>
+                        <option value="Scrum">Scrum</option>
+                        <!--<option value="Kanban">Kanban</option>-->
+                </select>
+                <label>Workflow Type</label>
+                <div *ngIf="workflow_type.invalid && showValidations" class="errorMessageNew">Please select a workflow type</div>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <label class="col-md-2" for="tool">Planning Tool</label>
+                    <select name="tool" class="col-md-4" [(ngModel)]="Planning.tool" #tool="ngModel" required>
+                        <option value="" selected disabled>Select Planning Tool</option>
+                        <option value="JIRA">JIRA</option>
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="tool.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-2" for="toolInstance">Tool Instance</label>
+                    <select name="toolInstance" class="col-xs-4" [(ngModel)]="Planning.platform_tool" #toolInstance="ngModel" required>
+                        <option value="" selected disabled>Select SCM Tool</option>
+                        <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="toolInstance.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2" for="workflow_type">Workflow Type</label>
+                    <select name="workflow_type" class="col-md-4" [(ngModel)]="Planning.workflow_type" #workflow_type="ngModel" required>
+                        <option value="" selected disabled>Select Planning Tool</option>
+                        <option value="Scrum">Scrum</option>
+                        <option value="Kanban">Kanban</option>
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="workflow_type.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select Workflow Type</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </form>
+</div>

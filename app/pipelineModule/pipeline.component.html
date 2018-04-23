@@ -1,0 +1,172 @@
+<!--{{pipelineContent.release.release_logical_name}}-->
+<div class="container-fluid pagefix">
+    <div class="row" style="margin-bottom: 15px; padding-top: 10px;">
+        <div class="col-md-4">
+            <span id="ptitle">{{thisProject.project_name}}</span>&nbsp;&nbsp;
+            <span>Manager:&nbsp;{{thisProject.project_organization.manager}}</span>&nbsp;&nbsp;
+            <span *ngIf="isRlmApplication">Application ID:&nbsp;{{thisProject.project_key}}</span>
+            <span *ngIf="!isRlmApplication">Project ID:&nbsp;{{thisProject.project_key}}</span>
+        </div>
+        <div class="col-md-5">
+            <!--<span id="ptitle">Version : {{versions}} </span>&nbsp;&nbsp;-->
+            <span *ngIf="selectedValue=='1.0'">Started on : {{pipelineContent?.pipelines["0"].updatedAt | date}} &nbsp;at &nbsp;{{pipelineContent?.pipelines["0"].updatedAt
+                | date:'shortTime'}}</span>&nbsp;&nbsp;
+            <span *ngIf="selectedValue=='1.0'">Released on : {{pipelineContent?.pipelines["0"].createdAt | date }} &nbsp;at &nbsp;{{pipelineContent?.pipelines["0"].updatedAt
+                | date:'shortTime'}}</span>
+        </div>
+        <!--<div class="col-md-3">  
+ <form #pipeline="ngForm" novalidate id="pipeline">
+     <label>Project Version :</label>
+     <select name="pipeline" style="width:180px"  [ngModel]="selectedValue" (ngModelChange)="onChange($event)" required>
+					<option [ngValue]="versions">{{versions}}</option>		
+                    <option value="1.1">1.1</option>	
+	 </select>   
+ </form>
+      </div>      -->
+        <div id="ProjectsButtonsWrapper0" class="col-md-3">
+            <div id="ProjectsButtons0">
+                <div class="css3btn-group0" [routerLink]="['/details']" role="group" aria-label="...">
+                    <button class="css3btn0 css3btn-head0">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="css3btn0 css3btn-body0">Back To Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="searchCard" class="row">
+        <div class="col-lg-3 col-md3">
+            <form role="form">
+                <div class="form-group has-feedback">
+                    <label class="control-label">Search By:</label>
+                    <input *ngIf="isRlmApplication" id="pipelineSearchField" type="text" placeholder="Request ID or Build ID" />
+                    <input *ngIf="!isRlmApplication" id="pipelineSearchField" type="text" placeholder="Search By Build ID" />
+                    <i class="form-control-feedback search icon" style="font-size: small;"></i>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table">
+        <thead id="TableWrapper">
+            <th class="indicatorHead"></th>
+            <th>Changes</th>
+            <th>Build</th>
+            <th *ngFor="let name of names;let m=index">{{name.environment_name | capitalize}} </th>
+        </thead>
+        <tbody class="tbody" *ngFor="let buildpipes of buildpipe | paginate: { itemsPerPage: 9, currentPage: page, id: '1' };">
+
+            <tr *ngIf="buildpipes.result==='Failure'" [routerLink]="['/summary']" (click)="takeId(buildpipes._id)" id="breadcrumb-pipeline">
+                <td class="indicator-wrapper">
+                    <div class="indicator failed">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                    </div>
+                </td>
+                <td class="commits-pipeline" [routerLink]="['/summary']" (click)="takeId(buildpipes._id)">
+
+                    <div>{{buildpipes.build?.build_commit_set.length}} Commits</div>
+
+                    </td>
+                    <td *ngIf="buildpipes.build?.build_result==='SUCCESS'" class="success" [routerLink]="['/build']" (click)="takeId(buildpipes._id)">
+                        <div class="row">
+                            <span class="col-md-6">{{buildpipes.build?.build_number}} </span>
+                            <span class="col-md-6"> {{buildpipes.build?.build_timestamp | date}} </span>
+                            <!-- <span
+                                class="col-md-4"> {{buildpipes.build?.build_timestamp | date:'shortTime'}}</span> -->
+                        </div>
+                    </td>
+                    <td *ngIf="buildpipes.build?.build_result==='FAILURE'" class="failure" [routerLink]="['/build']" (click)="takeId(buildpipes._id)">
+                        <div class="row">
+                            <span class="col-md-6">
+                                {{buildpipes.build?.build_number}}
+                            </span>
+                            <span class="col-md-6"> {{buildpipes.build?.build_timestamp | date}}</span>
+                            <!-- <span
+                                class="col-md-4"> {{buildpipes.build?.build_timestamp | date:'shortTime'}}</span> -->
+                        </div>
+                    </td>
+                    <ng-container *ngFor="let deployp of buildpipes.deployments;let i=index">
+                        <td *ngIf="deployp.deployment?.deployment_result==='SUCCESS'" class="success" [routerLink]="['/uat']" (click)="takeIds(buildpipes._id,i)">
+                            <div class="row">
+                                <!--<div class="row" *ngIf="deployp.environment?.environment_sequence===i">-->
+                                <!-- <span class="col-md-6">
+                                    Request ID {{deployp.deployment?.deployment_number}}
+                                </span> -->
+                                <span class="col-md-6"> {{deployp.deployment?.deployment_timestamp | date}} </span>
+                                <!-- <span
+                                    class="col-md-4"> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}</span> -->
+                            </div>
+                        </td>
+                        <td *ngIf="deployp.deployment?.deployment_result==='FAILURE'" class="failure" [routerLink]="['/uat']" (click)="takeIds(buildpipes._id,i)">
+                            <div class="row">
+                                <!--<div class="row" *ngIf="deployp.environment?.environment_sequence===i">-->
+                                <!-- <span class="col-md-6">
+                                    Request ID {{deployp.deployment?.deployment_number}}
+                                </span> -->
+                                <span class="col-md-6"> {{deployp.deployment?.deployment_timestamp | date}}</span>
+                                <!-- <span
+                                    class="col-md-4"> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}</span> -->
+                            </div>
+                        </td>
+                    </ng-container>
+            </tr>
+            <tr *ngIf="buildpipes.result==='Success'" [routerLink]="['/summary']" (click)="takeId(buildpipes._id)" id="breadcrumb-pipeline">
+                <td class="indicator-wrapper">
+                    <div class="indicator">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                    </div>
+                </td>
+                <td class="commits-pipeline" [routerLink]="['/summary']" (click)="takeId(buildpipes._id)">
+
+                    <div>{{buildpipes.build?.build_commit_set.length}} Commits</div>
+
+                    </td>
+                    <td *ngIf="buildpipes.build?.build_result==='SUCCESS'" class="success" [routerLink]="['/build']" (click)="takeId(buildpipes._id)">
+                        <div class="row">
+                            <span class="col-md-6"> {{buildpipes.build?.build_number}} </span>
+                            <span class="col-md-6"> {{buildpipes.build?.build_timestamp | date}} </span>
+                            <!-- <span
+                                class="col-md-4"> {{buildpipes.build?.build_timestamp | date:'shortTime'}}</span> -->
+                        </div>
+                    </td>
+                    <td *ngIf="buildpipes.build?.build_result==='FAILURE'" class="failure" [routerLink]="['/build']" (click)="takeId(buildpipes._id)">
+                        <div class="row">
+                            <span class="col-md-6">
+                                {{buildpipes.build?.build_number}}
+                            </span>
+                            <span class="col-md-6"> {{buildpipes.build?.build_timestamp | date}} </span>
+                            <!-- <span
+                                class="col-md-4"> {{buildpipes.build?.build_timestamp | date:'shortTime'}}</span> -->
+                        </div>
+
+                    </td>
+                    <ng-container *ngFor="let deployp of buildpipes.deployments;let i=index">
+                        <td *ngIf="deployp.deployment?.deployment_result==='SUCCESS'" class="success" [routerLink]="['/uat']" (click)="takeIds(buildpipes._id,i)">
+                            <div class="row">
+                                <!--<div class="row" *ngIf="deployp.environment?.environment_sequence===i">-->
+                                <!-- <span class="col-md-6">
+                                    Request ID {{deployp.deployment?.deployment_number}}
+                                </span> -->
+                                <span class="col-md-6"> {{deployp.deployment?.deployment_timestamp | date}} </span>
+                                <!-- <span
+                                    class="col-md-4"> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}</span> -->
+                            </div>
+                        </td>
+                        <td *ngIf="deployp.deployment?.deployment_result==='FAILURE'" class="failure" [routerLink]="['/uat']" (click)="takeIds(buildpipes._id,i)">
+                            <div class="row">
+                                <!--<div class="row"  *ngIf="deployp.environment?.environment_sequence===i">-->
+                                <!-- <span class="col-md-6">
+                                    Request ID {{deployp.deployment?.deployment_number}}
+                                </span> -->
+                                <span class="col-md-6"> {{deployp.deployment?.deployment_timestamp | date}} </span>
+                                <!-- <span
+                                    class="col-md-4"> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}</span> -->
+                            </div>
+                        </td>
+                    </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="buildpipe?.length>0" class="pointer0">
+        <pagination-controls (pageChange)="page = $event" id="1" maxSize="5" directionLinks="true" autoHide="true"></pagination-controls>
+    </div>
+</div>

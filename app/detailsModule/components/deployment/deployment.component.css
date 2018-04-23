@@ -1,0 +1,255 @@
+.text {
+    font-weight: 500;
+    word-wrap: break-word;
+    color: #02b7f9;
+    font-size: 16px;
+}
+
+.myCardBlock {
+    min-height: 489px;
+    padding: 0px;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .1);
+    border: 1px solid #dcd9d9;
+    /*box-shadow: 5px 5px 5px #888888 !important;*/
+}
+
+.myCard-header {
+    padding: 0px;
+    padding-left: 5px;
+    font-size: small;
+    background-color: #efefef;
+    border: 0px;
+    font-weight: 600;
+    color: #716e6e;
+}
+
+.myCard {
+    margin-top: 7px;
+    border: 0px;
+    background-color: white;
+}
+
+.intervalValue {
+    font-size: 23px;
+    color: #2bbf44;
+}
+
+.myHeader1 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #756d6d;
+}
+
+.myHeader2 {
+    font-size: 18px !important;
+    font-weight: 600;
+    color: #1887b3;
+}
+
+.highlight1 {
+    background-clip: content-box;
+    /*background-color: #e4fff0;*/
+}
+
+.text-center {
+    padding-top: 20px;
+}
+
+.pad {
+    text-align: left;
+    padding: 0 0 0 50px;
+}
+
+@media screen and (max-width:1244px) and (min-width:993px) {
+    .pad {
+        padding-left: 40%;
+    }
+}
+
+@media screen and (max-width:992px) and (min-width:550px) {
+    .pad {
+        padding-left: 44%;
+    }
+}
+
+@media screen and (max-width:549px) {
+    .pad {
+        padding-left: 37%;
+    }
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e9e9e9;
+    width: 189px;
+    height: 117px;
+    margin: 10px 10px 10px 0px;
+    padding: 10px;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .1);
+    background: white;
+}
+
+.tile:first-child {
+    margin-left: 10px;
+}
+
+.tileFigure {
+    display: flex;
+    margin: 10px 0px 5px;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.tileIcon {
+    display: flex;
+    float: right;
+    position: relative;
+    bottom: 60px;
+}
+
+.tileContent {
+    justify-content: center;
+}
+
+.table {
+    width: initial;
+    margin: 0 10px;
+}
+
+
+/** FORM **/
+
+.ml {
+    margin-left: 10px;
+}
+
+.css3input {
+    height: 55px;
+}
+
+.css3input input {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    padding-top: 12px;
+    height: 30px;
+    width: 100%;
+    z-index: 3;
+    transition: all 0.2s ease-out;
+}
+
+.css3input input:focus {
+    outline: none;
+    border-bottom: 2px solid #3498db;
+}
+
+.css3input input:focus+label,
+.css3input input:valid+label {
+    color: #3498db;
+    top: -40px;
+    font-size: small;
+}
+
+.css3input select {
+    /*-webkit-appearance: none;*/
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    padding-top: 12px;
+    height: 30px;
+    width: 100%;
+    z-index: 3;
+    transition: all 0.2s ease-out;
+}
+
+.css3input select option:disabled {
+    display: none;
+}
+
+.css3input select:focus {
+    outline: none;
+    border-bottom: 2px solid #3498db;
+}
+
+.css3input select:focus+label,
+.css3input select:valid+label {
+    color: #3498db;
+    top: -40px;
+    font-size: small;
+}
+
+.css3input label {
+    font-weight: normal;
+    margin-bottom: 0px;
+    position: relative;
+    top: -20px;
+    color: #AAA;
+    z-index: 0;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+label {
+    top: -40px!important;
+    color: #3498db!important;
+}
+
+.css3btn-group2 {
+    background: #34aae8;
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: auto;
+    /*margin-left: 5px;*/
+}
+
+.css3btn-group2>.css3btn2 {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+    width: 100%;
+}
+
+.css3btn-group2 .css3btn-head2 {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.css3btn-group-outline2 {
+    background: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-left: 5px;
+    float: right;
+    height: 30px;
+    cursor: pointer;
+}
+
+.css3btn-group-outline2>.css3btn2 {
+    border-radius: 0px;
+    color: #666666;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+.css3btn-group-outline2 .css3btn-head2 {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.pipelineBtn2 {
+    display: flex;
+    flex-direction: row;
+    padding-right: 0px;
+}

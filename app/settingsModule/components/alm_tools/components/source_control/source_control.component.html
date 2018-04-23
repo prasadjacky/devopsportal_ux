@@ -1,0 +1,217 @@
+<div class="container-fluid">
+    <br>
+    <div class="col-md-12" style="padding: 0px;">
+        <span id="view-projects-header" class="lead">Source Control</span>
+        <div class="css3btn-group" role="group" aria-label="..." data-keyboard="true" data-toggle="modal" data-target="#myScModal" (click)="addObject();">
+            <button class="css3btn css3btn-head"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button class="css3btn css3btn-body">Tool</button>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="col-md-12 scroll">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Instance Name</th>
+                    <th>Tool</th>
+                    <th style="text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sc of scArray;let i=index;">
+                    <td>{{sc.tool_instance_name}}</td>
+                    <td>{{sc.tool_name}}</td>
+                    <td>
+                        <i class="material-icons link" data-toggle="modal" data-target="#viewScModal" (click)="onView(sc)">remove_red_eye</i>&nbsp;
+                        <i class="material-icons link" data-toggle="modal" data-target="#confirmScDeletionModal" (click)="confirmDelete(sc)">delete</i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Modal-->
+    <div class="modal fade" tabindex='-1' id="myScModal" tabindex='-1' role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">Source Control</h4>
+                </div>
+                <div class="modal-body">
+                    <form #scForm="ngForm">
+                        <!--<div class="row">
+                            <div class="col-sm-12">
+                                <label class="col-md-4" for="tool_category"><strong>Tool Category&nbsp;&nbsp;&nbsp;Source Control</strong></label>
+                            </div>
+                        </div><br>-->
+                        <div class="row">
+                            <div class="css3input col-xs-4">
+                                <input type="text" name="tool_instance_name" [(ngModel)]="sc.tool_instance_name" #instanceRef="ngModel" required autocomplete="off" />
+                                <label for="tool_instance_name">Instance Name</label>
+                                <div class="errorMessageNew" *ngIf="instanceRef.invalid && showValidations">Please enter an instance name</div>
+                            </div>
+                            <div class="css3input col-xs-4">
+                                <select name="tool_name" #toolNameRef="ngModel" [(ngModel)]="sc.tool_name" required>
+                                    <option value="" selected disabled></option>
+                                    <option value="Bitbucket">Bitbucket</option>
+                                </select>
+                                <label>Tool Name</label>
+                                <div class="errorMessageNew" *ngIf="toolNameRef.invalid && showValidations">Please select tool name</div>
+                            </div>
+                            <div class="css3input col-xs-4">
+                                <input type="text" name="tool_version" [(ngModel)]="sc.tool_version" #toolVersionRef="ngModel" required autocomplete="off" />
+                                <label for="tool_version">Tool Version</label>
+                                <div class="errorMessageNew" *ngIf="toolVersionRef.invalid && showValidations">Please enter tool version</div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="css3input col-xs-4">
+                                <input type="text" name="tool_url" [(ngModel)]="sc.tool_url" #toolUrlRef="ngModel" required autocomplete="off" />
+                                <label>Tool Url</label>
+                                <div class="errorMessageNew" *ngIf="toolUrlRef.invalid && showValidations">Please enter tool url</div>
+                            </div>
+                            <div class="css3input col-xs-4">
+                                <select name="auth_type" [(ngModel)]="sc.tool_auth.auth_type" #authTypeRef="ngModel" required>
+                                    <option value="" selected disabled></option>
+                                    <option value="password">Password</option>
+                                    <option value="token">Token</option>
+                                </select>
+                                <label>Tool Authorization</label>
+                                <div class="errorMessageNew" *ngIf="authTypeRef.invalid && showValidations">Please select type of authorization</div>
+                            </div>
+                        </div><br>
+                        <div *ngIf="sc.tool_auth.auth_type === 'password'" class="row">
+                            <div class="css3input col-xs-4">
+                                <input type="text" name="auth_username" [(ngModel)]="sc.tool_auth.auth_username" #usernameRef="ngModel" required autocomplete="off" />
+                                <label>Username</label>
+                                <div class="errorMessageNew" *ngIf="usernameRef.invalid && showValidations">Please enter a username</div>
+                            </div>
+                            <div class="css3input col-xs-4">
+                                <input type="password" name="auth_password" [(ngModel)]="sc.tool_auth.auth_password" #passwordRef="ngModel" required autocomplete="off" />
+                                <label>Password</label>
+                                <div class="errorMessageNew" *ngIf="passwordRef.invalid && showValidations">Please enter a password</div>
+                            </div>
+                        </div>
+                        <div *ngIf="sc.tool_auth.auth_type === 'token'" class="row">
+                            <div class="css3input col-xs-4">
+                                <input type="text" name="auth_token" [(ngModel)]="sc.tool_auth.auth_token" #tokenRef="ngModel" required autocomplete="off" />
+                                <label>Token</label>
+                                <div class="errorMessageNew" *ngIf="tokenRef.invalid && showValidations">Please enter a token</div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="toggle col-xs-4">
+                                <div class="switch" (click)="sc.proxy_required = !sc.proxy_required">
+                                    <input id="proxy_required" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" name="proxy_required" [(ngModel)]="sc.proxy_required">
+                                    <label for="proxy_required"></label>
+                                </div>
+                                <div class="text">Proxy Required</div>
+                            </div>
+                            <div class="css3input col-xs-4" *ngIf="sc.proxy_required">
+                                <select name="http_proxy" #proxy="ngModel" [(ngModel)]="sc.http_proxy" required>
+                                    <option value="Proxy148">Proxy148</option>
+                                </select>
+                                <label>Proxy</label>
+                                <div class="errorMessageNew" *ngIf="proxy.invalid && showValidations">Please select a proxy</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-xs-5" style="float: left;">
+                        <div *ngIf="valid" class="success text-left message">Validation succesful</div>
+                        <div *ngIf="!valid" class="failure text-left message">Validation unsuccessful</div>
+                    </div>
+                    <div id="vb" class="css3btn-group" role="group" aria-label="..." (click)="onValidate($event)">
+                        <button class="css3btn css3btn-head"><i class="fa fa-lg fa-check" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body">Validate</button>
+                    </div>
+                    <div id="sb" class="css3btn-group" role="group" aria-label="..." data-dismiss="modal" (click)="onSave()">
+                        <button class="css3btn css3btn-head"><i class="fa fa-lg fa-check" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body">Save</button>
+                    </div>
+                    <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal" (click)="onCancel()">
+                        <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete Confirmation Modal-->
+    <div class="modal fade" tabindex='-1' id="confirmScDeletionModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">Delete SCM Tool</h4>
+                </div>
+                <div class="modal-body text-center cd">
+                    <p>Are you sure you want to delete tool </p>
+                    <h4>{{viewObj.tool_instance_name}}?</h4>
+                </div>
+                <div class="modal-footer" style="padding-right: 5px;">
+                    <div class="css3btn-group mw" role="group" aria-label="..." data-dismiss="modal" (click)="onDelete(viewObj)">
+                        <button class="css3btn css3btn-head mw1"><i class="fa fa-lg fa-check" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body mw2">Yes</button>
+                    </div>
+                    <div class="css3btn-group-outline mw" role="group" aria-label="..." data-dismiss="modal" (click)="onCancel()">
+                        <button class="css3btn css3btn-head mw1"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body mw2">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--View Modal-->
+    <div class="modal fade" tabindex='-1' id="viewScModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- View Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">View Source Control</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="css3input top col-xs-6">
+                            <label>Tool Category</label>
+                            <input type="text" name="tool_category" [ngModel]="viewObj.tool_category" readonly/>
+                        </div>
+                        <div class="css3input top col-xs-6">
+                            <label>Instance Name</label>
+                            <input type="text" name="tool_instance_name" [ngModel]="viewObj.tool_instance_name" readonly/>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="css3input top col-xs-6">
+                            <label>Tool Name</label>
+                            <input type="text" name="tool_name" [ngModel]="viewObj.tool_name" readonly/>
+                        </div>
+                        <div class="css3input top col-xs-6">
+                            <label>Tool Version</label>
+                            <input type="text" name="tool_version" [ngModel]="viewObj.tool_version" readonly/>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="css3input top col-xs-6">
+                            <label>Tool URL</label>
+                            <input type="text" name="tool_name" [ngModel]="viewObj.tool_url" readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal">
+                        <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

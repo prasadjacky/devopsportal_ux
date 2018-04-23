@@ -1,0 +1,13 @@
+{
+    "projectCompletionStatus": {
+        "toDo": 14,
+        "inProgress": 15,
+        "done": 71
+    },
+    "projectNumbers": {
+        "sprintCount": 7,
+        "epicCount": 4,
+        "storyCount": 56,
+        "bugCount": 14
+    }
+}

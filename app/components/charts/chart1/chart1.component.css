@@ -1,0 +1,290 @@
+span.text {
+    font-weight: 600;
+    font-size: 14px;
+    color: #6d6666;
+}
+
+span.color {
+    color: #1887b3;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+div.highlight {
+    background-clip: content-box;
+    background-color: #e3fbfc;
+}
+
+div.dd {
+    display: block;
+    height: 16px;
+    background: #fff;
+    padding: 10px;
+    padding: 0px 10px 0px 10px;
+}
+
+div.blue {
+    background: #49689b;
+    height: 16px;
+    text-align: center;
+    float: left;
+    color: white;
+    line-height: 16px;
+}
+
+div.yellow {
+    background: #FFCA28;
+    height: 16px;
+    text-align: center;
+    float: left;
+    color: white;
+    line-height: 16px;
+}
+
+div.green {
+    background: #4CAF50;
+    height: 16px;
+    text-align: center;
+    float: left;
+    color: white;
+    line-height: 16px;
+}
+
+.mytooltip {
+    position: relative;
+}
+
+.mytooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    font-size: 12px;
+}
+
+.mytooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.mytooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.8;
+}
+
+.t1 {
+    color: #49689b;
+    border: 2px solid white;
+}
+
+.t2 {
+    color: #FFCA28;
+    border: 2px solid white;
+}
+
+.t3 {
+    color: #4CAF50;
+    border: 2px solid white;
+}
+
+#modalChart {
+    width: 380px!important;
+    height: 320px!important;
+}
+
+
+.modal-header{
+    color: white;
+    background: #3498db;
+    text-align: left
+}
+
+
+
+/***** TABLE *****/
+
+#Wrapped {
+    /*margin: 15px 15px 0px;
+    padding: 15px;*/
+    background: #FFF;
+    padding-top: 15px;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .1);
+}
+
+
+/*
+canvas{
+    height: 230px!important;
+    width: 412px!important;
+}*/
+
+#Wrapped #myTable {
+    margin-bottom: 0px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+#Wrapped #myTable thead th {
+    text-align: left;
+    font-weight: bold;
+    font-size: larger;
+    padding: 0px 5px 5px;
+    border-bottom: 2px solid #DDD;
+    vertical-align: top;
+}
+
+#Wrapped #myTable thead th .thead {
+    position: relative;
+    bottom: 20px;
+}
+
+#Wrapped #myTable tbody tr {
+    text-align: left;
+}
+
+.thead>th:first-child {
+    width: 59px;
+}
+
+#Wrapped #myTable tbody td {
+    /*height: 50px;*/
+    padding: 5px;
+    vertical-align: bottom;
+}
+
+
+/*
+#myTable>thead>th {
+    padding: 8px !important;
+    border-left: 1px solid black;
+    border-color: #00bcd4;
+    text-align: center;
+    background: #686B6D !important;
+    color: white;
+}
+
+#myTable>tbody>tr {
+    box-shadow: inset 0 0 0 5px #D6DBDF;
+  
+    padding: 10px 0px 10px 0px;
+    border: #D6DBDF;
+}
+*/
+
+.table>tbody>tr>td {
+    vertical-align: inherit;
+    font-size: 12px;
+}
+
+
+/*
+.pagination {
+    margin: -3px 7px;
+}
+
+.pagination a {
+    color: white;
+    float: left;
+    padding: 0px 16px;
+    text-decoration: none;
+}
+
+#myTable>tfoot {
+    text-align: right;
+    font-family: cursive;
+    background-color: #686B6D;
+}
+
+#dialog1 {
+    padding: 100px;
+}*/
+
+#myModal .css3btn-group {
+    background: #34aae8;
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#myModal .css3btn-group>.css3btn {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+#myModal .css3btn-group .css3btn-head {
+    min-width: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    height: 30px;
+}
+
+#myModal .css3btn-group .css3btn-head i.fa-search-plus {
+    font-size: 21px;
+}
+
+#myModal .css3btn-group-outline {
+    background: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-left: 5px;
+    float: right;
+    height: 30px;
+    cursor: pointer;
+}
+
+#myModal .css3btn-group-outline>.css3btn {
+    border-radius: 0px;
+    color: #666666;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+#myModal .css3btn-group-outline .css3btn-head {
+    min-width: 30px;
+    height: 28px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#myModal .css3btn-head i.fa-check {
+    position: relative;
+    bottom: 1px;
+}
+
+#myModal .css3btn-head i.fa-times {
+    position: relative;
+    bottom: 2px;
+}
+
+#myModal .css3btn.css3btn-body {
+    min-width: 60px;
+    margin-right: 3px;
+}
+
+.modal-header {
+    color: white;
+    background: #3498db;
+    text-align: left
+}

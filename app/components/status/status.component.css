@@ -1,0 +1,277 @@
+/*.statsBlock {
+    display: flex;
+    font-size: 1.3em;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.statsCard {
+    display: flex;
+    margin: 0px 0px 10px;
+    height: 70px;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.statsIcon {
+    display: flex;
+    font-size: initial;
+}
+
+.statsData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.statsValue {
+    display: flex;
+}
+
+.statsLabel {
+    display: flex;
+}
+
+#allType {
+    border-bottom-color: transparent;
+}
+
+#runType {
+    background-color: #FFE0B2;
+}
+
+#runType.selected {
+    background-color: #E65100;
+}
+
+#runType.selected i {
+    color: #FFF;
+}
+
+#buildType {
+    border-bottom-color: #00796B;
+}
+
+#buildType.selected {
+    background-color: #64B5F6;
+}
+
+#buildType i {
+    color: #00796B;
+}
+
+#allStats {
+    border-bottom-color: transparent;
+}
+
+#smoothStats {
+    border-bottom-color: #33691E;
+}
+
+#smoothStats.selected {
+    background-color: #AED581;
+}
+
+#smoothStats i {
+    color: #33691E;
+}
+
+#warningStats {
+    border-bottom-color: #FF6F00;
+}
+
+#warningStats.selected {
+    background-color: #FFD54F;
+}
+
+#warningStats i {
+    color: #FF6F00;
+}
+
+#atRiskStats {
+    border-bottom-color: #D50000;
+}
+
+#atRiskStats.selected {
+    background-color: #EF9A9A;
+}
+
+#atRiskStats i {
+    color: #D50000;
+}*/
+
+
+/**** SNACKBAR ****/
+
+#snackbar {
+    visibility: hidden;
+    min-width: 300px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    /*font-family: 'Comfortaa', sans-serif;*/
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.statsCard {
+    color: white;
+    padding: 0;
+    font-size: 1.2em;
+    text-align: center;
+    /*font-family: 'Comfortaa', sans-serif;*/
+    cursor: pointer;
+}
+
+.type-icon {
+    width: 60px;
+}
+
+.statsBlock {
+    /*margin-bottom: 10px;*/
+}
+
+.statsCardIcon {
+    height: 80px;
+    padding: 10px;
+}
+
+.statsCardData {
+    height: 40px;
+    padding: 10px;
+}
+
+#runType {
+    color: inherit;
+    background: #FFC400;
+}
+
+#buildType {
+    color: inherit;
+    background: #6495ed;
+}
+
+#smoothStats {
+    color: inherit;
+    background: #388E3C;
+}
+
+#warningStats {
+    color: inherit;
+    background: #FBC02D;
+}
+
+#atRiskStats {
+    color: inherit;
+    background: #D32F2F;
+}
+
+.level1Stats {
+    margin-bottom: 15px;
+    border-top: 5px solid #DDD;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+
+.level2Stats {
+    margin-bottom: 15px;
+    border-top: 5px solid #DDD;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+
+.projectStats {
+    color: black;
+    padding: 15px;
+    height: 85px;
+    background: #DDD;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .statsCard {
+        font-size: 1.05em;
+    }
+    .projectStats {
+        padding: 20px;
+    }
+    .statsCardIcon {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .statsCard {
+        font-size: 1.1em;
+    }
+    .projectStats {
+        padding: 20px;
+    }
+}

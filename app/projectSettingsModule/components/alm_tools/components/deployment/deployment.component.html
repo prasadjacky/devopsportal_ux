@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <h4>Deployment</h4>
+    <br>
+    <div class="container-fluid br">
+        <div class="row">
+            <div class="css3input col-xs-4">
+                <input name="tool" [ngModel]="Deployment.tool"  readonly>
+                <label>Deployment Tool</label>
+            </div>
+            <div class="css3input col-xs-4">
+                <input name="deployment_type" [ngModel]="Deployment.deployment_type"  readonly>
+                <label>Deployment Type</label>
+            </div>
+            <div class="css3input col-xs-4">
+                <input name="application_name" [ngModel]="Deployment.application_name" readonly>
+                <label>Application Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="AppServer.configured" class="col-xs-6">
+                <h5>App Server</h5><br>
+                <div class="row">
+                    <div class="css3input col-xs-6 pt">
+                        <input name="appServer_tool" [ngModel]="AppServer.tool" readonly>
+                        <label>App Server</label>
+                    </div><br>
+                    <div class="css3input col-xs-6">
+                        <input name="appServer_toolversion" [ngModel]="AppServer.tool_version" readonly>
+                        <label>App Server Version</label>
+                    </div>
+                </div>
+            </div>
+        
+            <div *ngIf="Database.configured" class="col-xs-6">
+                <h5>Database Server</h5><br>
+                <div class="row">
+                    <div class="css3input col-xs-6 pt" >
+                        <input name="appServer_toolversion" [ngModel]="Database.tool" readonly>
+                        <label>Database</label>
+                    </div><br>
+                    <div class="css3input col-xs-6">
+                        <input name="tool_version" [ngModel]="Database.tool_version" readonly>
+                        <label>Database Version</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

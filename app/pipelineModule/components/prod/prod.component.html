@@ -1,0 +1,93 @@
+<div class="container-fluid pagefix">
+    <div class="row" style="margin-bottom: 15px; padding-top: 10px;">
+        <div class="col-md-5">
+             <span id="ptitle">{{thisProject.project_name}}</span>&nbsp;&nbsp;
+                <span>Manager:&nbsp;{{thisProject.project_organization.manager}}</span>&nbsp;&nbsp;
+                <span>Project Key:&nbsp;{{thisProject.project_key}}</span>
+        </div>
+    </div>
+    <div style="margin-bottom: 15px">
+        <ul class="steps steps-5">
+            <li class="commits3" [routerLink]="['/summary']">
+                <a>
+                    <div style="font-size: 15px;">56 Commits</div>
+                </a>
+            </li>
+            <li class="build3" [routerLink]="['/build']">
+                <a>
+                    <div style="font-size: 15px;">BUILD #76</div>
+                    <div>
+                        Apr-1-2017<br> 5:30 PM
+                    </div>
+                </a>
+            </li>
+            <li class="uat3" [routerLink]="['/uat']">
+                <a>
+                    <div style="font-size: 15px;">UAT</div>
+                    <div>
+                        Apr-2-2017<br> 10:30 AM
+                    </div>
+                </a>
+            </li>
+            <li class="prod3" [routerLink]="['/prod']">
+                <a>
+                    <div style="font-size: 20px;">PROD</div>
+                    <div>
+                        Apr-2-2017<br> 2:30 PM
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    &nbsp;
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <strong>Approval By:</strong>&nbsp;Shrikrishna
+            </div>
+            <div class="col-md-4">
+                <strong>Approval Timestamp:</strong>&nbsp;17/12/17&nbsp;5:03 PM
+            </div>
+            <div class="col-md-4">
+                <strong>Time Spent:</strong>&nbsp;3 days
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-4">
+                <strong>Sign-Off By:</strong>&nbsp;Laxman
+            </div>
+            <div class="col-md-4">
+                <strong>Sign-Off Timestamp:</strong>&nbsp;19/12/17&nbsp;6:33 PM
+            </div>
+            <div class="col-md-4">
+                <strong>Bugs Raised:</strong>&nbsp;0
+            </div>
+        </div>
+    </div><br>
+    <div id="tablewrapped">
+        <table class="table" id="myTable">
+            <thead>
+                <th>Summary</th>
+                <th>Reporter</th>
+                <th>Assignee</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2" style="padding:10px"><strong style="padding-left:511px">No Bugs Logged</strong></td>
+                </tr>
+                <tr>
+                    <td>{{summary.Type}}</td>
+                    <td>{{summary.Type}}</td>
+                    <td>{{summary.Type}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center alert alert-success">
+                <strong>No Bugs Logged</strong>
+            </div>
+        </div>
+    </div>-->

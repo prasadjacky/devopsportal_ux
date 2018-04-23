@@ -1,0 +1,494 @@
+/***** TABLE *****/
+.fixwidth{
+    width: 1140px;
+}
+
+@media screen and (max-width:1151px) and (min-width:369px) {
+    .pagefix {
+        width: 1151px;
+    }
+}
+
+#tablewrapped {
+    margin: 15px 15px 0px;
+    padding: 15px;
+    background: #FFF;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .1);
+}
+
+#tablewrapped #myTable {
+    margin-bottom: 0px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+#myTable>thead>th {
+    text-align: left;
+    font-weight: bold;
+    padding: 0px 5px 5px;
+    border-bottom: 2px solid #DDD;
+    vertical-align: top;
+}
+
+#myTable>tbody>tr {
+    text-align: left;
+}
+/*
+.table>tbody>tr>td {
+    padding: 5px;
+    vertical-align: bottom;
+}
+*/
+
+/*.pagination {
+    margin: -3px 7px;
+}
+
+.pagination a {
+    color: white;
+    float: left;
+    padding: 0px 16px;
+    text-decoration: none;
+}
+
+#dialog1 {
+    padding: 100px;
+}*/
+
+
+/***** BREADCRUMB *****/
+
+.sRow {
+    margin: 0 0 0 0;
+}
+
+li a {
+    display: flex;
+    justify-content: space-around;
+}
+
+.build2,
+.commits2,
+.prod2 {
+    margin-top: 5px!important;
+}
+
+.uat2 {
+    height: 60px!important;
+    padding-top: 15px!important;
+    margin-top: 0 !important;
+    font-size: 20px;
+}
+
+.uat2::after {
+    height: 50px !important;
+    border-top: 30px solid transparent!important;
+    border-bottom: 30px solid transparent!important;
+}
+
+.uat2::before {
+    height: 50px!important;
+    border-top: 30px solid transparent!important;
+    border-bottom: 30px solid transparent!important;
+}
+
+.steps {
+    padding: 0;
+    overflow: hidden;
+}
+
+.steps a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.steps li {
+    float: left;
+    margin-left: 0;
+    width: 20%;
+    height: 50px;
+    list-style-type: none;
+    padding: 10px 5px 5px 30px;
+    border-right: 10px solid white;
+    position: relative;
+    margin-top: 5px;
+}
+
+.steps li:first-child {
+    padding-left: 5px;
+}
+
+.steps li:nth-child(n+2)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-left: 20px solid white;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+.steps li::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    display: block;
+    border-left: 20px solid #C8F57F;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+.steps li:last-child::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    display: block;
+    border-left: 0px solid #C8F57F;
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+.steps li {
+    background-color: #C8F57F;
+}
+
+.steps li::after {
+    border-left-color: #C8F57F;
+}
+
+.steps li div {
+    color: #33691E;
+}
+
+.commits2 {
+    background: #C8F57F !important;
+}
+
+li.failed div {
+    color: white !important;
+}/*
+li.commits2 div
+ {
+    color: white !important;
+}*/
+
+.commits2::after {
+    border-left-color: #C8F57F !important;
+}
+
+.empty {
+    display: none;
+}
+
+/*...*/
+.steps li.success:nth-child(n+2)::before {
+    border-left: 20px solid white;
+    
+}
+
+.steps li.success::after {
+    z-index: 1;
+    border-left: 20px solid #C8F57F !important;
+    
+}
+
+.steps li.success:last-child::after {
+    z-index: 1;
+    border-left: 0px solid #C8F57F !important;
+    
+}
+.steps li.failure:nth-child(n+2)::before {
+    border-left: 20px solid white;
+    
+}
+
+.steps li.failure::after {
+    z-index: 1;
+    border-left: 20px solid #E57373 !important;
+    
+}
+
+.steps li.failure:last-child::after {
+    z-index: 1;
+    border-left: 0px solid #E57373 !important;
+    
+}
+.steps li.success:last-child{
+   
+    border-right: 0px solid #C8F57F !important;
+    
+}
+.steps li.failure:last-child{
+   
+    border-right: 0px solid #E57373 !important;
+    
+}
+.steps li.success{
+background-color: #C8F57F !important;
+}
+.steps li.failure{
+background-color: #E57373 !important;
+}
+ .failure div{
+   color: white !important;
+}
+
+/*....*/
+/*
+#breadcrumb{
+    padding: 0;
+    overflow: hidden;
+    
+}
+#breadcrumb td {
+    margin-left: 0;
+    width:25%;
+    padding: 0px 5px 0px 30px;
+    border-right: 10px solid white;
+    position:relative;
+    
+}
+
+#breadcrumb td::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    display: block;
+    border-left: 20px solid #a9dc6a !important;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+#breadcrumb td:first-child::after {
+    z-index: 1; 
+    border-left: 20px solid #686B6D !important;
+    
+}
+#breadcrumb td:nth-child(n+2)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-left: 20px solid white;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+#breadcrumb td:last-child::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    display: block;
+    border-left: 0px solid #a9dc6a !important;
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+.commits {
+    background: #686B6D !important;
+
+}
+
+.commits div {
+    color: white !important;
+}
+
+.commits::after {
+    border-left-color: #686B6D !important;
+}
+
+#breadcrumb td.failure::after {
+    border-left: 20px solid #E57373 !important;
+   
+}
+
+#breadcrumb td.failure:nth-child(n+2)::before { 
+    border-left: 20px solid white;
+    
+}
+#breadcrumb td.failure:last-child::after { 
+    border-left: 0px solid #E57373 !important;
+    
+}
+#breadcrumb td.success::after {
+    z-index: 1;
+    position: absolute;
+    border-left: 20px solid #a9dc6a !important;
+   
+}
+
+#breadcrumb td.success:nth-child(n+2)::before {
+    border-left: 20px solid white;
+    
+}
+#breadcrumb td.success:last-child::after {
+    border-left: 0px solid #a9dc6a !important;
+    
+}
+#breadcrumb div{
+    padding:10px 0px 5px 45px;
+}
+#breadcrumb td.failure:last-child{
+    border-right: 0px solid #E57373 !important;
+}
+#breadcrumb td.success:last-child {
+    border-right: 0px solid #a9dc6a !important;
+}*//*
+.build div{
+    font-size: 15px;
+}
+
+
+.build td{
+    height: 60px!important;
+    padding-top: 15px!important;
+    margin-top: 0 !important;
+}
+
+.build td::after {
+    height: 50px !important;
+    border-top: 30px solid transparent!important;
+    border-bottom: 30px solid transparent!important;
+}           
+
+.build td::before {
+    height: 50px!important;
+    border-top: 30px solid transparent!important;
+    border-bottom: 30px solid transparent!important;
+}*/
+/*
+td.uat,
+td.commits
+{
+    margin-top: 5px!important;
+}
+td.commits,
+    td.uat
+    {
+        height: 50px !important;
+    }
+    td.commits::after,
+    td.uat::after
+    {
+        border-top: 25px solid transparent!important;
+        border-bottom: 25px solid transparent!important;
+    }
+    td.commits::before,
+    td.uat::before
+     {
+        border-top: 25px solid transparent!important;
+        border-bottom: 25px solid transparent!important;
+    }
+*/
+.divColor {
+    background-color: #eaebed;
+    padding-bottom: 20px;
+    padding-top:10px;
+}
+/*////////////button//////*/
+#ProjectsButtonsWrapper {
+    margin: 0px 15px;
+    left:80px;
+}
+
+#ProjectsButtonsWrapper #ProjectsButtons {
+    display: flex;
+    /*margin: 5px 0px;*/
+    justify-content: flex-end;
+}
+
+.css3btn-group {
+    background: #34aae8;
+}
+
+.css3btn-group-outline {
+    background: rgba(0, 0, 0, .1);
+}
+
+.css3btn-group-outline {
+    background: rgba(0, 0, 0, .1);
+}
+
+.css3btn-group-outline>.css3btn {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+.css3btn-group-outline .css3btn-head {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/*.css3btn-group-outline .css3btn-body {
+    min-width: 120px;
+}*/
+
+.css3btn-group>.css3btn {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+.css3btn-group .css3btn-head {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.css3btn-group .css3btn-body {
+    min-width: 120px;
+}
+/*hover*/
+
+.steps li.success:hover{
+    background: #a9dc6a !important;
+}
+.steps li.success:hover:after{
+     border-left-color: #a9dc6a !important;
+}
+.steps li.failure:hover{
+    background: #d25656 !important;
+}
+.steps li.failure:hover:after{
+     border-left-color: #d25656 !important;
+}
+.steps li.commits2:hover{
+    background: #a9dc6a !important;
+}
+.steps li.commits2:hover:after{
+     border-left-color: #a9dc6a !important;
+}

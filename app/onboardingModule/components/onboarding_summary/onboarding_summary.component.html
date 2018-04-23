@@ -1,0 +1,183 @@
+<div class="container-fluid">
+    <h4>Onboarding Summary</h4>
+    <div class="row">
+        <div class="col-xs-9">
+            <div class="progressCards">
+                <div id="ALM-Step-1" class="progressCard">
+                    <i class="fa fa-lg fa-circle-o-notch fa-spin"></i>
+                    <div class="progressContent">
+                        <div>Project Initiated</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[1]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[1]}}</span>-->
+                            </div>
+                            <div>{{Times[1]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ALM-Step-2" class="progressCard">
+                    <i class="fa fa-square-o"></i>
+                    <div class="progressContent">
+                        <div>Users Created</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[2]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[2]}}</span>-->
+                            </div>
+                            <div>{{Times[2]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ALM-Step-3" class="progressCard">
+                    <i class="fa fa-square-o"></i>
+                    <div class="progressContent">
+                        <div>ALM Tools Initiated</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[3]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[3]}}</span>-->
+                            </div>
+                            <div>{{Times[3]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ALM-Step-4" class="progressCard">
+                    <i class="fa fa-square-o"></i>
+                    <div class="progressContent">
+                        <div>Environments Initiated</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[4]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[4]}}</span>-->
+                            </div>
+                            <div>{{Times[4]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ALM-Step-5" class="progressCard" *ngIf="flags.enablePlanning">
+                    <i class="fa fa-square-o"></i>
+                    <div class="progressContent">
+                        <div>Project Created in Planning Tool</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[5]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[5]}}</span>-->
+                            </div>
+                            <div>{{Times[5]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ALM-Step-6" class="progressCard">
+                    <i class="fa fa-square-o"></i>
+                    <div class="progressContent">
+                        <div>Source Control Repository Created</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[6]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[6]}}</span>-->
+                            </div>
+                            <div>{{Times[6]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ALM-Step-7" class="progressCard" *ngIf="flags.enableCodeAnalysis">
+                    <i class="fa fa-square-o"></i>
+                    <div class="progressContent">
+                        <div>Code Analysis Tools Configured</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[7]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[7]}}</span>-->
+                            </div>
+                            <div>{{Times[7]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ALM-Step-8" class="progressCard">
+                    <i class="fa fa-square-o"></i>
+                    <div class="progressContent">
+                        <div>Continuous Integration Setup</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[8]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[8]}}</span>-->
+                            </div>
+                            <div>{{Times[8]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ALM-Step-9" class="progressCard" *ngIf="flags.enableDeployment">
+                    <i class="fa fa-square-o"></i>
+                    <div class="progressContent">
+                        <div>Deployment Tools Configured</div>
+                        <div class="progressStats">
+                            <div *ngIf="Messages[9]" class="tooltipIcon">
+                                <!--<i class="material-icons">info_outline</i><span class="tooltipMessage">{{Messages[9]}}</span>-->
+                            </div>
+                            <div>{{Times[9]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progressCard" style="display: none"> <i class="fa fa-circle-o-notch fa-spin fa-lg"></i>
+                    <div style="width: 90%;height: 100%;padding-top: 8px;text-align: center;">Onboarding Project</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-12" style="display: block">
+                <canvas baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" [options]="doughnutChartOptions" [colors]="doughnutChartColors"></canvas>
+            </div>
+            <div id="ProgressText">
+                <h4>{{progressStatus}}</h4>
+            </div>
+            <div class="css3btn-group" data-toggle="modal" data-target="#ViewResponseUrls" role="group" aria-label="..." *ngIf="progressStatus === 'Onboarded!'" style="    margin: 0px 45px;">
+                <button class="css3btn css3btn-head"><i class="fa fa-lg fa-eye" aria-hidden="true"></i></button>
+                <button class="css3btn css3btn-body">View summary</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" id="ViewResponseUrls" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Project URLs</h4>
+            </div>
+            <div class="modal-body">
+                <div class="css3input col-xs-12">
+                    <input [(ngModel)]="Messages.pp" readonly>
+                    <label>Planning Project URL</label>
+                </div>
+                <div class="css3input col-xs-12">
+                    <input [(ngModel)]="Messages.scp" readonly>
+                    <label>Source Control Project URL</label>
+                </div>
+                <div class="css3input col-xs-12">
+                    <input [(ngModel)]="Messages.scr" readonly>
+                    <label>Source Control Repository URL</label>
+                </div>
+                <div *ngIf="Messages.cap !== ''" class="css3input col-xs-12">
+                    <input [(ngModel)]="Messages.cap" readonly>
+                    <label>Code Analysis Project URL</label>
+                </div>
+                <div *ngIf="Messages.cip !== ''" class="css3input col-xs-12">
+                    <input [(ngModel)]="Messages.cip" readonly>
+                    <label>Continuous Integration Project URL</label>
+                </div>
+                <!--<table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let message of Messages; let i = index">
+                            <td *ngIf="message">{{Stage[i].label}}</td>
+                            <td *ngIf="message">{{message}}</td>
+                        </tr>
+                    </tbody>
+                </table>-->
+            </div>
+            <div class="modal-footer" style="border: none">
+                <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal">
+                    <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                    <button class="css3btn css3btn-body">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="myCard">
+    <div class="myCard-header">
+        Code Quality
+    </div>
+    <div class="myCardBlock">
+        <div class="row pada">
+            <div class="col-md-12 col-sm-12 col-xs-12 centerAlign">
+                <span class="color">{{codeQuality?.bugs}}</span>
+                <span class="text">Bugs</span><br>
+            </div>
+        </div>
+
+        <div class="row padb">
+            <div class="col-md-12 col-sm-12 col-xs-12 centerAlign">
+                <span class="color">{{codeQuality?.vulnerabilities}}</span>
+                <span class="text">Vulnerabilities</span><br>
+            </div>
+        </div>
+
+        <div class="row padc">
+            <div class="col-md-12 col-sm-12 col-xs-12 centerAlign">
+                <span class="color">{{codeQuality?.code_smells}}</span>
+                <span class="text">Code Smells</span><br>
+            </div>
+        </div>
+
+        <div class="row pad1">
+            <div class="col-md-12 col-sm-12 col-xs-12 centerAlign">
+                <span class="color">{{codeQuality?.duplication}}%</span>
+                <span class="text">Duplication</span><br>
+            </div>
+        </div>
+
+        <div class="row pad2">
+            <div class="col-md-12 col-sm-12 col-xs-12 centerAlign">
+                <!--<span class="color">{{codeQuality?.technical_debt}}</span>-->
+                <span class="color">{{tech_debt}}</span>
+                <span class="text">Technical Debt</span><br>
+            </div>
+        </div>
+
+        <div class="row pad3">
+            <div class="col-md-12 col-sm-12 col-xs-12 centerAlign">
+                <span class="color">{{codeQuality?.documentation}}%</span>
+                <span class="text">Documentation</span><br>
+            </div>
+        </div>
+
+        <div class="row pad4">
+            <div class="col-md-12 col-sm-12 col-xs-12 centerAlign">
+                <span class="color">{{codeQuality?.code_coverage}}%</span>
+                <span class="text">Coverage</span>
+            </div>
+        </div>
+    </div>
+</div>

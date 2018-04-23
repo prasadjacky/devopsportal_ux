@@ -1,0 +1,126 @@
+<!--
+<div class="col-md-6 statsBlock">
+    <div class="statsCard" id="allType" (click)="myFunction('Showing Project of All Types')">
+        Project Type
+    </div>
+    <div class="statsCard" id="runType" (click)="myFunction('Showing Projects of Run Type')">
+        <div class="statsIcon">
+            <i class="fa fa-wrench fa-3x" aria-hidden="true"></i>
+        </div>
+        <div class="statsData">
+            <div class="statsValue">
+                {{runType}}%
+            </div>
+            <div class="statsLabel">Run</div>
+        </div>
+    </div>
+    <div class="statsCard" id="buildType" (click)="myFunction('Showing Projects of Build Type')">
+        <div class="statsIcon">
+            <i class="fa fa-code fa-3x" aria-hidden="true"></i>
+        </div>
+        <div class="statsData">
+            <div class="statsValue">
+                {{buildType}}%
+            </div>
+            <div class="statsLabel">Build</div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 statsBlock">
+    <div class="statsCard" id="allStats" (click)="myFunction('Showing Projects of All Status')">
+        Project Status
+    </div>
+    <div class="statsCard" id="smoothStats" (click)="myFunction('Showing Projects of Smooth Status')">
+        <div class="statsIcon">
+            <i class="fa fa-check-square-o fa-2x" aria-hidden="true"></i>
+        </div>
+        <div class="statsData">
+            <div class="statsValue">
+                {{smoothStats}}%
+            </div>
+            <div class="statsLabel">Smooth</div>
+        </div>
+    </div>
+    <div class="statsCard" id="warningStats" (click)="myFunction('Showing Projects of Warning Status')">
+        <div class="statsIcon">
+            <i class="fa fa-exclamation fa-2x" aria-hidden="true"></i>
+        </div>
+        <div class="statsData">
+            <div class="statsValue">
+                {{warningStats}}%
+            </div>
+            <div class="statsLabel">Warning</div>
+        </div>
+    </div>
+    <div class="statsCard" id="atRiskStats" (click)="myFunction('Showing Projects of At Risk Status')">
+        <div class="statsIcon">
+            <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+        </div>
+        <div class="statsData">
+            <div class="statsValue">
+                {{atRiskStats}}%
+            </div>
+            <div class="statsLabel">At Risk</div>
+        </div>
+    </div>
+</div>
+<div id="snackbar">{{snackbar_message}}</div>
+-->
+<div class="row">
+    <div class="col-sm-6 statsBlock">
+        <div class="col-xs-4 statsCard projectStats level1Stats" id="allType">
+            Project Type
+        </div>
+        <div class="col-xs-4 statsCard level1Stats" id="buildType">
+            <div class="col-xs-6 statsCard statsCardIcon">
+                <img class="type-icon status" src="app/resources/images/buildWhite.png">
+            </div>
+            <div class="col-xs-6 statsCard statsCardData">
+                {{buildType}} %
+            </div>
+            <div class="col-xs-6 statsCard statsCardData">
+                Build
+            </div>
+        </div>
+        <div class="col-xs-4 statsCard level1Stats" id="runType">
+            <div class="col-xs-6 statsCard statsCardIcon">
+                <img class="type-icon status" src="app/resources/images/runWhite.png">
+            </div>
+            <div class="col-xs-6 statsCard statsCardData">
+                {{runType}} %
+            </div>
+            <div class="col-xs-6 statsCard statsCardData">
+                Run
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 statsBlock">
+        <div class="col-xs-3 statsCard level2Stats projectStats" id="allStats" (click)="changeStatus('All')">
+            Project Status
+        </div>
+        <div class="col-xs-3 statsCard level2Stats" id="smoothStats" (click)="changeStatus('Smooth')">
+            <div class="col-xs-12 statsCard statsCardData">
+                {{smoothStats}}%
+            </div>
+            <div class="col-xs-12 statsCard statsCardData">
+                Smooth
+            </div>
+        </div>
+        <div class="col-xs-3 statsCard level2Stats" id="warningStats" (click)="changeStatus('Warning')">
+            <div class="col-xs-12 statsCard statsCardData">
+                {{warningStats}}%
+            </div>
+            <div class="col-xs-12 statsCard statsCardData">
+                Warning
+            </div>
+        </div>
+        <div class="col-xs-3 statsCard level2Stats" id="atRiskStats" (click)="changeStatus('At Risk')">
+            <div class="col-xs-12 statsCard statsCardData">
+                {{atRiskStats}}%
+            </div>
+            <div class="col-xs-12 statsCard statsCardData">
+                At Risk
+            </div>
+        </div>
+    </div>
+</div>

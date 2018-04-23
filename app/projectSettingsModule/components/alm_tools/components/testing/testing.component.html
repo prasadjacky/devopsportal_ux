@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <h4>Testing</h4><br>
+    <div class="container-fluid br">
+        <div class="row">
+            <div class="col-xs-6">
+                <h5>Unit Testing</h5><br>
+                <!--<div *ngIf="Testing.unit.configured" class="row">-->
+                    <div class="css3input col-xs-12">
+                        <input name="unitFramework" [ngModel]="Testing.unit.framework" readonly>
+                        <label>Framework</label>
+                    </div><br>
+                    <div class="css3input col-xs-12">
+                        <input name="unitframeworkVersion" [ngModel]="Testing.unit.framework_version" readonly>
+                        <label>Framework Version</label>
+                    </div>
+                <!--</div>-->
+            </div>
+            <div class="col-xs-6">
+                <h5>Functional Testing</h5><br>
+                <!--<div *ngIf="Testing.functional.configured" class="row">-->
+                    <div class="css3input col-xs-12">
+                        <input name="driver" [ngModel]="Testing.functional.driver" readonly>
+                        <label>Driver</label>
+                    </div><br>
+                    <div class="css3input col-xs-12">
+                        <input name="functionalFramework" [ngModel]="Testing.functional.framework" readonly>
+                        <label>Framework</label>
+                    </div><br>
+                    <div class="css3input col-xs-12">
+                        <input name="mode" [ngModel]="Testing.functional.mode" readonly>
+                        <label>Mode</label>
+                    </div><br>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>

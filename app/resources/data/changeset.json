@@ -1,0 +1,24 @@
+{
+    "pipelineBuild": {
+        "build_number": 23,
+        "commits": 3,
+        "epics": 0,
+        "stories": 0,
+        "bugs": 0
+    },
+    "commitObj": [
+        {
+            "_id": "Shashank Gupta",
+            "count": 12
+        }
+    ],
+    "planningInfoForPipeline": [
+       
+    ]
+}
+
+
+
+
+
+

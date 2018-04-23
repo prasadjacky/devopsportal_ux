@@ -1,0 +1,99 @@
+[{
+        "project_name": "Sapphire",
+        "_id": "58d27e37bd04ee1c14881858",
+        "project_type": "Build",
+        "project_health": "Smooth",
+        "project_metrics": {
+            "release_completion": "93",
+            "sprint_velocity": 33,
+            "defect_ratio": "12",
+            "test_coverage": "52",
+            "release_stability": "Warning",
+            "work_completion": "30"
+        }
+    },
+    {
+        "project_name": "CampusNext",
+        "_id": "58dbcc72a4e9c0aa5c669e8d",
+        "project_type": "Run",
+        "project_health": "Warning",
+        "project_metrics": {
+            "release_completion": "87",
+            "sprint_velocity": 45,
+            "defect_ratio": "07",
+            "test_coverage": "14",
+            "release_stability": "At Risk",
+            "work_completion": "15"
+        }
+    },
+    {
+        "project_name": "Digicopy",
+        "_id": "58dbcc72a4e9c0aa5c669e8e",
+        "project_type": "Build",
+        "project_health": "At Risk",
+        "project_metrics": {
+            "release_completion": "33",
+            "sprint_velocity": 12,
+            "defect_ratio": "02",
+            "test_coverage": "11",
+            "release_stability": "Smooth",
+            "work_completion": "55"
+        }
+    },
+    {
+        "project_name": "Sapphire",
+        "_id": "58dbcbc8a4e9c0aa5c669e8c",
+        "project_type": "Build",
+        "project_health": "Smooth",
+        "project_metrics": {
+            "release_completion": "93",
+            "sprint_velocity": 33,
+            "defect_ratio": "12",
+            "test_coverage": "52",
+            "release_stability": "At Risk",
+            "work_completion": "30"
+        }
+    },
+    {
+        "project_name": "HD Power",
+        "_id": "58dbcf0ca4e9c0aa5c669e8f",
+        "project_type": "Run",
+        "project_health": "At Risk",
+        "project_metrics": {
+            "release_completion": "77",
+            "sprint_velocity": 11,
+            "defect_ratio": "10",
+            "test_coverage": "45",
+            "release_stability": "Smooth",
+            "work_completion": "12"
+        }
+    },
+    {
+        "project_name": "GNP",
+        "_id": "58dbd0d5a4e9c0aa5c669e91",
+        "project_type": "Run",
+        "project_health": "Smooth",
+        "project_metrics": {
+            "release_completion": "32",
+            "sprint_velocity": 33,
+            "defect_ratio": "8",
+            "test_coverage": "77",
+            "release_stability": "Warning",
+            "work_completion": "10"
+        }
+    },
+    {
+        "project_name": "HAVOC",
+        "_id": "58dbd061a4e9c0aa5c669e90",
+        "project_type": "Build",
+        "project_health": "Warning",
+        "project_metrics": {
+            "release_completion": "87",
+            "sprint_velocity": 52,
+            "defect_ratio": "10",
+            "test_coverage": "77",
+            "release_stability": "At Risk",
+            "work_completion": "10"
+        }
+    }
+]

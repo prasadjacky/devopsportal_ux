@@ -1,0 +1,401 @@
+<div class="container-fluid pagefix">
+    <div class="row" style="margin-bottom: 10px; padding-top: 10px;">
+        <div class="col-md-8">
+            <span id="ptitle">{{thisProject.project_name}}</span>&nbsp;&nbsp;
+            <span>Manager:&nbsp;{{thisProject.project_organization.manager}}</span>&nbsp;&nbsp;
+            <span>Project Key:&nbsp;{{thisProject.project_key}}</span>
+        </div>
+
+        <div id="ProjectsButtonsWrapper3" class="col-md-3">
+            <div id="ProjectsButtons3">
+                <div class="css3btn-group3" [routerLink]="['/pipeline']" role="group" aria-label="...">
+                    <button class="css3btn3 css3btn-head3">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="css3btn3 css3btn-body3">Back To Pipeline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row sRow" *ngFor="let buildpipes of buildpipe">
+        <ul class="steps steps-5" *ngIf="buildpipes._id==pipelineId">
+            <li class="commits1" [routerLink]="['/summary']">
+                <a>
+                    <div style="font-size: 15px;">{{buildpipes.build?.build_commit_set.length}} Commits</div>
+                </a>
+            </li>
+            <li *ngIf="buildpipes.build?.build_result==='SUCCESS'" class="build1 success" [routerLink]="['/build']">
+                <a>
+                    <div style="font-size: 20px;">{{buildpipes.build?.build_number}}</div>
+                    <div>
+                        {{buildpipes.build?.build_timestamp | date}}
+                        <br>{{buildpipes.build?.build_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+                <li *ngIf="buildpipes.build?.build_result==='FAILURE'" class="build1 failure" [routerLink]="['/build']">
+                    <a>
+                        <div style="font-size: 20px;">{{buildpipes.build?.build_number}}</div>
+                        <div>
+                            {{buildpipes.build?.build_timestamp | date}}
+                            <br>{{buildpipes.build?.build_timestamp | date:'shortTime'}}
+                        </div>
+                    </a>
+                </li>
+
+                <ng-container *ngFor="let deployp of buildpipes.deployments;let i=index;">
+
+                    <li class="uat1 success" [routerLink]="['/uat']" *ngIf="deployp.deployment?.deployment_result==='SUCCESS'" (click)="uat(i)">
+                        <a>
+                            <div style="font-size: 15px;">{{deployp.environment?.environment_name | uppercase}}
+                                <!--#{{deployp.deployment?.deployment_number}}-->
+                            </div>
+                            <div>
+                                {{deployp.deployment?.deployment_timestamp | date}}
+                                <br> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}
+                            </div>
+                        </a>
+
+                    </li>
+                    <li *ngIf="deployp.deployment?.deployment_result==='FAILURE'" class="uat1 failure" [routerLink]="['/uat']" (click)="uat(i)">
+                        <a>
+                            <div style="font-size: 15px;">{{deployp.environment?.environment_name | uppercase}}
+                                <!--#{{deployp.deployment?.deployment_number}}-->
+                            </div>
+                            <div>
+                                {{deployp.deployment?.deployment_timestamp | date}}
+                                <br> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}
+                            </div>
+                        </a>
+                    </li>
+                </ng-container>
+
+        </ul>
+    </div>
+
+    <!--<table class="table" >
+        <tbody class="tbody" *ngFor="let buildpipes of buildpipe">
+      
+     
+             <tr *ngIf="buildpipes._id==pipelineId" id="breadcrumb">
+              
+                 <td class="commits" [routerLink]="['/summary']"> 
+                            <div >{{buildpipes.build.build_commit_set.length}} Commits</div>
+                </td> 
+
+                <td *ngIf="buildpipes.build.build_result==='SUCCESS'" class="success build"  [routerLink]="['/build']">
+                        <div class="row"><span class="col-md-3"> #{{buildpipes.build.build_number}} </span><span class="col-md-5"> {{buildpipes.build.build_timestamp | date}} </span><span class="col-md-4"> {{buildpipes.build.build_timestamp | date:'shortTime'}}</span></div>
+                </td>   
+                <td *ngIf="buildpipes.build.build_result==='FAILURE'" class="failure build"  [routerLink]="['/build']">    
+                        <div class="row"><span class="col-md-3"> #{{buildpipes.build.build_number}} </span><span class="col-md-5"> {{buildpipes.build.build_timestamp | date}} </span><span class="col-md-4"> {{buildpipes.build.build_timestamp | date:'shortTime'}}</span></div>    
+                               
+                </td>
+               
+                 <ng-container *ngFor="let deployp of buildpipes.deployments">
+                 <td  *ngIf="deployp.deployment.deployment_result==='SUCCESS'" class="success uat"  [routerLink]="['/uat']">
+                    <div class="row"><span class="col-md-3"> #{{deployp.deployment.deployment_number}} </span><span class="col-md-5"> {{deployp.deployment.deployment_timestamp | date}} </span><span class="col-md-4"> {{deployp.deployment.deployment_timestamp | date:'shortTime'}}</span></div>
+                 </td>  
+                 <td *ngIf="deployp.deployment.deployment_result==='FAILURE'" class="failure uat"  [routerLink]="['/uat']"> 
+                    <div class="row"><span class="col-md-3"> #{{deployp.deployment.deployment_number}} </span><span class="col-md-5"> {{deployp.deployment.deployment_timestamp | date}} </span><span class="col-md-4"> {{deployp.deployment.deployment_timestamp | date:'shortTime'}}</span></div>
+                </td>
+                </ng-container>
+             </tr></tbody></table>-->
+    <div class="container-fluid divColor">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="myCard">
+                    <div class="myCard-header">
+                        GENERIC INFORMATION
+                    </div>
+                    <div class="myCardBlock">
+
+                        <div class="row">
+                            <div class=" col-md-4 color0 text-center" style="padding-top: 10px ;padding-bottom: 10px;">
+                                <!-- <span>Triggered by Jenkins. <br/>
+                                    on 4th April, 2018</span> -->
+                                <span>
+                                    {{pipelinebuild?.pipelineBuild.build_author || "Triggered by Jenkins"}}
+                                </span>
+                            </div>
+
+                            <div class="col-md-4 text-center" style="padding-top: 15px ;padding-bottom: 15px;">
+                                <span class="value1 color1">{{pipelinebuild?.pipelineBuild.build_duration || 0}}</span>
+                                <span class="unit color1">SECONDS</span>
+                            </div>
+
+                            <div class="col-md-4  text-center" style="padding-top: 15px ;padding-bottom: 15px;">
+                                <span class="value1 color2">{{pipelinebuild?.pipelineBuild.build_duration_delta  | minusSignToParens}}s</span>
+                                <i class="fa fa-arrow-down text color2"></i>
+                            </div>
+                            <div class="col-md-4  text-center" *ngIf="pipelinebuild?.pipelineBuild.build_duration_delta>0" style="padding-top: 15px ;padding-bottom: 15px;">
+                                <span class="value1 color2">{{pipelinebuild?.pipelineBuild.build_duration_delta }}s</span>
+                                <i class="fa fa-arrow-up text color2"></i>
+                            </div>
+                            <div class="col-md-4  text-center" *ngIf="pipelinebuild?.pipelineBuild.build_duration_delta==0" style="padding-top: 15px ;padding-bottom: 15px;">
+                                <span class="value1 color2">{{pipelinebuild?.pipelineBuild.build_duration_delta }}s</span>
+                                <i class="fa fa-arrow-up text no-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-md-3 col-sm-4 col-xs-12 c1">
+                <div class="myCard">
+                    <div class="myCard-header">
+                        UNIT TEST
+                    </div>
+                    <div class="myCardBlock">
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block">
+                                <span class="value1 c11">{{pipelinebuild?.pipelineTest.build_test}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineTest.build_test_delta>0">
+                                <span class="value2 c12">{{pipelinebuild?.pipelineTest.build_test_delta}}</span>
+                                <i class="fa fa-arrow-up text c12"></i>
+                            </div>
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineTest.build_test_delta<0">
+                                <span class="value2 c12">{{pipelinebuild?.pipelineTest.build_test_delta | minusSignToParens}}</span>
+                                <i class="fa fa-arrow-down text c12"></i>
+                            </div>
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineTest.build_test_delta==0">
+                                <span class="value2 c12">{{pipelinebuild?.pipelineTest.build_test_delta}}</span>
+                                <i class="fa fa-arrow-down no-arrow text "></i>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center title">
+                                <span>Success and Failure</span>
+                            </div>
+                            <div class="col-md-7">
+                                <canvas baseChart width="30" height="135" [data]="chart01Data" [labels]="chart01Labels" [chartType]="chart01Type" [options]="chart01Options"
+                                    [colors]="chart01Colors">
+                                </canvas>
+                            </div>
+                            <div class="col-md-5 legend">
+                                <i class="fa fa-circle" style="color: #038A24;"></i>&nbsp;
+                                <span class="legend">Success</span>&nbsp;&nbsp;
+                                <br class="rb">
+                                <i class="fa fa-circle" style="color: #FA3C3C;"></i>&nbsp;
+                                <span class="legend">Failure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-12 c3">
+                <div class="myCard">
+                    <div class="myCard-header">
+                        CODE COVERAGE
+                    </div>
+
+                    <div class="myCardBlock">
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block">
+                                <span class="value1 c31">{{pipelinebuild?.pipelineQualityIssues.code_coverage}}
+                                    <sup>%</sup>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.coverage_delta>0">
+                                <span class="value2 c32">{{pipelinebuild?.pipelineQualityIssues.code_delta}}
+                                    <sup>%</sup>
+                                </span>
+                                <i class="fa fa-arrow-up text c32"></i>
+                            </div>
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.coverage_delta<0">
+                                <span class="value2 c32">{{pipelinebuild?.pipelineQualityIssues.coverage_delta | minusSignToParens}}
+                                    <sup>%</sup>
+                                </span>
+                                <i class="fa fa-arrow-down text c32"></i>
+                            </div>
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.coverage_delta==0">
+                                <span class="value2 c32">{{pipelinebuild?.pipelineQualityIssues.coverage_delta}}
+                                    <sup>%</sup>
+                                </span>
+                                <i class="fa fa-arrow-down text no-arrow "></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="myCard" style="margin-top: 36px;">
+                    <div class="myCard-header">
+                        TECHNICAL DEBT
+                    </div>
+
+                    <div class="myCardBlock">
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block">
+                                <span class="value1 c33">{{pipelinebuild?.pipelineQualityIssues.technical_debt}}</span>
+                                <span class="unit">HOURS</span>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.technical_delta<0">
+                                <span class="value2 c34">{{pipelinebuild?.pipelineQualityIssues.technical_delta  | minusSignToParens}}</span>
+                                <i class="fa fa-arrow-down text c34"></i>
+                            </div>
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.technical_delta>0">
+                                <span class="value2 c34">{{pipelinebuild?.pipelineQualityIssues.technical_delta}}</span>
+                                <i class="fa fa-arrow-up text c34"></i>
+                            </div>
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.technical_delta==0">
+                                <span class="value2 c34">{{pipelinebuild?.pipelineQualityIssues.technical_delta}}</span>
+                                <i class="fa fa-arrow-down text no-arrow"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12 c4">
+                <div class="myCard">
+                    <div class="myCard-header">
+                        QUALITY ISSUES
+                    </div>
+
+                    <div class="myCardBlock">
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center pad">
+                                BUGS
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block">
+                                <span class="value1 c41">{{pipelinebuild?.pipelineQualityIssues.bugs}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineQualityIssues.bugs_delta<0">
+                                <span class="value2 c42">{{pipelinebuild?.pipelineQualityIssues.bugs_delta  | minusSignToParens}}</span>
+                                <i class="fa fa-arrow-down text c42"></i>
+                            </div>
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineQualityIssues.bugs_delta>0">
+                                <span class="value2 c42">{{pipelinebuild?.pipelineQualityIssues.bugs_delta}}</span>
+                                <i class="fa fa-arrow-up text c42"></i>
+                            </div>
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineQualityIssues.bugs_delta==0">
+                                <span class="value2 c42">{{pipelinebuild?.pipelineQualityIssues.bugs_delta}}</span>
+                                <i class="fa fa-arrow-down text no-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center pad">
+                                VULNERABILITIES
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block">
+                                <span class="value1 c43">{{pipelinebuild?.pipelineQualityIssues.vulnerabilities}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.vulnerabilities_delta>0">
+                                <span class="value2 c44">{{pipelinebuild?.pipelineQualityIssues.vulnerabilities_delta}}</span>
+                                <i class="fa fa-arrow-down text c44"></i>
+                            </div>
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.vulnerabilities_delta<0">
+                                <span class="value2 c44">{{pipelinebuild?.pipelineQualityIssues.vulnerabilities_delta | minusSignToParens}}</span>
+                                <i class="fa fa-arrow-down text c44"></i>
+                            </div>
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.vulnerabilities_delta==0">
+                                <span class="value2 c44">{{pipelinebuild?.pipelineQualityIssues.vulnerabilities_delta}}</span>
+                                <i class="fa fa-arrow-up text no-arrow"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12 c5">
+                <div class="myCard">
+                    <div class="myCard-header">
+                        &nbsp;
+                    </div>
+
+                    <div class="myCardBlock">
+
+                        <div class="row">
+                            <div class="col-md-12 text-center pad">
+                                CODE SMELLS
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block">
+                                <span class="value1 c51">{{pipelinebuild?.pipelineQualityIssues.code_smells}}</span>
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineQualityIssues.code_delta>0">
+                                <span class="value2 c52">{{pipelinebuild?.pipelineQualityIssues.code_delta}}</span>
+                                <i class="fa fa-arrow-up text c52"></i>
+                            </div>
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineQualityIssues.code_delta<0">
+                                <span class="value2 c52">{{pipelinebuild?.pipelineQualityIssues.code_delta | minusSignToParens}}</span>
+                                <i class="fa fa-arrow-down text c52"></i>
+                            </div>
+                            <div class="col-md-12 text-center block" *ngIf="pipelinebuild?.pipelineQualityIssues.code_delta==0">
+                                <span class="value2 c52">{{pipelinebuild?.pipelineQualityIssues.code_delta}}</span>
+                                <i class="fa fa-arrow-up text no-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center pad">
+                                TOTAL ISSUES
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center block">
+                                <span class="value1 c53">{{pipelinebuild?.pipelineQualityIssues.total_issues1}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-top: 10px ;padding-bottom: 10px;">
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.total_issues<0">
+                                <span class="value2 c54">{{pipelinebuild?.pipelineQualityIssues.total_issues  | minusSignToParens}}</span>
+                                <i class="fa fa-arrow-down text c54"></i>
+                            </div>
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.total_issues>0">
+                                <span class="value2 c54">{{pipelinebuild?.pipelineQualityIssues.total_issues}}</span>
+                                <i class="fa fa-arrow-up text c54"></i>
+                            </div>
+                            <div class="col-md-12 text-center" *ngIf="pipelinebuild?.pipelineQualityIssues.total_issues==0">
+                                <span class="value2 c54">{{pipelinebuild?.pipelineQualityIssues.total_issues}}</span>
+                                <i class="fa fa-arrow-down text no-arrow"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

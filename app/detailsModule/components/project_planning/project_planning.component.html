@@ -1,0 +1,107 @@
+
+<div class="myCard">
+    <div class="myCard-header">
+        Project Planning
+    </div>
+    <div class="myCardBlock">
+
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 title">
+                        <span class="myHeader" style="padding-left:17px;"><b>Summary</b></span>
+                    </div>
+                </div>
+                <!--<div style="border-style: solid;border-width : 1px 17px 1px 1px;border-color: #dcd9d9; ">-->
+
+                <div class="col-md-6 row sprints">
+                    <div class="text-left">
+                        <span class="fontSize1">{{projectPlanningObj.projectNumbers.sprintCount}}</span>&nbsp;
+                        <img src="app/resources/images/sprint1.png">
+                        <span>Sprints</span>
+                        <!--<i class="fa fa-list-alt ico" aria-hidden="true" style="color: #e67e22;"></i>-->
+                    </div>
+                </div>
+                <div class="col-md-6 row epics">
+                    <div class="text-left">
+                        <span class="fontSize1">{{projectPlanningObj.projectNumbers.epicCount}}</span>&nbsp;
+                        <i class="fa fa-star-o ico" aria-hidden="true" style="color: #4CAF50;"></i>
+                        <span>Epics</span>
+                    </div>
+
+                </div>
+                <div class="col-md-6 row stories">
+                    <div class="text-left">
+                        <span class="fontSize1">{{projectPlanningObj.projectNumbers.storyCount}}</span>&nbsp;
+                        <i class="fa fa-list-alt ico" aria-hidden="true" style="color: #49689b"></i>
+                        <span>Stories</span>
+                    </div>
+                </div>
+                <div class="col-md-6 row bugs">
+                    <div class="text-left">
+                        <span class="fontSize1">{{projectPlanningObj.projectNumbers.bugCount}}</span>&nbsp;
+                        <i class="fa fa-bug ico" aria-hidden="true" style="color: #e74c3c;"></i>
+                        <span>Bugs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 title">
+                        <span class="myHeader"  style="padding-right:10px;"><b>Status</b></span>
+                    </div>
+                </div>
+                <div class="tile0 col-md-12">
+                    <div class="tileContent0 col-md-3">
+                        <h1 class="tileFigure0" *ngIf="projectPlanningObj.projectCompletionStatus.toDo==null">18.6%</h1>
+                        <h1 class="tileFigure0" *ngIf="projectPlanningObj.projectCompletionStatus.toDo!=null">{{projectPlanningObj.projectCompletionStatus.toDo  | number: '1.2-2'}}%</h1>
+                    </div>
+                    <div class="tileContent0 col-md-9">
+                        To Do
+                  
+                    <div class="tileContent0">
+                        <div class="progress">
+                            <div class="progress-bar" style="background: #49689b" [style.width]="projectPlanningObj.projectCompletionStatus.toDo + '%'">
+                            </div>
+                        </div>
+                    </div>
+                      </div>
+                </div>
+                <div class="tile0 col-md-12">
+                    <div class="tileContent0 col-md-3">
+                        <h1 class="tileFigure0" *ngIf="projectPlanningObj.projectCompletionStatus.inProgress==null">18.6%</h1>
+                        <h1 class="tileFigure0" *ngIf="projectPlanningObj.projectCompletionStatus.inProgress!=null">{{projectPlanningObj.projectCompletionStatus.inProgress | number: '1.2-2'}}%</h1>
+                    </div>
+                    <div class="tileContent0 col-md-9">
+                        In Progress
+            
+                    <div class="tileContent0">
+                        <div class="progress">
+                            <div class="progress-bar" style="background: #FFCA28" [style.width]="projectPlanningObj.projectCompletionStatus.inProgress + '%'">
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                </div>
+                <div class="tile0 col-md-12">
+                    <div class="tileContent0 col-md-3">
+                        <h1 class="tileFigure0" *ngIf="projectPlanningObj.projectCompletionStatus.done==null">62.8%</h1>
+                        <h1 class="tileFigure0" *ngIf="projectPlanningObj.projectCompletionStatus.done!=null">{{projectPlanningObj.projectCompletionStatus.done | number: '1.2-2'}}%</h1>
+                    </div>
+                    <div class="tileContent0 col-md-9">
+                        Done
+                
+                    <div class="tileContent0">
+                        <div class="progress">
+                            <div class="progress-bar" style="background: #4CAF50" [style.width]="projectPlanningObj.projectCompletionStatus.done + '%'">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

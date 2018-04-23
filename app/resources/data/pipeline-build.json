@@ -1,0 +1,28 @@
+{
+    "pipelineBuild": {
+        "build_duration": 142,
+        "build_duration_delta": -2,
+        "build_author": "Started by user Devops Admin",
+        "build_timestamp": "2017-10-06T14:06:14.674Z"
+    },
+    "pipelineTest": {
+        "build_test": 10,
+        "build_test_delta": 1,
+        "build_test_failed": 0,
+        "build_test_passed": 1
+    },
+    "pipelineQualityIssues": {
+        "code_coverage": 57.7,
+        "bugs": 4,
+        "code_smells": 10,
+        "vulnerabilities": 2,
+        "technical_debt": 60,
+        "total_issues1": 16,
+        "coverage_delta": 10.4,
+        "bugs_delta": -1,
+        "code_delta": 1,
+        "vulnerabilities_delta": -1,
+        "technical_delta": 5,
+        "total_issues": 1
+    }
+}

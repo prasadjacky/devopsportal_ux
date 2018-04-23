@@ -1,0 +1,28 @@
+<div>
+    <div>
+        <canvas baseChart height="200" width="280" [datasets]="chart3Data" [labels]="chart3Labels" [options]="chart3Options" [legend]="chart3Legend"
+            [chartType]="chart3Type" [colors]="chart3Colors">
+        </canvas>
+    </div>
+    <!--<div class="col-md-6" id="chartTableWrapped"><br><br>
+        <table align="right" class="topcorner table table-condensed" id="chartTables">
+           <thead class="thead">
+            <tr>
+                <th>Sprint</th>
+                <th>Commitment</th>
+                <th>Completed</th>
+            </tr>
+           </thead>
+           <tbody>
+               
+         <tr *ngFor="let sprint of velocity;let i=index">
+                <td class="blue">{{chart3Labels[i]}}</td>
+                <td >{{sprint?.story_points?.points_committed}}</td>
+                <td >{{sprint?.story_points?.points_completed}}</td>
+            </tr>
+     
+           </tbody>
+        </table>
+
+    </div>-->
+</div>

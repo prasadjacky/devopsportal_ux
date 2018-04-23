@@ -1,0 +1,165 @@
+<div class="container-fluid">
+    <br>
+    <div class="col-md-12">
+        <span class="lead">General Proxy Settings</span>
+        <div style="float: right" data-toggle="modal" data-target="#myProxyModal"><i class="material-icons">add_circle</i></div>
+    </div>
+    <br><br><br>
+    <div class="col-md-12 scroll">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Proxy</th>
+                    <th>Host</th>
+                    <th>Port</th>
+                    <th colspan="2" style="text-align: center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let proxy of proxyArray;let i = index;">
+                    <td>{{proxy.http_proxy_name}}</td>
+                    <td>{{proxy.http_proxy_host}}</td>
+                    <td>{{proxy.http_proxy_port}}</td>
+                    <td style="text-align: right"><i data-toggle="modal" data-target="#editModal" class="material-icons" (click)="onEdit(proxy)">edit</i></td>
+                    <td><i class="material-icons" (click)="onDelete(proxy)">delete</i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--Modal-->
+    <div class="modal fade" id="myProxyModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">General Proxy Settings</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form #proxySettingsForm="ngForm">
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label class="col-md-4" for="http_proxy_name">Proxy</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter proxy name" type="text" name="http_proxy_name" [(ngModel)]="proxySettings.http_proxy_name" #proxyNameRef="ngModel" required/>
+                                <div class="col-md-1 validation" *ngIf="proxyNameRef.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please enter a valid proxy name</span></div>
+                                </div>
+                                <br><br>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="col-md-4" for="http_proxy_host">Host</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter proxy host" type="text" name="http_proxy_host" [(ngModel)]="proxySettings.http_proxy_host" #proxyHostRef="ngModel" required/>
+                                <div class="col-md-1 validation" *ngIf="proxyHostRef.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please enter a proxy host</span></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="col-md-4" for="http_proxy_port">Port</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter proxy port" type="number" name="http_proxy_port" [(ngModel)]="proxySettings.http_proxy_port" #proxyPortRef="ngModel" required/>
+                                <div class="col-md-1 validation" *ngIf="proxyPortRef.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please enter a proxy port</span></div>
+                                </div>
+                            </div>
+                        </div> <br>
+
+
+                        <div class="row">
+                            <div class="col-md-6" style="padding-left: 30px;">
+                                <label><input type="checkbox" name="auth_required" [(ngModel)]="proxySettings.http_proxy_auth.auth_required"/>&nbsp;&nbsp;Authentication</label>
+                            </div>
+                        </div><br><br>
+
+                        <div *ngIf="proxySettings.http_proxy_auth.auth_required" class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="col-md-4" for="username">Username</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter Username" type="text" name="auth_username" [(ngModel)]="proxySettings.http_proxy_auth.auth_username" #usernameRef="ngModel" required />
+                                <div class="col-md-1 validation" *ngIf="usernameRef.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please enter a username</span></div>
+                                </div>
+                                <br> <br>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label class="col-md-4" for="password">Password</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter Password" type="password" name="auth_password" [(ngModel)]="proxySettings.http_proxy_auth.auth_password" #passwordRef="ngModel" required />
+                                <div class="col-md-1 validation" *ngIf="passwordRef.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please enter a password</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="onCancel()">Cancel</button>
+                    <button [hidden]="proxySettingsForm.invalid" type="button" class="btn btn-info" (click)="onSave($event)">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Edit Modal-->
+    <div class="modal fade" id="editModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">Edit Proxy Settings</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <form #editProxySettingsForm="ngForm">
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label class="col-md-4" for="http_proxy_name">Proxy</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter proxy name" type="text" name="http_proxy_name" [ngModel]="editObj.http_proxy_name" />
+                                <br><br>
+                            </div>
+
+                            <div class="col-md-4 form-group">
+                                <label class="col-md-4" for="http_proxy_host">Host</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter proxy host" type="text" name="http_proxy_host" [ngModel]="editObj.http_proxy_host" />
+                            </div>
+
+                            <div class="col-md-4 form-group">
+                                <label class="col-md-4" for="http_proxy_port">Port</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter proxy port" type="number" name="http_proxy_port" [ngModel]="editObj.http_proxy_port" />
+                            </div>
+                        </div> <br>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group" style="padding-left: 30px;">
+                                <label><input type="checkbox" name="auth_required" [(ngModel)]="editObj.http_proxy_auth.auth_required"/>&nbsp;&nbsp;Authentication</label>
+                            </div>
+                        </div><br><br>
+
+                        <div *ngIf="editObj.http_proxy_auth.auth_required" class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="col-md-4" for="username">Username</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter Username" type="text" name="auth_username" [ngModel]="editObj.http_proxy_auth.auth_username" />
+                                <br> <br>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label class="col-md-4" for="password">Password</label>
+                                <input class=" col-md-5 form-control" placeholder="Enter Password" type="password" name="auth_password" [ngModel]="editObj.http_proxy_auth.auth_password" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)=onEditSave($event)>Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

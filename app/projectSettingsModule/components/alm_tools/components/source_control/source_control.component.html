@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <h4>Source Control</h4>
+    <br>
+    <div class="container-fluid br">
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="tool" [ngModel]="SourceControl.tool"  readonly>
+                <label>SCM Tool</label>
+            </div>
+            <div class="css3input col-xs-6">
+                <input name="platform_tool" [ngModel]="SourceControl.platform_tool"  readonly>
+                <label>Tool Instance</label>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="repo_name" [ngModel]="SourceControl.repo_name" readonly>
+                <label>Repository Name</label>
+            </div>
+            <div class="css3input col-xs-6">
+                <input name="repo_url" [ngModel]="SourceControl.repo_url" readonly>
+                <label>Repository Url</label>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="scm_project_url" [ngModel]="SourceControl.scm_project_url" readonly>
+                <label>Project Url</label>
+            </div>
+        </div>
+    </div>
+</div>

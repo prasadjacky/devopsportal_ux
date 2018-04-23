@@ -1,0 +1,49 @@
+{
+    "data": [
+
+        {
+            "projectBuildStatus": {
+                "success": 60,
+                "failure": 21,
+                "unstable": 3,
+                "aborted": 4
+            }
+        },
+
+        {
+            "projectBuildTrend": [{
+                    "week": 1,
+                    "successfulBuilds": 3,
+                    "failedBuilds": 1
+                },
+                {
+                    "week": 2,
+                    "successfulBuilds": 1,
+                    "failedBuilds": 1
+                },
+                {
+                    "week": 3,
+                    "successfulBuilds": 3,
+                    "failedBuilds": 2
+                },
+                {
+                    "week": 4,
+                    "successfulBuilds": 2,
+                    "failedBuilds": 2
+                }
+            ]
+        },
+
+        {
+            "projectBuildSummary": {
+                "latestBuild": {
+                    "number": 76,
+                    "timestamp": "2017-03-21T14:16:18.432Z"
+                },
+                "averageDuration": "a minute"
+            }
+
+        }
+
+    ]
+}

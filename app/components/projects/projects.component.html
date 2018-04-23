@@ -1,0 +1,113 @@
+<!--<div id="statusblock">{{status}}</div>-->
+<div class="row" id="searching">
+
+    <div class="col-sm-4">
+        <input type="text" id="searchBox" placeholder="&#xf002; Quick Search" size="35">
+    </div>
+    <div class="col-sm-5 col-sm-offset-3">
+        <button type="button" [routerLink]="['/onboarding']" class="btn btn-info btn-sm" id="onboardingBtn">Onboarding</button>
+    </div>
+</div>
+<table id="table" class="table">
+    <thead>
+        <th>Project Name</th>
+        <th>Version
+            <div class="subthead">Completion %</div>
+        </th>
+        <th>Velocity
+            <div class="subthead">Story Points</div>
+        </th>
+        <th>Bug Ratio
+            <div class="subthead">ln %</div>
+        </th>
+        <th>Code
+            <div class="subthead">Coverage %</div>
+        </th>
+        <!--<th>Release
+            <div class="subthead">Stability</div>
+        </th>-->
+        <th>Work
+            <div class="subthead">Completed %</div>
+        </th>
+
+        <th><button id="xyz">Back to Grid View</button></th>
+    </thead>
+    <tbody class="body">
+        <tr *ngFor="let group of projects">
+            <td id="details" *ngIf="group.project_type=='Run'" class="pointers"><img class="type-icon status" src="app/resources/images/run.png">&nbsp;&nbsp;{{group.project_name}}
+                <i *ngIf="group.project_health=='Smooth'" class="fa fa-circle fa-lg" aria-hidden="true" style="color:green;"></i>
+                <i *ngIf="group.project_health=='Warning'" class="fa fa-circle fa-lg" aria-hidden="true" style="color:orange;"></i>
+                <i *ngIf="group.project_health=='At Risk'" class="fa fa-circle fa-lg" aria-hidden="true" style="color:red;"></i>
+            </td>
+            <td id="details" *ngIf="group.project_type=='Build'" class="pointers"><img class="type-icon status" src="app/resources/images/build.png">&nbsp;&nbsp;{{group.project_name}}
+                <i *ngIf="group.project_health=='Smooth'" class="fa fa-circle fa-lg" aria-hidden="true" style="color:green;"></i>
+                <i *ngIf="group.project_health=='Warning'" class="fa fa-circle fa-lg" aria-hidden="true" style="color:orange;"></i>
+                <i *ngIf="group.project_health=='At Risk'" class="fa fa-circle fa-lg" aria-hidden="true" style="color:red;"></i>
+            </td>
+            <td *ngIf="group.project_metrics.release_stability=='Warning'" (click)=" handleRowSelect1(event)" class="pointers"><i class="fa fa-circle fa-lg" aria-hidden="true" style="color:orange;"></i>&nbsp;&nbsp;{{group.project_metrics.release_completion}}</td>
+            <td *ngIf="group.project_metrics.release_stability=='At Risk'" (click)=" handleRowSelect1(event)" class="pointers"><i class="fa fa-circle fa-lg" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;{{group.project_metrics.release_completion}}</td>
+            <td *ngIf="group.project_metrics.release_stability=='Smooth'" (click)=" handleRowSelect1(event)" class="pointers"><i class="fa fa-circle fa-lg" aria-hidden="true" style="color:green;"></i>&nbsp;&nbsp;{{group.project_metrics.release_completion}}</td>
+            <!--<td (click)=" handleRowSelect1(event)" class="pointers">{{group.project_metrics.release_completion}}</td>-->
+            <td (click)=" handleRowSelect2(event)" class="pointers">{{group.project_metrics.sprint_velocity}}</td>
+            <td (click)=" handleRowSelect3(event)" class="pointers">{{group.project_metrics.defect_ratio}}</td>
+            <td (click)=" handleRowSelect4(event)" class="pointers">{{group.project_metrics.test_coverage}}</td>
+            <!--<td (click)=" handleRowSelect5(event)" class="release_stability pointers">{{group.project_metrics.release_stability}}</td>-->
+            <td>{{group.project_metrics.work_completion}}</td>
+
+            <td class="nav_icon">
+                <a [routerLink]="['/details']" class="unbind"><i class="fa fa-list-alt fa-lg" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<i class="fa fa-external-link fa-lg" aria-hidden="true"></i>
+                <a [routerLink]="['/details']" class="unbind"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<i class="fa fa-external-link fa-lg" aria-hidden="true"></i>                
+            </td>
+        </tr>
+    </tbody>
+    <tfoot id="pagination">
+        <tr>
+            <td colspan="9">
+                <div class="pagination">
+                    <a><em>First</em></a>
+                    <a><em>Prev</em></a>
+                    <a>1</a>
+                    <a>2</a>
+                    <a>3</a>
+                    <a>4</a>
+                    <a>5</a>
+                    <a>6</a>
+                    <a><em>Next</em></a>
+                    <a><em>Last</em></a>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="container-fluid rowdata" id="data0" style="display: none">
+    <div class="col-md-4 col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0 ">
+        <p>Project details</p><br></div>
+</div>
+
+<div class="container-fluid rowdata" id="data1" style="display: none">
+    <chart1></chart1><br></div>
+
+
+<div class="container-fluid rowdata" id="data2" style="display: none">
+    <div class="col-md-4 col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0 padblock">
+        <chart3></chart3><br></div>
+</div>
+
+<div class="container-fluid rowdata" id="data3" style="display: none">
+    <div class="col-md-4 col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+        <chart2></chart2><br></div>
+</div>
+
+<div class="container-fluid rowdata" id="data4" style="display: none">
+    <div class="col-md-4 col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0 ">
+        <chart6></chart6><br></div>
+</div>
+
+<div class="container-fluid rowdata" id="data5" style="display: none;">
+    <div class="col-md-4 col-sm-6 col-xs-10 col-xs-offset-1 col-sm-offset-0 ">
+        <chart5></chart5><br>
+    </div>
+</div>
+<div class="col-sm-9 col-sm-offset-3" style="padding-right: 0px;">
+    <em style="line-height: 40px; float: right">Total Projects:269 / Total Managers:32</em>
+</div>

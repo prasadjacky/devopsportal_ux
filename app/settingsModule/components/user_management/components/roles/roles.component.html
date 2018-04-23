@@ -1,0 +1,105 @@
+<div class="container-fluid">
+    <br>
+    <div class="col-md-12">
+        <span class="lead">Roles</span>
+        <div style="float: right" data-toggle="modal" data-target="#myRolesModal" (click)="onCancel()"><i class="material-icons">add_circle</i></div>
+    </div>
+    <br><br><br>
+    <div class="col-md-12 scroll">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th colspan="2" style="text-align: center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roleArray;let i=index;">
+                    <td>{{role.role_name}}</td>
+                    <td>{{role.role_id}}</td>
+                    <td style="text-align: right"><i class="material-icons" data-toggle="modal" data-target="#editRolesModal" (click)="onEdit(role,i)">edit</i></td>
+                    <td><i class="material-icons" (click)="onDelete(i)">delete</i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Modal-->
+    <div class="modal fade" id="myRolesModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">Roles</h4>
+                </div>
+                <div class="modal-body">
+                    <form #rolesForm="ngForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-4" for="role_name">Name</label>
+                                <input name="role_name" class="col-md-5" placeholder="Enter Name" [(ngModel)]="role.role_name" #roleNameRef="ngModel" required>
+                                <div class="col-md-1 validation" *ngIf="roleNameRef.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please enter a name</span></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-md-4" for="role_id">Role</label>
+                                <select name="role_id" class="col-md-5" [(ngModel)]="role.role_id" #roleIdRef="ngModel" required>
+                                    <option value="" selected disabled>Select Role</option> 
+                                    <option value="Admin">Admin</option>
+                                    <option value="Member">Member</option> 
+                                </select>
+                                <div class="col-md-1 validation" *ngIf="roleIdRef.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please select role</span></div>
+                                </div>
+                            </div>
+                        </div><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="onCancel()">Cancel</button>
+                    <button type="button" class="btn btn-info" (click)="onSave($event)">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Edit Roles Modal-->
+    <div class="modal fade" id="editRolesModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">Edit Roles</h4>
+                </div>
+                <div class="modal-body">
+                    <form #editRolesForm="ngForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-4" for="role_name">Name</label>
+                                <input name="role_name" class="col-md-5" placeholder="Enter Name" [ngModel]="editObj.role_name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-md-4" for="role_id">Role</label>
+                                <select name="role_id" class="col-md-5" [ngModel]="editObj.role_id">
+                                    <option value="" selected disabled>Select Role</option> 
+                                    <option value="Admin">Admin</option>
+                                    <option value="Member">Member</option> 
+                                </select>
+                            </div>
+                        </div><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="onEditSave(editRolesForm.value)">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

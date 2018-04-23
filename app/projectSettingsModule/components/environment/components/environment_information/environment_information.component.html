@@ -1,0 +1,121 @@
+<div class="container-fluid">
+    <h4>Environment Information</h4>
+    <br>
+    <div class="container-fluid br">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="css3input col-xs-4">
+                    <select name="environment_name" [ngModel]="environment.environment_name" (ngModelChange)="onSelect($event)" required>
+                        <option *ngFor="let env of Environments">{{env.environment_name}}</option>
+                    </select>
+                    <label>Select Environment</label>
+                </div>
+                <div class="css3input col-xs-4">
+                    <input type="text" name="environment_type" [ngModel]="environment.environment_type" readonly>
+                    <label>Environment Type</label>
+                </div>
+                <div class="css3input col-xs-4" style="padding-right: 0px;">
+                    <input name="environment_approver" [ngModel]="environment.environment_approver.user_full_name" readonly>
+                    <label id="lr">Environment Approver</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5">
+                    <h5>App server</h5><br>
+                    <div *ngIf="environment.app_server.server_type === 'vm'">
+                        <div class="row">
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="server_ip" [ngModel]="environment.app_server.vm_server.server_ip" readonly>
+                                <label>Server IP</label>
+                            </div>
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="tomcat_path" [ngModel]="environment.app_server.vm_server.app_server_path" readonly>
+                                <label>App Server path</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="username" [ngModel]="environment.app_server.vm_server.auth_username" readonly>
+                                <label>Username</label>
+                            </div>
+                            <div class="css3input col-xs-6" *ngIf="environment.app_server.vm_server.auth_type === 'password'">
+                                <input type="password" name="password" [ngModel]="environment.app_server.vm_server.auth_password" readonly>
+                                <label>Password</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="environment.app_server.server_type === 'container'">
+                        <div class="row">
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="container_name" [ngModel]="environment.app_server.container_server.container_name" readonly>
+                                <label>Container Name</label>
+                            </div>
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="image_name" [ngModel]="environment.app_server.container_server.image_name" readonly>
+                                <label>Image Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="host_ip" [ngModel]="environment.app_server.container_server.host_ip" readonly>
+                                <label>Host IP</label>
+                            </div>
+                            <div class="css3input col-xs-6">
+                                <input type="number" name="port" [ngModel]="environment.app_server.container_server.ports" readonly>
+                                <label>Port</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="host_username" [ngModel]="environment.app_server.container_server.host_auth_username" readonly>
+                                <label>Username</label>
+                            </div>
+                            <div class="css3input col-xs-6" *ngIf="environment.app_server.container_server.host_auth_type === 'password'">
+                                <input type="password" name="host_password" [ngModel]="environment.app_server.container_server.host_auth_password" readonly>
+                                <label>Password</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-7 lft">
+                    <h5>Database Server</h5><br>
+                    <div class="row">
+                        <div class="css3input col-xs-4">
+                            <input type="text" name="db_sip" [ngModel]="environment.database.server_ip" readonly>
+                            <label>Server IP</label>
+                        </div>
+                        <div class="css3input col-xs-4">
+                            <input type="text" name="db_name" [ngModel]="environment.database.db_name" readonly>
+                            <label>DB Name</label>
+                        </div>
+                        <div class="css3input col-xs-4">
+                            <input type="text" name="db_url" [ngModel]="environment.database.db_url" readonly>
+                            <label>DB URL</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="css3input col-xs-4">
+                            <input type="text" name="auth_username" [ngModel]="environment.database.auth_username" readonly>
+                            <label>Auth Username</label>
+                        </div>
+                        <div class="css3input col-xs-4">
+                            <input type="password" name="auth_password" [ngModel]="environment.database.auth_password" readonly>
+                            <label>Auth Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="css3input col-xs-4">
+                            <input type="text" name="db_username" [ngModel]="environment.database.db_username" readonly>
+                            <label>DB Username</label>
+                        </div>
+                        <div class="css3input col-xs-4">
+                            <input type="password" name="db_password" [ngModel]="environment.database.db_password" readonly>
+                            <label>DB Password</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

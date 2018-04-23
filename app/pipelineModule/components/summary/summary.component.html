@@ -1,0 +1,282 @@
+<div class="container-fluid pagefix">
+    <div class="row" style="margin-bottom: 15px; padding-top: 10px;">
+        <div class="col-md-8">
+             <span id="ptitle">{{thisProject.project_name}}</span>&nbsp;&nbsp;
+                <span>Manager:&nbsp;{{thisProject.project_organization.manager}}</span>&nbsp;&nbsp;
+                <span>Project Key:&nbsp;{{thisProject.project_key}}</span>
+        </div>
+        <div id="ProjectsButtonsWrapper" class="col-md-3">
+           <div id="ProjectsButtons">
+        <div class="css3btn-group" [routerLink]="['/pipeline']"  role="group" aria-label="...">
+        <button class="css3btn css3btn-head"><i class="fa fa-arrow-left"></i></button>
+        <button class="css3btn css3btn-body">Back To Pipeline</button></div>
+         </div>
+        </div>
+    </div>
+     
+<div class="row sRow"  *ngFor="let buildpipes of buildpipe">
+        <ul class="steps steps-5" *ngIf="buildpipes._id==pipelineId">
+            <li class="commits0" [routerLink]="['/summary']">
+                <a>
+                    <div style="font-size: 20px;">{{buildpipes.build?.build_commit_set.length}} Commits</div>
+                </a>
+            </li>
+            <li *ngIf="buildpipes.build?.build_result==='SUCCESS'" class="build0 success" [routerLink]="['/build']">
+                <a>
+                    <div style="font-size: 15px;">{{buildpipes.build?.build_number}}</div>
+                    <div>
+                        {{buildpipes.build?.build_timestamp | date}}<br>{{buildpipes.build?.build_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+            </li>
+            <li *ngIf="buildpipes.build?.build_result==='FAILURE'" class="build0 failure" [routerLink]="['/build']">
+                <a>
+                    <div style="font-size: 15px;">{{buildpipes.build?.build_number}}</div>
+                    <div>
+                        {{buildpipes.build?.build_timestamp | date}}<br>{{buildpipes.build?.build_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+            </li>
+           
+            <ng-container *ngFor="let deployp of buildpipes.deployments;let i=index;">
+                
+            <li class="uat0 success" [routerLink]="['/uat']"  *ngIf="deployp.deployment?.deployment_result==='SUCCESS'" (click)="uat(i)">
+                <a >
+                    <div style="font-size: 15px;">{{deployp.environment?.environment_name | uppercase}}
+                         <!--#{{deployp.deployment?.deployment_number}}-->
+                         </div>
+                    <div>
+                       {{deployp.deployment?.deployment_timestamp | date}}<br> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+                
+            </li>
+            <li *ngIf="deployp.deployment?.deployment_result==='FAILURE'" class="uat0 failure" [routerLink]="['/uat']" (click)="uat(i)"> 
+                 <a >
+                    <div style="font-size: 15px;" >{{deployp.environment?.environment_name | uppercase}} 
+                        <!--#{{deployp.deployment?.deployment_number}}-->
+                        </div>
+                    <div>
+                       {{deployp.deployment?.deployment_timestamp | date}}<br> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+                </li></ng-container>
+
+        </ul>
+    </div>
+  <!--<table class="table" >
+        <tbody class="tbody" *ngFor="let buildpipes of buildpipe">
+      
+     
+             <tr  [routerLink]="['/summary']" *ngIf="buildpipes._id==pipelineId">
+              
+                 <td class="commits" [routerLink]="['/summary']">
+                        
+                            <div >{{buildpipes.build.build_commit_set.length}} Commits</div>
+                        
+                </td> 
+                <td [routerLink]="['/build']">
+                       <div class="row"><span class="col-md-3"> #{{buildpipes.build.build_number}} </span><span class="col-md-5"> {{buildpipes.build.build_timestamp | date}} </span><span class="col-md-4"> {{buildpipes.build.build_timestamp | date:'shortTime'}}</span></div>
+                               
+                </td>
+                 <td *ngFor="let deployp of buildpipes.deployments" [routerLink]="['/uat']">
+                               <div class="row"><span class="col-md-3"> #{{deployp.deployment.deployment_number}} </span><span class="col-md-5"> {{deployp.deployment.deployment_timestamp | date}} </span><span class="col-md-4"> {{deployp.deployment.deployment_timestamp | date:'shortTime'}}</span></div>
+                </td>
+             </tr></tbody></table>-->
+    <div class="row tileRow">
+        <div class="col-md-2 tile">
+            <div class="tileContent" *ngIf="ChangeSet?.pipelineBuild.commits<1">
+                <h1 class="tileFigure color1">0{{ChangeSet?.pipelineBuild.commits}}<i class="fa fa-list-alt ico" aria-hidden="true" style="color: #2980b9;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent" *ngIf="ChangeSet?.pipelineBuild.commits>0">
+                <h1 class="tileFigure color1">{{ChangeSet?.pipelineBuild.commits}}<i class="fa fa-list-alt ico" aria-hidden="true" style="color: #2980b9;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent color1">
+                Commits
+            </div>
+        </div>
+        <div class=" col-md-2 tile">
+            <div class="tileContent" *ngIf="ChangeSet?.pipelineBuild.epics<10">
+                <h1 class="tileFigure color2">0{{ChangeSet?.pipelineBuild.epics}}<i class="fa fa-star-o ico" aria-hidden="true" style="color: #f1c40f;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent" *ngIf="ChangeSet?.pipelineBuild.epics>10">
+                <h1 class="tileFigure color2">{{ChangeSet?.pipelineBuild.epics}}<i class="fa fa-star-o ico" aria-hidden="true" style="color: #f1c40f;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent color2">
+                Epics Addressed
+            </div>
+        </div>
+        <div class=" col-md-2 tile">
+            <div class="tileContent"  *ngIf="ChangeSet?.pipelineBuild.stories<10">
+                <h1 class="tileFigure color3">0{{ChangeSet?.pipelineBuild.stories}}<i class="fa fa-list-alt ico" aria-hidden="true" style="color: #e67e22;font-size: 30px"></i></h1>
+            </div>
+             <div class="tileContent"  *ngIf="ChangeSet?.pipelineBuild.stories>10">
+                <h1 class="tileFigure color3">{{ChangeSet?.pipelineBuild.stories}}<i class="fa fa-list-alt ico" aria-hidden="true" style="color: #e67e22;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent color3">
+                Stories Addressed
+            </div>
+        </div>
+        <div class=" col-md-2 tile">
+            <div class="tileContent" *ngIf="ChangeSet?.pipelineBuild.bugs<10">
+                <h1 class="tileFigure color4">0{{ChangeSet?.pipelineBuild.bugs}}<i class="fa fa-bug ico" aria-hidden="true" style="color: #e74c3c;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent" *ngIf="ChangeSet?.pipelineBuild.bugs>10">
+                <h1 class="tileFigure color4">{{ChangeSet?.pipelineBuild.bugs}}<i class="fa fa-bug ico" aria-hidden="true" style="color: #e74c3c;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent color4">
+                Bugs Addressed
+            </div>
+        </div>
+
+        <!--<div class=" col-md-2 tile">
+            <div class="tileContent">
+                <h1 class="tileFigure color5">209<i class="fa fa-list-alt ico" aria-hidden="true" style="color: #27ae60;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent color5">
+                Total Changes
+            </div>
+        </div>
+        <div class=" col-md-2 tile">
+            <div class="tileContent">
+                <h1 class="tileFigure color6">100<i class="fa fa-list-alt ico" aria-hidden="true" style="color: saddlebrown;font-size: 30px"></i></h1>
+            </div>
+            <div class="tileContent color6">
+                Total Commits
+            </div>
+
+        </div>-->
+    </div>
+     <div class="row tileRow">
+    <div class="row tableRow">
+        <table class="table table-hover">
+            <thead>
+                <th>Type</th>
+                <th>Key</th>
+                <th>Summary</th>
+                <th>Assignee</th>
+                <th>Status</th>
+                <!--<th>Commits</th>-->
+            </thead>
+            <tbody>
+                  <tr *ngIf="planningInfo?.length<1">
+                    <td colspan="3" style="padding:10px"><strong style="padding-left:511px">No Changes Logged</strong></td>
+                </tr>
+                    <tr *ngFor="let summary of planningInfo">
+                    <td>
+                        <i *ngIf="summary.workItem_type == 'Epic'" class="fa fa-star-o ico" aria-hidden="true" style="color: black;font-size: 14px!important;"></i>
+                        <i *ngIf="summary.workItem_type == 'Story'" class="fa fa-list-alt ico" aria-hidden="true" style="color: black;font-size: 14px!important;"></i>
+                        <i *ngIf="summary.workItem_type == 'Bug'" class="fa fa-bug ico" aria-hidden="true" style="color: black;font-size: 14px!important;"></i>{{summary.workItem_type}}
+                    </td>
+                    <td>{{summary.workItem_key}}</td>
+                    <td>{{summary.item_workItem}}</td>
+                    <td>{{summary.workItem_assigned_to}}</td>
+                    <td class="summaryStatus">{{summary.workItem_status}}</td>
+                    <!--<td data-toggle="modal" data-target="#myModal" id="pointer">{{summary.Commits}}</td>-->
+                </tr>
+                 <!--<tr *ngFor="let summary of planningInfoStories">
+                    <td><i class="fa fa-list-alt ico" aria-hidden="true" style="color: black;font-size: 14px!important;"></i> {{summary.story_type}}
+                    </td>
+                    <td>{{summary.story_key}}</td>
+                    <td>{{summary.story_desc}}</td>
+                    <td>{{summary.story_assignee}}</td>
+                    <td class="summaryStatus">{{summary.story_status}}</td>
+                   
+                </tr>
+                 <tr *ngFor="let summary of planningInfoBugs">
+                    <td>
+                        <i class="fa fa-bug ico" aria-hidden="true" style="color: black;font-size: 14px!important;"></i> {{summary.bug_type}}
+                    </td>
+                    <td>{{summary.bug_key}}</td>
+                    <td>{{summary.bug_desc}}</td>
+                    <td>{{summary.bug_assignee}}</td>
+                    <td class="summaryStatus">{{summary.bug_status}}</td>
+                    
+                </tr>-->
+            </tbody>
+        </table>
+    </div>
+     </div>
+
+   <div class="row">
+        <div class="col-lg-2 boxElement" style="background-color: #1f6c8f;" *ngFor="let changeSet of ChangeSet?.commitObj">
+            <p>{{changeSet._id}}</p>
+            <p>{{changeSet.count}}  Commits</p>
+        </div>
+         </div>
+
+        <!--<div class="col-lg-2 boxElement" style="background-color: #298cb9;">
+            <p>Shrikrishna Sable</p>
+            <p>14 Commits</p>
+        </div>
+        <div class="col-lg-2 boxElement" style="background-color: #2e9cce;">
+            <p>Akhila Panicker</p>
+            <p>39 Commits</p>
+        </div>
+        <div class="col-lg-2 boxElement" style="background-color: #56b0d9;">
+            <p>Rahul Punjabi</p>
+            <p>87 Commits</p>
+        </div>
+        <div class="col-lg-2 boxElement" style="background-color: #7fbcd6;">
+            <p>Girish Gupta</p>
+            <p>12 Commits</p>
+        </div>-->
+   
+
+
+    <!--<button id="opener">open the dialog</button>-->
+    <!--<div id="dialog1" title="Dialog Title" hidden="hidden">I'm a dialog<button id="close1">close</button></div>
+</div>-->
+
+
+    <div class="container">
+        <!--<h2>Modal Example</h2>-->
+        <!-- Trigger the modal with a button -->
+        <!--<button type="button" class="btn btn-info btn-lg" >Open Modal</button>-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                        <h4 class="modal-title"><b>DOP-2:9 unique commits</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-10 highlight1">
+                                <i class="fa fa-folder" aria-hidden="true" style="color: limegreen;font-size: 35px"></i> devopsportal(BitBucket)
+                            </div>
+
+                        </div>
+                        <table class="table" id="tab">
+                            <thead>
+                                <th>Author</th>
+                                <th>Commit</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                                <th>Files</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let commit of commit">
+                                    <td><i class="fa fa-user-circle" aria-hidden="true"></i></td>
+                                    <td class="highlight1">{{commit.Commit}}</td>
+                                    <td>{{commit.Message}}</td>
+                                    <td>{{commit.Date}}</td>
+                                    <td class="highlight1">{{commit.Files}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default highlight1" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

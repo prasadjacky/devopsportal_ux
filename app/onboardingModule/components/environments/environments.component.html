@@ -1,0 +1,252 @@
+<div class="container-fluid">
+    <h4>Environments</h4>
+    <form #environmentsForm="ngForm" novalidate>
+        <div class="col-xs-9">
+            <div class="row">
+                <div class="css3input col-xs-4">
+                    <input type="text" name="environment_name" [(ngModel)]="Environment.environment_name" #environment_name="ngModel" required autocomplete="off">
+                    <label>Environment Name</label>
+                    <div class="errorMessageNew" *ngIf="environment_name.invalid && showValidations">Please enter environment name</div>
+                </div>
+                <div class="css3input col-xs-4">
+                    <select name="environment_type" [(ngModel)]="Environment.environment_type" #environment_type="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option value="PROD">Production</option>
+                        <option value="DEV">Pre-Production</option>
+                    </select>
+                    <label>Environment Type</label>
+                    <div class="errorMessageNew" *ngIf="environment_type.invalid && showValidations">Please select environment type</div>
+                </div>
+                <div class="css3input col-xs-4">
+                    <input data-toggle="modal" data-target="#searchApprover" role="group" aria-label="..." name="environment_approver" [(ngModel)]="Environment.environment_approver_name" #environment_approver="ngModel" required autocomplete="off" readonly>
+                    <label id="lr">Environment Approver</label>
+                    <div class="errorMessageNew" *ngIf="environment_approver.invalid && showValidations">Please select environment approver's name</div>
+                </div>
+                <div class="searchButton">
+                    <div class="css3btn-group" data-toggle="modal" data-target="#searchApprover" role="group" aria-label="...">
+                        <button class="css3btn css3btn-head"><i class="fa fa-search-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="Environment.app_server.server_type != 'serverless'">
+                <div class="row br1">
+                    <div class="col-xs-6">
+                        <h5>App server</h5><br>
+                        <div *ngIf="Environment.app_server.server_type === 'vm'">
+                            <div class="row">
+                                <!--<div class="css3input col-xs-6">
+                                    <input type="text" name="server_type" [(ngModel)]="Environment.app_server.server_type" readonly>
+                                </div>-->
+                                <div class="css3input col-xs-6">
+                                    <input type="text" name="server_ip" [(ngModel)]="Environment.app_server.vm_server.server_ip" #server_ip="ngModel" required autocomplete="off">
+                                    <label>Server IP</label>
+                                    <div class="errorMessageNew" *ngIf="server_ip.invalid && showValidations">Please enter server ip</div>
+                                </div>
+                                <div class="css3input col-xs-6">
+                                    <input type="text" name="tomcat_path" [(ngModel)]="Environment.app_server.vm_server.app_server_path" #server_path="ngModel" required autocomplete="off">
+                                    <label>App Server path</label>
+                                    <div class="errorMessageNew" *ngIf="server_path.invalid && showValidations">Please enter app server path</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="css3input col-xs-6">
+                                    <input type="text" name="username" [(ngModel)]="Environment.app_server.vm_server.auth_username" #vm_username="ngModel" required autocomplete="off">
+                                    <label>Username</label>
+                                    <div class="errorMessageNew" *ngIf="vm_username.invalid && showValidations">Please enter username</div>
+                                </div>
+                                <div class="css3input col-xs-6" *ngIf="Environment.app_server.vm_server.auth_type === 'password'">
+                                    <input type="password" name="password" [(ngModel)]="Environment.app_server.vm_server.auth_password" #vm_password="ngModel" required autocomplete="off">
+                                    <label>Password</label>
+                                    <div class="errorMessageNew" *ngIf="vm_password.invalid && showValidations">Please enter password</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="Environment.app_server.server_type === 'container'">
+                            <div class="row">
+                                <div class="css3input col-xs-6">
+                                    <input type="text" name="container_name" [(ngModel)]="Environment.app_server.container_server.container_name" #container_name="ngModel" required autocomplete="off">
+                                    <label>Container Name</label>
+                                    <div class="errorMessageNew" *ngIf="container_name.invalid && showValidations">Please enter container name</div>
+                                </div>
+                                <div class="css3input col-xs-6">
+                                    <input type="text" name="image_name" [(ngModel)]="Environment.app_server.container_server.image_name" #image_name="ngModel" required autocomplete="off">
+                                    <label>Image Name</label>
+                                    <div class="errorMessageNew" *ngIf="image_name.invalid && showValidations">Please enter image name</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="css3input col-xs-6">
+                                    <input type="text" name="host_ip" [(ngModel)]="Environment.app_server.container_server.host_ip" #host_ip="ngModel" required autocomplete="off">
+                                    <label>Host IP</label>
+                                    <div class="errorMessageNew" *ngIf="host_ip.invalid && showValidations">Please enter host ip</div>
+                                </div>
+                                <div class="css3input col-xs-6">
+                                    <input type="number" name="port" [(ngModel)]="Environment.app_server.container_server.ports" #ports="ngModel" required autocomplete="off">
+                                    <label>Port</label>
+                                    <div class="errorMessageNew" *ngIf="ports.invalid && showValidations">Please enter port</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="css3input col-xs-6">
+                                    <input type="text" name="host_username" [(ngModel)]="Environment.app_server.container_server.host_auth_username" #container_username="ngModel" required autocomplete="off">
+                                    <label>Username</label>
+                                    <div class="errorMessageNew" *ngIf="container_username.invalid && showValidations">Please enter username</div>
+                                </div>
+                                <div class="css3input col-xs-6" *ngIf="Environment.app_server.container_server.host_auth_type === 'password'">
+                                    <input type="password" name="host_password" [(ngModel)]="Environment.app_server.container_server.host_auth_password" #container_password="ngModel" required autocomplete="off">
+                                    <label>Password</label>
+                                    <div class="errorMessageNew" *ngIf="container_password.invalid && showValidations">Please enter password</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 lft">
+                        <h5>Database Server</h5><br>
+                        <div class="row">
+                            <!--<div class="css3input col-xs-4">
+                                <input type="text" name="db_sip" [(ngModel)]="Environment.database.server_ip" #db_sip="ngModel" required autocomplete="off">
+                                <label>Server IP</label>
+                                <div class="errorMessageNew" *ngIf="db_sip.invalid && showValidations">Please enter db server ip</div>
+                            </div>-->
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="db_name" [(ngModel)]="Environment.database.db_name" #db_name="ngModel" required autocomplete="off">
+                                <label>DB Name</label>
+                                <div class="errorMessageNew" *ngIf="db_name.invalid && showValidations">Please enter db name</div>
+                            </div>
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="db_url" [(ngModel)]="Environment.database.db_url" #db_url="ngModel" required autocomplete="off">
+                                <label>DB URL</label>
+                                <div class="errorMessageNew" *ngIf="db_url.invalid && showValidations">Please enter app db url</div>
+                            </div>
+                        </div>
+                        <!--<div class="row">
+                            <div class="css3input col-xs-4">
+                                <input type="text" name="auth_username" [(ngModel)]="Environment.database.auth_username" #auth_username="ngModel" required autocomplete="off">
+                                <label>Auth Username</label>
+                                <div class="errorMessageNew" *ngIf="auth_username.invalid && showValidations">Please enter auth username</div>
+                            </div>
+                            <div class="css3input col-xs-4">
+                                <input type="password" name="auth_password" [(ngModel)]="Environment.database.auth_password" #auth_password="ngModel" required autocomplete="off">
+                                <label>Auth Password</label>
+                                <div class="errorMessageNew" *ngIf="auth_password.invalid && showValidations">Please enter auth password </div>
+                            </div>
+                        </div>-->
+                        <div class="row">
+                            <div class="css3input col-xs-6">
+                                <input type="text" name="db_username" [(ngModel)]="Environment.database.db_username" #db_username="ngModel" required autocomplete="off">
+                                <label>DB Username</label>
+                                <div class="errorMessageNew" *ngIf="db_username.invalid && showValidations">Please enter db username </div>
+                            </div>
+                            <div class="css3input col-xs-6">
+                                <input type="password" name="db_password" [(ngModel)]="Environment.database.db_password" #db_password="ngModel" required autocomplete="off">
+                                <label>DB Password</label>
+                                <div class="errorMessageNew" *ngIf="db_password.invalid && showValidations">Please enter db password</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="Environment.app_server.server_type === 'serverless'">
+                    <h5>AWS Cloud Formation</h5><br>
+                    <div class="row">
+                        <div class="css3input col-xs-6">
+                            <input name="stack_name" [(ngModel)]="Environment.app_server.serverless_server.stack_name" #stack_name="ngModel" required autocomplete="off">
+                            <label>Stack Name</label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="row" style="float: right">
+                <div class="col-xs-12">
+                    <div class="css3btn-group" role="group" aria-label="..." (click)="onCreate($event)">
+                        <button class="css3btn css3btn-head"><i class="fa fa-lg fa-plus" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body">Environment</button>
+                    </div>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h5 style="text-align: center;">Environment Sequence</h5>
+                    <p *ngIf="EmptyEnv" style="text-align: center;color: red;">Add atleast one environment</p>
+                    <div class=" col-xs-12 scrollSeq">
+                        <ul id="sortable">
+                            <li *ngFor="let env of Environments" class="ui-state-default dragElem"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{{env.environment_name}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" tabindex="-1" id="searchApprover" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Select Approver</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>User-id</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;" *ngFor="let approver of approversAvailable" (click)="pushApprover(approver)">
+                                    <td>{{approver.user_full_name}}</td>
+                                    <td>{{approver.user_id}}</td>
+                                    <td>{{approver.email_id}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal">
+                            <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                            <button class="css3btn css3btn-body">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--<div >
+                    <label class="col-md-6" for="auth_type">Authorization Type</label>
+                    <select name="auth_type"  [(ngModel)]="Environment.app_server.vm_server.auth_type">
+                        <option value="password">Password</option>
+                        <option value="ssh_key">SSH Key</option>
+                    </select>
+                </div>-->
+<!--<div >
+                    <label class="col-md-6" for="cache_path">Cache path</label>
+                    <input type="text"  placeholder="Enter Cache path" name="cache_path" [(ngModel)]="Environment.app_server.vm_server.cache_path">
+                </div>-->
+<!--<div *ngIf="Environment.auth_type === 'ssh_key'" >
+                    <label class="col-md-6" for="auth_key">Authorization Key</label>
+                    <input type="text"  placeholder="Enter Key" name="key">
+                </div>
+                <div >
+                    <label class="col-md-6" for="tomcat_service_name">Tomcat Service Name</label>
+                    <input type="text"  placeholder="Enter Tomcat Service Name" name="tomcat_service_name">
+                </div>
+                <div >
+                    <label class="col-md-6" for="tomcat_timer">Tomcat Timer</label>
+                    <input type="text"  placeholder="Enter Tomcat Timer" name="tomcat_timer">
+                </div>-->
+
+<!--<div *ngIf="Environment.host_auth_type === 'ssh_key'" >
+    <label class="col-md-6" for="host_auth_key">Authorization Key</label>
+    <input type="text"  placeholder="Enter Host Key" name="host_auth_key">
+</div>-->
+<!--<div >
+    <label class="col-md-6" for="host_auth_type">Authorization Type</label>
+    <select name="host_auth_type"  [(ngModel)]="Environment.app_server.container_server.host_auth_type">
+        <option value="password">Password</option>
+        <option value="ssh_key">SSH Key</option>
+    </select>
+</div>-->

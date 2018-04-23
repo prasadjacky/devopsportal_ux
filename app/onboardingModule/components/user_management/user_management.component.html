@@ -1,0 +1,171 @@
+<div class="container-fluid">
+    <div class="row" style="padding: 0 20px 0 20px;">
+        <h4 style="display: inline-block;">User Management</h4>
+        <div style="float: right;" class="css3btn-group" role="group" aria-label="..." data-toggle="modal" data-target="#addUserModal">
+            <button class="css3btn css3btn-head"><i class="fa fa-lg fa-plus" aria-hidden="true"></i></button>
+            <button class="css3btn css3btn-body">User</button>
+        </div>
+    </div>
+    <div id="urf">
+        <table id="UsersTable" class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th style="text-align: center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="Users.length <= 0 && !A_M_validator">
+                    <td style="font-size: 12px;" colspan="4" class="text-center">No user added</td>
+                </tr>
+                <tr *ngFor="let user of Users; let i = index" style="background-color: white;font-size: 12px;">
+                    <td>{{this.user.user_full_name}}</td>
+                    <td *ngIf="this.user.role_id === '1'">Admin</td>
+                    <td *ngIf="this.user.role_id === '2'">Member</td>
+                    <!--<td style="text-align: right;padding: 7px 7px 0px">
+                                <a style="cursor: pointer" data-toggle="modal" data-target="#editUserModal" (click)="onEdit(user,i)"><i class="material-icons">edit</i></a>
+                            </td>-->
+                    <td style="padding: 7px 7px 0px; text-align: center">
+                        <i style="cursor: pointer" class="material-icons link" data-toggle="modal" data-target="#confirmUserDeletionModal" (click)="confirmDelete(i,user)">delete</i>
+                        <!--<a style="cursor: pointer" (click)="onDelete(i)"><i style="color: #808080" class="material-icons">delete</i></a>-->
+                    </td>
+                </tr>
+                <tr *ngIf="A_M_validator && !adminAvailable && !memberAvailable">
+                    <td style="font-size: 12px;color: red;border: none" colspan="4" class="text-center">Please select atleast one admin and one member</td>
+                </tr>
+                <tr *ngIf="A_M_validator && !adminAvailable && memberAvailable">
+                    <td style="font-size: 12px;color: red;border: none" colspan="4" class="text-center">Please select atleast one admin</td>
+                </tr>
+                <tr *ngIf="A_M_validator && !memberAvailable && adminAvailable">
+                    <td style="font-size: 12px;color: red;border: none" colspan="4" class="text-center">Please select atleast one member</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" tabindex="-1" id="addUserModal" role="dialog">
+        <div class="modal-dialog">
+            <form #userManagementForm="ngForm" novalidate>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                        <h4 class="modal-title">Add User</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 15px 15px 0px;">
+                        <div class="row">
+                            <div class="col-xs-12" id="userSelTable">
+                                <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>User-id</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let user of usersAvailable; let i = index" style="cursor: pointer" (click)="pushUser(user, i)">
+                                            <td>{{user.user_full_name}}</td>
+                                            <td>{{user.user_id}}</td>
+                                            <td>{{user.email_id}}</td>
+                                            <!--<td><span class="glyphicon glyphicon-plus" ></span></td>-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="css3input col-xs-6">
+                                <input name="username" [(ngModel)]="UserManagement.user_full_name" #username="ngModel" required autocomplete="off" readonly>
+                                <label>Username</label>
+                                <div *ngIf="username.invalid && showValidations" class="errorMessageNew">Please select a username from table</div>
+                                <div *ngIf="userAlreadyAdded && !showValidations" class="errorMessageNew">User already added in list</div>
+                            </div>
+                            <div class="css3input col-xs-6">
+                                <select name="role_id" [(ngModel)]="UserManagement.role_id" #role_id="ngModel" required>
+                                    <option value = "" selected disabled></option>
+                                    <option value = "1">Admin</option>
+                                    <option value = "2">Member</option>
+                                </select>
+                                <label>Role</label>
+                                <div *ngIf="role_id.invalid && showValidations" class="errorMessageNew">Please select a role</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="css3btn-group" role="group" aria-label="..." (click)="onSave($event)">
+                            <button class="css3btn css3btn-head"><i class="fa fa-lg fa-check" aria-hidden="true"></i></button>
+                            <button class="css3btn css3btn-body">Add</button>
+                        </div>
+                        <div class="css3btn-group-outline" role="group" aria-label="..." (click)="onCancel()" data-dismiss="modal">
+                            <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                            <button class="css3btn css3btn-body">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Delete Confirmation Modal-->
+    <div class="modal fade" tabindex="-1" id="confirmUserDeletionModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete User</h4>
+                </div>
+                <div class="modal-body text-center cd">
+                    <p>Are you sure you want to delete user</p>
+                    <h4>{{editObj.user_full_name}}?</h4>
+                </div>
+                <div class="modal-footer">
+                    <div class="css3btn-group" role="group" aria-label="..." data-dismiss="modal" (click)="onDelete()">
+                        <button class="css3btn css3btn-head"><i class="fa fa-lg fa-check" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body">Yes</button>
+                    </div>
+                    <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal" (click)="onCancel()">
+                        <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="modal fade" id="editUserModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <form #edit_userManagementForm="ngForm" novalidate>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit User</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-2" for="edit_username">Username</label>
+                                <input class="col-md-3" placeholder="Select Username" name="edit_username" [(ngModel)]="editObj.user_full_name" #edit_username="ngModel" required readonly>
+                                <div class="col-md-1 validation" *ngIf="edit_username.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please select a valid username</span></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-md-3" for="edit_role_id">Role</label>
+                                <select name="edit_role_id" class="col-md-6" [(ngModel)]="editObj.role_id" #edit_role_id="ngModel" required>
+                                    <option value = "" selected disabled>Select Role</option>
+                                    <option value = "Admin">Admin</option>
+                                    <option value = "Member">Member</option>
+                                </select>
+                                <div class="col-md-1 validation" *ngIf="edit_role_id.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Enter a Role</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="modal-footer">
+                        <button class="btn" (click)="onEditSave($event)" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn" (click)="onCancel()" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>-->
+</div>

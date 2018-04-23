@@ -1,0 +1,83 @@
+<h4>Code Analysis</h4>
+<div class="toggle">
+    <div class="switch">
+        <input id="enable_ca" name="enable_ca" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabled" (change)="toggleCheck()">
+        <label for="enable_ca"></label>
+    </div>
+    <div class="text">Disable</div>
+</div>
+<div *ngIf="CodeAnalysis.configured">
+    <form #codeAnalysisForm="ngForm" id="caf">
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <select name="tool" [(ngModel)]="CodeAnalysis.tool" #tool="ngModel" required>
+                    <option value="" selected disabled></option>
+                    <option value="SonarQube">SonarQube</option>
+                </select>
+                <label>Code Analysis Tool</label>
+                <div *ngIf="tool.invalid && showValidations" class="errorMessageNew">Please select a tool</div>
+            </div>
+            <div class="css3input col-xs-6">
+                <select name="platform_tool" [(ngModel)]="CodeAnalysis.platform_tool" #platform_tool="ngModel" required>
+                    <option value="" selected disabled></option>
+                    <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+                </select>
+                <label>Tool Instance</label>
+                <div *ngIf="platform_tool.invalid && showValidations" class="errorMessageNew">Please select a tool instance</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="toggle col-xs-6">
+                <div class="switch">
+                    <input id="enable_cc" name="enable_cc" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabledCC" (change)="toggleCheckCC()">
+                    <label for="enable_cc"></label>
+                </div>
+                <div class="text">Enable Code Coverage Framework</div>
+            </div>
+            <div class="css3input col-xs-6" *ngIf="disabledCC">
+                <select name="coverage_framework" [(ngModel)]="CodeAnalysis.coverage_framework" #coverage_framework="ngModel" required>
+                    <option value="" selected disabled></option>
+                        <option value="Cobertura">Cobertura</option>
+                        <option value="JaCoCo">JaCoCo</option> 
+                </select>
+                <label>Framework</label>
+                <div *ngIf="coverage_framework.invalid && showValidations" class="errorMessageNew">Please select a framework</div>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <label class="col-md-2" for="tool">Analysis Tool</label>
+                    <select name="tool" class="col-md-4" [(ngModel)]="CodeAnalysis.tool" #tool="ngModel" required>
+                        <option value="" selected disabled>Select Analysis Tool</option>
+                        <option value="SonarQube">SonarQube</option>
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="tool.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-2" for="toolInstance">Tool Instance</label>
+                    <select name="toolInstance" class="col-xs-4" [(ngModel)]="CodeAnalysis.platform_tool" #toolInstance="ngModel" required>
+                        <option value="" selected disabled>Select Tool Instance</option>
+                        <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="toolInstance.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2" for="coverage_framework">Framework</label>
+                    <select name="coverage_framework" class="col-md-4" [(ngModel)]="CodeAnalysis.coverage_framework" #coverage_framework="ngModel" required>
+                        <option value="" selected disabled>Select Code Coverage Framework</option>
+                        <option value="Cobertura">Cobertura</option>
+                        <option value="JaCoCo">JaCoCo</option> 
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="coverage_framework.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Coverage Framework</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </form>
+</div>

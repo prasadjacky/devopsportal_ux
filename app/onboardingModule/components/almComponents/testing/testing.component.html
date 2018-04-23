@@ -1,0 +1,155 @@
+<h4>Testing</h4>
+<div *ngIf="!enabled">
+    <form #testingForm="ngForm" id="tf">
+        <div class="row">
+            <div class="col-xs-6">
+                <h5>Unit Testing
+                    <div class="toggle">
+                        <div class="switch">
+                            <input id="enable_unit" name="enable_unit" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabled_unit" (change)="toggleCheckUnit()">
+                            <label for="enable_unit"></label>
+                        </div>
+                        <div class="text">Disable</div>
+                    </div>
+                </h5>
+                <div *ngIf="Testing.unit.configured" class="row">
+                    <div class="css3input col-xs-12">
+                        <select name="unitFramework" [(ngModel)]="Testing.unit.framework" #unitFramework="ngModel" required>
+                            <option value="" selected disabled></option>
+                            <option value="JUnit">JUnit</option>
+                        </select>
+                        <label>Framework</label>
+                        <div *ngIf="unitFramework.invalid && showValidations" class="errorMessageNew">Please select a unit testing framework</div>
+                    </div><br>
+                    <div class="css3input col-xs-12">
+                        <select name="unitframeworkVersion" [(ngModel)]="Testing.unit.framework_version" #unitframeworkVersion="ngModel" required>
+                            <option value="" selected disabled></option>
+                            <option value="4">4</option>
+                        </select>
+                        <label>Framework Version</label>
+                        <div *ngIf="unitframeworkVersion.invalid && showValidations" class="errorMessageNew">Please select a unit testing framework version</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <h5>Functional Testing
+                    <div class="toggle">
+                        <div class="switch">
+                            <input id="enable_functional" name="enable_functional" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabled_functional" (change)="toggleCheckFunctional()">
+                            <label for="enable_functional"></label>
+                        </div>
+                        <div class="text">Disable</div>
+                    </div>
+                </h5>
+                <div *ngIf="Testing.functional.configured" class="row">
+                    <div class="css3input col-xs-12">
+                        <select name="driver" [(ngModel)]="Testing.functional.driver" #driver="ngModel" required>
+                            <option value="" selected disabled></option>
+                            <option value="Selenium">Selenium</option>
+                        </select>
+                        <label>Driver</label>
+                        <div *ngIf="driver.invalid && showValidations" class="errorMessageNew">Please select a functional testing driver</div>
+                    </div><br>
+                    <div class="css3input col-xs-12">
+                        <select name="functionalFramework" [(ngModel)]="Testing.functional.framework" #functionalFramework="ngModel" required>
+                            <option value="" selected disabled></option>
+                            <option value="Java">Java</option>
+                            <option value="Protractor">Protractor</option> 
+                        </select>
+                        <label>Framework</label>
+                        <div *ngIf="functionalFramework.invalid && showValidations" class="errorMessageNew">Please select a functional testing framework</div>
+                    </div><br>
+                    <div class="css3input col-xs-12">
+                        <select name="mode" [(ngModel)]="Testing.functional.mode" #mode="ngModel" required>
+                            <option value="" selected disabled></option>
+                            <option value="Headless">Headless</option>
+                        </select>
+                        <label>Mode</label>
+                        <div *ngIf="mode.invalid && showValidations" class="errorMessageNew">Please select a functional testing mode</div>
+                    </div><br>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="col-xs-6">
+                    <div class="highlight">
+                        <h4 class="subheading">Unit Testing</h4>
+                        <div class="toggle">
+                            <div class="switch">
+                                <input id="enable_unit" name="enable_unit" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabled_unit" (change)="toggleCheckUnit()">
+                                <label for="enable_unit"></label>
+                            </div>
+                            <div class="text">Disable</div>
+                        </div>
+                        <div *ngIf="Testing.unit.configured"><br>
+                            <div class="row">
+                                <label class="col-xs-3" for="unitFramework">Framework</label>
+                                <select name="unitFramework" class="col-xs-6" [(ngModel)]="Testing.unit.framework" #unitFramework="ngModel" required>
+                            <option value="" selected disabled>Select Framework</option>
+                            <option value="JUnit">JUnit</option>
+                        </select>
+                                <div class="col-xs-1 validation" *ngIf="unitFramework.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Unit Framework</span></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-xs-3" for="unitVersion">Version</label>
+                                <select name="unitVersion" class="col-xs-6" [(ngModel)]="Testing.unit.framework_version" #unitVersion="ngModel" required>
+                            <option value="" selected disabled>Select Unit Version</option>
+                            <option value="4">4</option>
+            </select>
+                                <div class="col-xs-1 validation" *ngIf="unitVersion.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Unit Version</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="highlight">
+                        <h4 class="subheading">Functional Testing</h4>
+                        <div class="toggle">
+                            <div class="switch">
+                                <input id="enable_functional" name="enable_functional" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabled_functional" (change)="toggleCheckFunctional()">
+                                <label for="enable_functional"></label>
+                            </div>
+                            <div class="text">Disable</div>
+                        </div>
+                        <div *ngIf="Testing.functional.configured"><br>
+                            <div class="row">
+                                <label class="col-xs-3" for="driver">Driver</label>
+                                <select name="driver" class="col-xs-6" [(ngModel)]="Testing.functional.driver" #driver="ngModel" required>
+                                <option value="" selected disabled>Select Functional Framework</option>
+                                <option value="Selenium">Selenium</option>
+            </select>
+                                <div class="col-xs-1 validation" *ngIf="driver.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Functional Framework</span></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-xs-3" for="functionalFramework">Framework</label>
+                                <select name="functionalFramework" class="col-xs-6" [(ngModel)]="Testing.functional.framework" #functionalFramework="ngModel" required>
+                                <option value="" selected disabled>Select Functional Framework</option>
+                                <option value="Java">Java</option>
+                                <option value="Protractor">Protractor</option>
+                        </select>
+                                <div class="col-xs-1 validation" *ngIf="functionalFramework.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Functional Framework</span></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-xs-3" for="mode">Mode</label>
+                                <select name="mode" class="col-xs-6" [(ngModel)]="Testing.functional.mode" #mode="ngModel" required>
+                            <option value="" selected disabled>Select Mode</option>
+                            <option value="Headless">Headless</option>
+                        </select>
+                                <div class="col-xs-1 validation" *ngIf="mode.invalid && showValidations">
+                                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Mode</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </form>
+</div>

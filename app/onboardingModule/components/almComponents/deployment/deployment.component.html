@@ -1,0 +1,270 @@
+<h4>Deployment</h4>
+<div class="toggle">
+    <div class="switch">
+        <input id="enableDeployment" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabledDeployment" (change)="toggleCheckDeployment()">
+        <label for="enableDeployment"></label>
+    </div>
+    <div class="text">Disable</div>
+</div>
+<div *ngIf="Deployment.configured">
+    <form #deploymentForm="ngForm" id="dpf">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="css3input col-xs-12">
+                    <select name="deployment_type" [(ngModel)]="Deployment.deployment_type" #deployment_type="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option value="vm">VM</option>
+                        <option value="container">Container</option>
+                        <option value="serverless">Serverless</option>
+                    </select>
+                    <label>Deployment Type</label>
+                    <div *ngIf="deployment_type.invalid && showValidations" class="errorMessageNew">Please select a deployment type</div>
+                </div>
+                <div class="css3input col-xs-12">
+                    <select  name="deployment_tool" [(ngModel)]="Deployment.tool" #deployment_tool="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option *ngIf="Deployment.deployment_type==='vm'" value="Jenkins">Ansible</option>
+                        <option *ngIf="Deployment.deployment_type==='container'" value="docker">Docker Swarm</option>
+                        <option *ngIf="Deployment.deployment_type==='container'" value="kubernetes">Kubernetes</option>
+                        <option *ngIf="Deployment.deployment_type==='serverless'"value="awsCloudForm">Aws Cloud Formation</option>
+                    </select>
+                    <label>Deployment Tool</label>
+                    <div *ngIf="deployment_tool.invalid && showValidations" class="errorMessageNew">Please select a deployment tool</div>
+                </div>               
+                <div *ngIf="Deployment.deployment_type!='serverless'"class="css3input col-xs-12">
+                    <input name="application_name" [(ngModel)]="Deployment.application_name" #application_name="ngModel" required autocomplete="off">
+                    <label>Application Name</label>
+                    <div *ngIf="application_name.invalid && showValidations" class="errorMessageNew">Please enter the application name</div>
+                </div>
+            </div>
+            <div class="col-xs-4" style="background-color: rgba(213, 217, 220, 0.57);" *ngIf="Deployment.deployment_type==='serverless'">
+                <h5 style="color: #bcbdbd; margin-bottom: 30px;">App Server
+                    <!--<div class="toggle">
+                        <div class="switch">
+                            <input id="enableAppServer" name="enableAppServer" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabledAppServer" (change)="toggleCheckAppServer()">
+                            <label for="enableAppServer"></label>
+                        </div>
+                        <div class="text">Disable</div>
+                    </div>-->
+                </h5>
+                <div *ngIf="AppServer.configured" class="row">
+                    <div class="css3input col-xs-12">
+                        <select name="appServer_tool" [(ngModel)]="AppServer.tool" #appServer_tool="ngModel" style="color: #bcbdbd;" disabled>
+                            <option value="" selected disabled></option>
+                            <option value="Tomcat">Tomcat</option>
+                        </select>
+                        <label style="color: rgba(146, 146, 146, 0.616)">AppServer</label>
+                
+                    </div><br>
+                    <div class="css3input col-xs-12">
+                        <select name="appServer_toolversion" [(ngModel)]="AppServer.tool_version" #appServer_toolversion="ngModel" style="color: #bcbdbd;" disabled>
+                            <option value="" selected disabled></option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                        <label style="color: #bcbdbd;">Version</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4" *ngIf="Deployment.deployment_type!='serverless'">
+                    <h5 style="    margin-bottom: 30px;">App Server
+                        <!--<div class="toggle">
+                            <div class="switch">
+                                <input id="enableAppServer" name="enableAppServer" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabledAppServer" (change)="toggleCheckAppServer()">
+                                <label for="enableAppServer"></label>
+                            </div>
+                            <div class="text">Disable</div>
+                        </div>-->
+                    </h5>
+                    <div *ngIf="AppServer.configured" class="row">
+                        <div class="css3input col-xs-12">
+                            <select name="appServer_tool" [(ngModel)]="AppServer.tool" #appServer_tool="ngModel" required>
+                                <option value="" selected disabled></option>
+                                <option value="Tomcat">Tomcat</option>
+                            </select>
+                            <label>AppServer</label>
+                            <div *ngIf="appServer_tool.invalid && showValidations" class="errorMessageNew">Please select an appserver</div>
+                        </div><br>
+                        <div class="css3input col-xs-12">
+                            <select name="appServer_toolversion" [(ngModel)]="AppServer.tool_version" #appServer_toolversion="ngModel" required>
+                                <option value="" selected disabled></option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                            <label>Version</label>
+                            <div *ngIf="appServer_toolversion.invalid && showValidations" class="errorMessageNew">Please select an appserver version</div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-xs-4" style="background-color: rgba(213, 217, 220, 0.57);" *ngIf="Deployment.deployment_type==='serverless'">
+                <h5 style="color: #bcbdbd; margin-bottom: 30px;">Database Server
+                    <!--<div class="toggle">
+                        <div class="switch">
+                            <input id="enableDatabase" name="enableDatabase" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabledDatabase" (change)="toggleCheckDatabase()">
+                            <label for="enableDatabase"></label>
+                        </div>
+                        <div class="text">Disable</div>
+                    </div>-->
+                </h5>
+                <div *ngIf="Database.configured" class="row">
+                    <div class="css3input col-xs-12">
+                        <select name="database_tool" [(ngModel)]="Database.tool" #database_tool="ngModel" style="color: #bcbdbd;" disabled>
+                            <option value="" selected disabled></option>
+                            <option value="MySQL">MySQL</option>
+                        </select>
+                        <label style="color: #bcbdbd;">Database</label>
+                    </div><br>
+                    <div class="css3input col-xs-12">
+                        <select name="database_toolversion" [(ngModel)]="Database.tool_version" style="color: #bcbdbd;" #database_toolversion="ngModel" disabled>
+                            <option value="" selected disabled></option>
+                            <option value="5.6">5.6</option>
+                            <option value="5.7">5.7</option>
+                        </select>
+                        <label style="color: #bcbdbd;">Database Version</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4" *ngIf="Deployment.deployment_type!='serverless'">
+                    <h5 style="    margin-bottom: 30px;">Database Server
+                        <!--<div class="toggle">
+                            <div class="switch">
+                                <input id="enableDatabase" name="enableDatabase" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabledDatabase" (change)="toggleCheckDatabase()">
+                                <label for="enableDatabase"></label>
+                            </div>
+                            <div class="text">Disable</div>
+                        </div>-->
+                    </h5>
+                    <div *ngIf="Database.configured" class="row">
+                        <div class="css3input col-xs-12">
+                            <select name="database_tool" [(ngModel)]="Database.tool" #database_tool="ngModel" required>
+                                <option value="" selected disabled></option>
+                                <option value="MySQL">MySQL</option>
+                            </select>
+                            <label>Database</label>
+                            <div *ngIf="database_tool.invalid && showValidations" class="errorMessageNew">Please select a database</div>
+                        </div><br>
+                        <div class="css3input col-xs-12">
+                            <select name="database_toolversion" [(ngModel)]="Database.tool_version" #database_toolversion="ngModel" required>
+                                <option value="" selected disabled></option>
+                                <option value="5.6">5.6</option>
+                                <option value="5.7">5.7</option>
+                            </select>
+                            <label>Database Version</label>
+                            <div *ngIf="database_toolversion.invalid && showValidations" class="errorMessageNew">Please select a database version</div>
+                        </div>
+                    </div>
+                </div>
+    
+
+
+
+
+            <!--<div class="highlight">
+                <div class="row">
+                    <label class="col-md-12 labelAbove" for="deployment_tool">Deployment Tool</label>
+                    <select name="deployment_tool" class="col-md-9" [(ngModel)]="Deployment.tool" #deployment_tool="ngModel" required>
+                            <option value="" selected disabled>Select Tool</option>
+                            <option value="Jenkins">Ansible</option>
+                        </select>
+                    <div class="col-md-1 validation" *ngIf="deployment_tool.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Deployment Tool</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-12 labelAbove" for="deployment_type">Deployment Type</label>
+                    <select name="deployment_type" class="col-md-9" [(ngModel)]="Deployment.deployment_type" #deployment_type="ngModel" required>
+                            <option value="" selected disabled>Select Type</option>
+                            <option value="vm">VM</option>
+                            <option value="container">Container</option>
+                        </select>
+                    <div class="col-md-1 validation" *ngIf="deployment_type.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Deployment Tool</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-12 labelAbove" for="application_name">Application Name</label>
+                    <input class="col-md-9" placeholder="Enter Application Name" name="resultNotification" [(ngModel)]="Deployment.application_name" #application_name="ngModel" required>
+                    <div class="col-md-1 validation" *ngIf="application_name.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Deployment Tool</span></div>
+                    </div>
+                </div>
+            </div>-->
+            <!--<div class="row">
+                    <label class="col-md-12 labelAbove" for="type">Type</label>
+                    <select name="type" class="col-md-9" [(ngModel)]="SourceControl.tool" #tool="ngModel" required>
+                    <option value="" selected disabled>Select Type</option>
+                    <option value="vm">VM</option>
+                    <option value="docker">Docker</option> 
+                </select>
+                </div>-->
+            <!--</div>
+        <div class="col-md-4">
+            <div class="highlight">
+                <div class="toggle">
+                    <div class="switch">
+                        <input id="enableAppServer" name="enableAppServer" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabledAppServer" (change)="toggleCheckAppServer()">
+                        <label for="enableAppServer"></label>
+                    </div>
+                    <div class="text">Disable</div>
+                </div>
+                <div *ngIf="AppServer.configured"><br>
+                    <div class="row">
+                        <label class="col-md-12 labelAbove" for="appServer_tool">App server</label>
+                        <select name="appServer_tool" class="col-md-9" [(ngModel)]="AppServer.tool" #appServer_tool="ngModel" required>
+                                <option value="" selected disabled>Select App Server</option>
+                                <option value="tomcat">Tomcat</option>
+                            </select>
+                        <div class="col-md-1 validation" *ngIf="appServer_tool.invalid && showValidations">
+                            <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a App Server Tool</span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-12 labelAbove" for="appServer_toolversion">Version</label>
+                        <select name="appServer_toolversion" class="col-md-9" [(ngModel)]="AppServer.tool_version" #appServer_toolversion="ngModel" required>
+                                <option value="" selected disabled>Select Server Version</option>
+                                <option value="8">8</option>
+                                <option value="7">7</option> 
+                            </select>
+                        <div class="col-md-1 validation" *ngIf="appServer_toolversion.invalid && showValidations">
+                            <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a App Server Tool Version</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="highlight">
+                <div class="toggle">
+                    <div class="switch">
+                        <input id="enableDatabase" name="enableDatabase" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabledDatabase" (change)="toggleCheckDatabase()">
+                        <label for="enableDatabase"></label>
+                    </div>
+                    <div class="text">Disable</div>
+                </div>
+                <div *ngIf="Database.configured"><br>
+                    <div class="row">
+                        <label class="col-md-12 labelAbove" for="database_tool">Database</label>
+                        <select name="database_tool" class="col-md-9" [(ngModel)]="Database.tool" #database_tool="ngModel" required>
+                            <option value="" selected disabled>Select Database</option>
+                            <option value="mysql">MySQL</option>
+                        </select>
+                        <div class="col-md-1 validation" *ngIf="database_tool.invalid && showValidations">
+                            <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Database Tool</span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-12 labelAbove" for="database_toolversion">Version</label>
+                        <select name="database_toolversion" class="col-md-9" [(ngModel)]="Database.tool_version" #database_toolversion="ngModel" required>
+                            <option value="" selected disabled>Select Database Version</option>
+                            <option value="5.6">5.6</option>
+                            <option value="5.7">5.7</option> 
+                        </select>
+                        <div class="col-md-1 validation" *ngIf="database_toolversion.invalid && showValidations">
+                            <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Database Tool Version</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </form>
+</div>

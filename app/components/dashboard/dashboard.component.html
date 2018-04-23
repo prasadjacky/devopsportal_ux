@@ -1,0 +1,237 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="dashBoardMenu">
+
+            <div id="Card1">
+                <div class="col-md-14 col-sm-12 col-xs-12 c1">
+                    <div class="row card5Heading">
+                        <div class="col-md-6 col-sm-6 col-xs-6 c1 visual">
+                            <i class="folder open icon"></i>
+                        </div>
+                        <div class=" col-md-6 col-sm-6 col-xs-6 c1 figures">
+                            <span>{{projectsCount}}</span>
+                        </div>
+                        <div *ngIf="isRlmApplication" class=" col-md-12 col-sm-12 col-xs-12 c1 figuresHeading">Applications</div>
+                        <div *ngIf="!isRlmApplication" class=" col-md-12 col-sm-12 col-xs-12 c1 figuresHeading">Projects</div>
+                    </div>
+
+                </div>
+                <versionChart></versionChart>
+
+            </div>
+            <div id="Card1">
+                <div class="col-md-14 col-sm-12 col-xs-12 c2">
+                    <div class="row card2Heading">
+                        <div class=" col-md-6 col-sm-6 col-xs-6 c2 visual">
+                            <i class="hourglass half icon"></i>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 c2 figures">
+                            <span>{{technicalDebt}}hrs</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 c2 figuresHeading">Technical Debt</div>
+                    </div>
+                </div>
+                <chart12></chart12>
+            </div>
+            <div id="Card1">
+                <div class="col-md-14 col-sm-12 col-xs-12 c3">
+                    <div class="row card1Heading">
+                        <div class=" col-md-6 col-sm-6 col-xs-6 c3 visual">
+                            <i class="cube icon"></i>
+                        </div>
+                        <div class=" col-md-6 col-sm-6 col-xs-6 c3 figures">
+                            <span>{{buildSuccessRatio}}%</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 c3 figuresHeading">Build Success Ratio</div>
+                    </div>
+                </div>
+                <chart9></chart9>
+            </div>
+            <div id="Card1">
+                <div class="col-md-14 col-sm-12 col-xs-12 c4">
+                    <div class="row card3Heading">
+                        <div class=" col-md-6 col-sm-6 col-xs-6 c4 visual">
+                            <i class="bug icon"></i>
+                        </div>
+                        <div class=" col-md-6 col-sm-6 col-xs-6 c4 figures">
+                            <span>{{bugRatio}}%</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 c4 figuresHeading">Bug Ratio</div>
+                    </div>
+                </div>
+                <chart10></chart10>
+            </div>
+            <div id="Card1">
+                <div class="col-md-14 col-sm-12 col-xs-12 c5">
+                    <div class="row card4Heading">
+                        <div class="col-md-6 col-sm-6 col-xs-6 c5 visual">
+                            <i class="check circle outline icon"></i>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 c5 figures">
+                            <span>{{testCoverage}}%</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 c5 figuresHeading">Test Coverage</div>
+                    </div>
+                </div>
+                <chart11></chart11>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="isRlmApplication" class="row">
+        <div id="dashBoardMenu">
+            <div id="rlmCard1">
+                <div class="col-md-14 col-sm-12 col-xs-12 c1">
+                    <div class="row card6Heading">
+                        <div class=" col-md-6 col-sm-6 col-xs-6 c1 rlmfigures">
+                            <span>{{totalRLMReleaseCount}}</span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 c1 visual">
+                            <i class="folder open icon"></i>
+                        </div>
+                        <div class=" col-md-12 col-sm-12 col-xs-12 c1 card6figuresHeadingRLM">Application Releases</div>
+                        <!-- <div class=" col-md-2 col-sm-2 col-xs-2 c1">
+                            <ul class="nav nav-pills">
+                                <li class="dropdown css3input0">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                        <i class="filter icon rlmTimeFilter"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" id="menu1">
+                                        <li>
+                                            <label>Year :</label>
+                                            <select id="rlmTimeFilterYear">
+                                                <option>2017</option>
+                                                <option>2018</option>                                                
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <label>Month :</label>
+                                            <select id="rlmTimeFilterMonth">
+                                                <option>January</option>
+                                                <option>February</option>
+                                                <option>March</option>
+                                                <option>April</option>
+                                                <option>June</option>
+                                                <option>July</option>
+                                                <option>August</option>
+                                                <option>September</option>
+                                                <option>October</option>
+                                                <option>November</option>
+                                                <option>December</option>
+                                            </select>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div class=" col-md-10 col-sm-10 col-xs-10 c1 card6figuresHeadingEnd">In {{monthYear}}</div>
+                    </div>
+                </div>
+            </div>
+            <div id="rlmCard">
+                <div class="col-md-14 col-sm-12 col-xs-12 c1">
+                    <div class="row cardHeadingShort">
+                        <div class=" col-md-12 col-sm-12 col-xs-12 c1 figuresHeadingRLM">Orchestrations by ENV In {{monthYear}}</div>
+                    </div>
+                    <div class="row rlmChartSubCard">
+                        <div class=" col-md-12 col-sm-12 col-xs-12 c1">
+                            <envTypeReleaseChart></envTypeReleaseChart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="rlmCard">
+                <div class="col-md-14 col-sm-12 col-xs-12 c1">
+                    <div class="row cardHeadingShort">
+                        <div class=" col-md-12 col-sm-12 col-xs-12 c1 figuresHeadingRLM">Orchestrations by Status In {{monthYear}}</div>
+                    </div>
+                    <div class="row rlmChartSubCard">
+                        <div class=" col-md-12 col-sm-12 col-xs-12 c1">
+                            <statusWiseReleaseChart></statusWiseReleaseChart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="rlmCard">
+                <div class="col-md-14 col-sm-12 col-xs-12 c1">
+                    <div class="row cardHeadingShort">
+                        <div class=" col-md-12 col-sm-12 col-xs-12 c1 figuresHeadingRLM">Top 10 App Releases In {{monthYear}}</div>
+                    </div>
+                    <div class="row rlmChartSubCard">
+                        <div align="center" class=" col-md-12 col-sm-12 col-xs-12 c1">
+                            <top10ReleaseChart></top10ReleaseChart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<button data-toggle="modal" href="#filterModal" class="circular ui icon button filtericon2">
+    <i class="icon options" style="color: white;"></i>
+</button>
+<div class="modal fade in" id="filterModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Filters</h4>
+            </div>
+            <div class="modal-body">
+                <div id="exTab3" class="navbar navbar-default top-nav">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#1b" data-toggle="tab">Type</a>
+                        </li>
+                        <li>
+                            <a href="#2b" data-toggle="tab">Health</a>
+                        </li>
+                        <li>
+                            <a href="#3b" data-toggle="tab">Manager</a>
+                        </li>
+                        <li>
+                            <a href="#4b" data-toggle="tab">LoB</a>
+                        </li>
+                        <li>
+                            <a href="#5b" data-toggle="tab">Region</a>
+                        </li>
+                        <li>
+                            <a href="#6b" data-toggle="tab">Technology</a>
+                        </li>
+                        <li *ngIf="isRlmApplication">
+                            <a href="#7b" data-toggle="tab">Time</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="1b">
+                        <filterchart1 (typeFilterEvent)="updateFilterList($event, 'Type')"></filterchart1>
+                    </div>
+                    <div class="tab-pane fade" id="2b">
+                        <filterchart2 (healthFilterEvent)="updateFilterList($event, 'Health')"></filterchart2>
+                    </div>
+                    <div class="tab-pane fade" id="3b">
+                        <filterchart3 (managerFilterEvent)="updateFilterList($event, 'Manager')"></filterchart3>
+                    </div>
+                    <div class="tab-pane fade " id="4b">
+                        <filterchart4 (lobFilterEvent)="updateFilterList($event, 'LoB')"></filterchart4>
+                    </div>
+                    <div class="tab-pane fade " id="5b">
+                        <filterchart5 (regionFilterEvent)="updateFilterList($event, 'Region')"></filterchart5>
+                    </div>
+                    <div class="tab-pane fade " id="6b">
+                        <filterchart6 (technologyFilterEvent)="updateFilterList($event, 'Technology')"></filterchart6>
+                    </div>
+                    <div class="tab-pane fade " id="7b">
+                        <filterchart7 (timeFilterEvent)="updateFilterList($event, 'Time')"></filterchart7>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                                              <a href="#" data-dismiss="modal" class="btn">Close</a>
+                                              <a href="#" class="btn btn-primary">Save changes</a>
+                                            </div> -->
+        </div>
+    </div>
+</div>

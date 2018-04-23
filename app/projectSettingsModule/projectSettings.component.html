@@ -1,0 +1,70 @@
+<!--<div class="container-fluid">
+    <div class="row pad">
+        <div class="col-md-9">
+            <h3>Administration</h3>
+        </div>
+        <div class="col-md-3 text-right">
+            <a [routerLink]="['/Dashboard']" class="btn">Back to Dashboard</a>
+        </div>
+    </div><br>
+    <div class="container-fluid" id="SettingsTab">
+        <div class="col-md-12 navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li class="active"><a class="active" href="#General" data-toggle="tab">General</a></li>
+                <li><a href="#UserManagement" data-toggle="tab">Users</a></li>
+                <li><a href="#ALMTools" data-toggle="tab">Tools</a></li>
+                <li><a href="#EnvironmentInformation" data-toggle="tab">Environment</a></li>
+            </ul>
+        </div>
+        <div class="col-md-12 tab-content">
+            <div class="tab-pane active" id="General">
+                <general></general>
+            </div>
+            <div class="tab-pane" id="UserManagement">
+                <users></users>
+            </div>
+            <div class="tab-pane" id="ALMTools">
+                <almTools></almTools>
+            </div>
+            <div class="tab-pane" id="EnvironmentInformation">
+                <environment></environment>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="container" id="ProjectSettingsTab">
+    <div class="row">
+        <div class="col-xs-9">
+            <h3 class="settingsHead">Project Settings</h3>
+        </div>
+    </div><br>
+    <div id="SettingsTab">
+        <div class="navbar navbar-default top-nav">
+            <ul class="nav navbar-nav">
+                <li class="active"><a class="active" href="#General" data-toggle="tab">Project</a></li>
+                <li><a href="#UserManagement" data-toggle="tab">Users</a></li>
+                <li><a href="#ALMTools" data-toggle="tab">Tools</a></li>
+                <li><a href="#EnvironmentInformation" data-toggle="tab">Environment</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <!--General-->
+            <div class="tab-pane active" id="General">
+                <general></general>
+            </div>
+            <!--Users-->
+            <div class="tab-pane" id="UserManagement">
+                <users></users>
+            </div>
+            <!--Tools-->
+            <div class="tab-pane" id="ALMTools">
+                <almTools></almTools>
+            </div>
+            <!--Environment-->
+            <div class="tab-pane" id="EnvironmentInformation">
+                <environment></environment>
+            </div>
+        </div>
+    </div>
+</div>

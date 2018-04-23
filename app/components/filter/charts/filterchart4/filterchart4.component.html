@@ -1,0 +1,73 @@
+<div id="filterTab4">
+    <!-- <div style="display: flex">
+        <div>
+            <h5 class="modal-title">Applied Filters :</h5>
+        </div>
+        <div>
+            <ul id="appliedFiltersList">
+                <li *ngFor="let filter of appliedLoBFilters; let i = index" (click)="removeAppliedFilter('LoB',filter)">
+                    <span>
+                        <i class="remove thin icon"></i>
+                    </span>
+                    {{filter}}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="appliedLoBFilters.length>1" (click)="clearTypeAppliedFilterList()">
+            <span id="appliedFiltersListClearAll">
+                <i class="remove circle icon"></i>
+                <span style="font-size: 1vw;">
+                    CLEAR ALL
+                </span>
+            </span>
+        </div>
+    </div> -->
+    <div class="row" *ngIf="appliedLoBFilters.length>0">
+        <div class="col-lg-2">
+            <h5 class="modal-title">Applied Filters :</h5>
+        </div>
+        <div class="col-lg-7" id="appliedFiltersDiv">
+            <ul id="appliedFiltersList">
+                <li *ngFor="let filter of appliedLoBFilters; let i = index" (click)="removeAppliedFilter('LoB',filter)">
+                    <span>
+                        <i class="remove thin icon"></i>
+                    </span>
+                    {{filter}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-3" *ngIf="appliedLoBFilters.length>1" (click)="clearTypeAppliedFilterList()">
+            <span id="appliedFiltersListClearAll">
+                <i class="remove circle icon"></i>
+                <span style="font-size: 1vw;">
+                    CLEAR ALL
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div style="display: block" align="center">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                [chartType]="barChartType" [colors]="filterchart1Colors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+            </canvas>
+        </div>
+        <div class="filter-table">
+            <table class="table table-hover table-bordered" id="FilterLob">
+                <tr *ngFor="let filterValue of projectLob; let i = index">
+                    <td>
+                        <div class="checkbox">
+                            <label style="width:100%;">
+                                <input id="dynamicFilterElementLoB{{filterValue}}" type="checkbox" value={{filterValue}} (change)="typeAppliedFilter($event,'LoB',filterValue)"
+                                    style="width:100%;">
+                                <span class="cr">
+                                    <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                </span>
+                                {{filterValue}}
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+/*.tab-head {
+    color: #2980b9;
+    font-size: 1.5em;
+    margin: 5px;
+}*/
+
+.progressCards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: flex-start;
+    -ms-flex-pack: flex-start;
+    justify-content: flex-start;
+}
+
+.progressCard {
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 30px;
+    /*margin: 5px;*/
+    /*padding: 10px;*/
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    /*box-shadow: 5px 5px 5px #DDD;*/
+    border: 1px solid #DDD;
+    border-width: 1px 1px 0px;
+}
+
+.progressCard:nth-last-child(2) {
+    border-bottom-width: 1px;
+}
+
+.progressCard:last-child {
+    width: 50%;
+    margin: 30px;
+    font-size: x-large;
+    height: 50px;
+}
+
+.progressCard:last-child i {
+    width: 10%;
+    padding: 10px;
+    margin-right: 0px !important;
+}
+
+.progressCard>i {
+    display: flex;
+    height: 100%;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.progressCard>i.fa-check {
+    color: #fff;
+    background: #20ae60;
+}
+
+.progressCard>i.fa-square-o {
+    color: #fff;
+}
+
+.progressCard>i.fa-times {
+    color: #fff;
+    background: #ff4500;
+}
+
+.progressCard>i.fa-spin {
+    color: #3498db;
+}
+
+#OnboardingProgress {
+    margin-bottom: 0px;
+    height: 25px;
+}
+
+div#ProgressText {
+    text-align: center;
+    position: relative;
+    bottom: 110px;
+}
+
+.progressContent {
+    display: flex;
+    width: 100%;
+    padding: 0px 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progressStats {
+    display: flex;
+    width: 10%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tooltipIcon {
+    color: #808080;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+}
+
+.tooltipIcon .tooltipMessage {
+    visibility: hidden;
+    height: 24px;
+    padding: 0px 10px 3px;
+    border-radius: 4px;
+    color: #fff;
+    background: #3498db;
+    justify-content: flex-end;
+    display: inline-flex;
+    align-items: flex-end;
+    position: absolute;
+    z-index: 1;
+    right: 150%;
+    margin-right: -12px;
+    transition: all 0.2s ease-out;
+}
+
+.tooltipIcon .tooltipMessage::after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: 100%;
+    margin-right: -3px;
+    border: 5px solid transparent;
+    border-left-color: #3498db;
+}
+
+.tooltipIcon:hover .tooltipMessage {
+    visibility: visible;
+    right: 200%;
+}

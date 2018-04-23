@@ -1,0 +1,23 @@
+.br {
+    padding: 20px!important;
+    padding-bottom: 0px!important;
+}
+
+h4 {
+    margin: 10px 0px 13px;
+}
+
+h5 {
+    margin: 0px 0px 25px 0px;
+}
+
+.box {
+    background-color: #efefef;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border: 1px solid #d8d2d2;
+}
+
+.active {
+    border: 2px solid #3498db;
+}

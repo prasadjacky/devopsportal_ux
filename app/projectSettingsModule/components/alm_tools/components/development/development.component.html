@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <h4>Development</h4><br>
+    <div class="container-fluid br">
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="platform" [ngModel]="Development.platform"  readonly>
+                <label>Build Platform</label>
+            </div>
+            <div class="css3input col-xs-6">
+                <input name="platform_version" [ngModel]="Development.platform_version"  readonly>
+                <label>Platform Version</label>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="css3input col-xs-4">
+                <input name="build_tool" [ngModel]="Development.build_tool"  readonly>
+                <label>Build Tool</label>
+            </div>
+            <div class="css3input col-xs-4">
+                <input name="build_tool_version" [ngModel]="Development.build_tool_version"  readonly>
+                <label>Tool Version</label>
+            </div>
+            <div class="toggle col-xs-4">
+                <div class="text">Build Proxy Required</div>
+                <div class="switch">
+                    <input id="build_proxy_required" name="build_proxy_required" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [ngModel]="Development.build_proxy_required">
+                    <label for="build_proxy_required"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

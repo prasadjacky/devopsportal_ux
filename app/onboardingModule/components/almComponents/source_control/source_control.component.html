@@ -1,0 +1,60 @@
+<h4>Source Control</h4>
+<form #sourceControlForm="ngForm" id="scf">
+    <div class="form-align"></div>
+    <div class="row">
+        <div class="css3input col-xs-6">
+            <select name="tool" [(ngModel)]="SourceControl.tool" #tool="ngModel" required>
+                <option value="" selected disabled></option>
+                <option value="Bitbucket">Bitbucket</option>
+            </select>
+            <label>SCM Tool</label>
+            <div *ngIf="tool.invalid && showValidations" class="errorMessageNew">Please select a scm tool</div>
+        </div>
+        <div class="css3input col-xs-6">
+            <select name="platform_tool" [(ngModel)]="SourceControl.platform_tool" #platform_tool="ngModel" required>
+                <option value="" selected disabled></option>
+                <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+            </select>
+            <label>Tool Instance</label>
+            <div *ngIf="platform_tool.invalid && showValidations" class="errorMessageNew">Please select a tool instance</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="css3input col-xs-6">
+            <input name="repo_name" [(ngModel)]="SourceControl.repo_name" #repo_name="ngModel" (input)="onChange($event.target.value)" required autocomplete="off">
+            <label>Repository Name</label>
+            <div *ngIf="repo_name.invalid && showValidations" class="errorMessageNew">Please enter a repository name</div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <label class="col-xs-2" for="tool">SCM Tool</label>
+                <select name="tool" class="col-xs-4" [(ngModel)]="SourceControl.tool" #tool="ngModel" required>
+                    <option value="" selected disabled>Select SCM Tool</option>
+                    <option value="Bitbucket">Bitbucket</option>
+                </select>
+                <div class="col-md-1 validation" *ngIf="tool.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-xs-2" for="toolInstance">Tool Instance</label>
+                <select name="toolInstance" class="col-xs-4" [(ngModel)]="SourceControl.platform_tool" #toolInstance="ngModel" required>
+                    <option value="" selected disabled>Select SCM Tool</option>
+                    <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+                </select>
+                <div class="col-md-1 validation" *ngIf="toolInstance.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-xs-2" for="repo_name">Repo Name</label>
+                <input class="col-xs-4" placeholder="Enter Repo Name" name="repo_name" [(ngModel)]="SourceControl.repo_name" #repo_name="ngModel" required>
+                <div class="col-md-1 validation" *ngIf="repo_name.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Enter a Branch Name</span></div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</form>

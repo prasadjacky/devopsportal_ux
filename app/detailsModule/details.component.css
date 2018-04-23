@@ -1,0 +1,152 @@
+div.myHeader {
+    background-color: #3a7ca3;
+    color: white;
+    /*font-family: Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif;*/
+    padding-top: 10px;
+}
+
+#ptitle {
+    font-size: medium;
+}
+
+div.divColor {
+    background-color: #efefef;
+}
+
+
+/*i.fa-desktop {
+    color: #50dcfc;
+}*/
+
+.pad {
+    padding-left: 0px;
+}
+
+.link {
+    color: #3a7ca3;
+}
+
+
+/*.container-fluid {
+    font-family: Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}*/
+
+.label1 {
+    /*font-family: Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif;*/
+    font-size: 20;
+}
+
+.label2 {
+    /*font-family: Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif;*/
+    font-size: 14;
+}
+
+
+/*.css3btn-group {
+    background: #34aae8;
+}
+
+.css3btn-group>.css3btn {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+.css3btn-group .css3btn-head {
+    min-width: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.css3btn-group .css3btn-body {
+    min-width: 120px;
+}*/
+
+.css3btn-group2 {
+    background: #34aae8;
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: auto;
+    /*margin-left: 5px;*/
+}
+
+.css3btn-group2>.css3btn2 {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+.css3btn-group2 .css3btn-head2 {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.css3btn-group-outline2 {
+    background: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-left: 5px;
+    float: right;
+    height: 30px;
+    cursor: pointer;
+}
+
+.css3btn-group-outline2>.css3btn2 {
+    border-radius: 0px;
+    color: #666666;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+.css3btn-group-outline2 .css3btn-head2 {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.pipelineBtn2 {
+    display: flex;
+    flex-direction: row;
+    padding-right: 0px;
+}
+
+@media screen and (max-width: 1244px) and (min-width:997px) {
+    .c1 {
+        width: 50%;
+    }
+    .c2 {
+        width: 50%;
+    }
+    .c3 {
+        width: 50%;
+        padding-left: 15px;
+    }
+    .c4 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:996px) {
+    .c1,
+    .c2,
+    .c3,
+    .c4 {
+        width: 100%
+    }
+    .c2,
+    .c3,
+    .c4 {
+        padding-left: 15px;
+    }
+}

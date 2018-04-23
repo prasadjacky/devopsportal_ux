@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <h4>Project Information</h4>
+    <br>
+    <div class="container-fluid br">
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="project_name" [ngModel]="ProjectInformation.project_name" readonly>
+                <label>Project Name</label>
+            </div>
+            <div class="css3input col-xs-6">
+                <input name="project_key" [ngModel]="ProjectInformation.project_key" readonly>
+                <label>Project Key</label>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="project_type" [ngModel]="ProjectInformation.project_type" readonly>
+                <label>Project Type</label>
+            </div>
+            <div class="css3input col-xs-6">
+                <input name="manager" [ngModel]="ProjectInformation.project_organization.manager" readonly>
+                <label>Manager</label>
+            </div>
+        </div>
+    </div>
+</div>

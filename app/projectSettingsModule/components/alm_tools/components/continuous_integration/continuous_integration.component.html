@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <h4>Continuous Integration</h4>
+    <br>
+    <div class="container-fluid br">
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="tool" [ngModel]="ContinuousIntegration.tool" readonly>
+                <label>Continuous Integration Tool</label>
+            </div>
+            <div class="css3input col-xs-6">
+                <input name="platform_tool" [ngModel]="ContinuousIntegration.platform_tool" readonly>
+                <label>Tool Instance</label>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="trigger_type" [ngModel]="ContinuousIntegration.trigger_type" readonly>
+                <label>Trigger Type</label>
+            </div>
+            <div class="css3input col-xs-6">
+                <input name="build_agent_label" [ngModel]="ContinuousIntegration.build_agent_label" readonly>
+                <label>Agent Label</label>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <input name="ci_project_name" [ngModel]="ContinuousIntegration.ci_project_name" readonly>
+                <label>Project Name</label>
+            </div>
+            <div class="css3input col-xs-6">
+                <input name="ci_project_url" [ngModel]="ContinuousIntegration.ci_project_url" readonly>
+                <label>Project Url</label>
+            </div>
+        </div>
+    </div>
+</div>

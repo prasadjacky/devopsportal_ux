@@ -1,0 +1,838 @@
+<!--<html> 
+<head>
+	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <h3> Settings </h3>
+</head>
+<body>-->
+<div class="generalAdminHeading aui-page-header">
+    <div class="aui-page-header-inner">
+        <div class="aui-page-header-main">
+            <ol class="aui-nav aui-nav-horizontal" resolved="">
+                <li>
+                    <h1>Administration</h1>
+                </li>
+            </ol>
+        </div>
+        <div>
+            <a id="proj-config-return-link" class="aui-button back-to-proj-config" href="#" tabindex="0">Back to Settings</a></div>
+    </div>
+</div>
+
+
+<div>
+    <nav id="admin-nav-heading" class="aui-navgroup aui-navgroup-horizontal">
+        <div class="aui-navgroup-inner">
+            <div class="aui-navgroup-primary">
+                <ul class="aui-nav" resolved="">
+                    <div>
+                        <li>
+                            <a href="#">
+                                <span>General Settings</span>
+                            </a>
+                        </li>
+                    </div>
+                    <li class="aui-nav-selected">
+                        <a href="#">
+                            <span>User Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>ALM Tools </span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+            <!-- .aui-navgroup-primary -->
+        </div>
+        <!-- .aui-navgroup-inner -->
+    </nav>
+
+
+</div>
+
+<!-- User Management -->
+
+<div class="aui-page-panel">
+    <div class="aui-page-panel-inner">
+        <div class="aui-navgroup aui-navgroup-container">
+            <div>
+                <nav class="aui-navgroup aui-navgroup-vertical">
+                    <div class="aui-navgroup-inner">
+                        <div class="admin-menu-links">
+                            <ul class="aui-nav" resolved>
+                                <li class="aui-nav-selected">
+                                    <a href="#">Roles</a>
+                                </li>
+
+                                <li class="aui-nav-selected">
+                                    <a href="#">Users</a>
+                                </li>
+
+                                <li class="aui-nav-selected">
+                                    <a href="#">User Directory</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+
+        <!-- form content -->
+        <section class="aui-page-panel-content">
+            <header class="aui-page-content-header">
+                <div class="aui-page-header-inner">
+                    <div class="aui-page-header-main">
+                        <h2 id="view-projects-header">Roles</h2>
+                    </div>
+
+                    <div class="aui-page-header-actions">
+                        <!--<div class="aui-buttons">-->
+                        <!-- <span class="aui-icon aui-icon-small aui-iconfont-add">Create</span> -->
+                        <a href="#"> <i class="material-icons">add_circle</i></a>
+
+
+                        <!--<a id="add_project" class="aui-button add-project-trigger" href="?atl_token=BZ9I-G1K8-2L8A-830S%7Ccd638f9af41476d6b1aee35c300280b92be25cd5%7Clin">-->
+                        <!--Create-->
+                        <!--</a> 
+                    </div>-->
+                    </div>
+
+                </div>
+            </header>
+
+            <table id="role-list" class="aui">
+                <thead>
+                    <tr>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th class="project-list-type">D</th>
+                        <th>E</th>
+                        <th>F</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr data-project-key="aa">
+                        <td data-cell-type="name">
+                            <a id="view-project-10100" href="#">AngularJavaApp</a>
+                        </td>
+                        <td data-cell-type="key">aa</td>
+                        <td class="cell-type-project-type" data-cell-type="project-type">
+                            <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDMwMCAzMDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwMCAzMDA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJMYXllcl8yIj4NCgk8cGF0aCBzdHlsZT0iZmlsbDojRjc5MjMyOyIgZD0iTTE1MCwwQzY2LjY2NywwLDAsNjYuNjY3LDAsMTUwczY2LjY2NywxNTAsMTUwLDE1MHMxNTAtNjYuNjY3LDE1MC0xNTBTMjMzLjMzMywwLDE1MCwweg0KCQkgTTEzNi42NjcsMTc4LjMzM0wxMjUsMTkwbC00MS42NjctNDBMOTUsMTM4LjMzM2wzMC0zMEwxMzYuNjY3LDEyMGwtMzAsMzBMMTM2LjY2NywxNzguMzMzeiBNMjA1LDE2MS42NjdsLTMwLDMwTDE2My4zMzMsMTgwDQoJCWwzMC0zMGwtMzAtMzBMMTc1LDEwOC4zMzNMMjE2LjY2NywxNTBMMjA1LDE2MS42Njd6Ii8+DQo8L2c+DQo8Zz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojRkZGRkZGOyIgcG9pbnRzPSIxNzUsMTkxLjY2NyAyMDUsMTYxLjY2NyAyMTYuNjY3LDE1MCAxNzUsMTA4LjMzMyAxNjMuMzMzLDEyMCAxOTMuMzMzLDE1MCAxNjMuMzMzLDE4MCAJIi8+DQoJPHBvbHlnb24gc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHBvaW50cz0iMTI1LDEwOC4zMzMgOTUsMTM4LjMzMyA4My4zMzMsMTUwIDEyNSwxOTAgMTM2LjY2NywxNzguMzMzIDEwNi42NjcsMTUwIDEzNi42NjcsMTIwIAkiLz4NCjwvZz4NCjwvc3ZnPg0K" class="project-type-icon"> -->
+                            <span>Software</span>
+                        </td>
+                        <td class="cell-type-url" data-cell-type="url">
+
+                            No URL
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="lead">
+
+                            <a class="user-hover" rel="devopsadmin" id="view_AJ_projects_devopsadmin" href="#">Admin</a>
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="default-assignee">
+
+                            Unassigned
+
+                        </td>
+                        <td class="cell-type-category" data-cell-type="category">
+
+                        </td>
+
+                        <td data-cell-type="operations">
+                            <ul class="operations-list">
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">edit</i> </a>
+                                    <!--<a class="trigger-dialog stacked-dialog edit-project" id="edit-project-10100" href="#">
+                                        Edit
+                                    </a>-->
+                                </li>
+
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">delete</i> </a>
+                                    <!--<a class="delete-project" id="delete_project_10100" href="#">Delete</a>-->
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr data-project-key="bb">
+
+                        <td data-cell-type="name">
+                            <a id="view-project-10100" href="#">AngularJavaApp</a>
+                        </td>
+                        <td data-cell-type="key">bb</td>
+                        <td class="cell-type-project-type" data-cell-type="project-type">
+                            <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDMwMCAzMDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwMCAzMDA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJMYXllcl8yIj4NCgk8cGF0aCBzdHlsZT0iZmlsbDojRjc5MjMyOyIgZD0iTTE1MCwwQzY2LjY2NywwLDAsNjYuNjY3LDAsMTUwczY2LjY2NywxNTAsMTUwLDE1MHMxNTAtNjYuNjY3LDE1MC0xNTBTMjMzLjMzMywwLDE1MCwweg0KCQkgTTEzNi42NjcsMTc4LjMzM0wxMjUsMTkwbC00MS42NjctNDBMOTUsMTM4LjMzM2wzMC0zMEwxMzYuNjY3LDEyMGwtMzAsMzBMMTM2LjY2NywxNzguMzMzeiBNMjA1LDE2MS42NjdsLTMwLDMwTDE2My4zMzMsMTgwDQoJCWwzMC0zMGwtMzAtMzBMMTc1LDEwOC4zMzNMMjE2LjY2NywxNTBMMjA1LDE2MS42Njd6Ii8+DQo8L2c+DQo8Zz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojRkZGRkZGOyIgcG9pbnRzPSIxNzUsMTkxLjY2NyAyMDUsMTYxLjY2NyAyMTYuNjY3LDE1MCAxNzUsMTA4LjMzMyAxNjMuMzMzLDEyMCAxOTMuMzMzLDE1MCAxNjMuMzMzLDE4MCAJIi8+DQoJPHBvbHlnb24gc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHBvaW50cz0iMTI1LDEwOC4zMzMgOTUsMTM4LjMzMyA4My4zMzMsMTUwIDEyNSwxOTAgMTM2LjY2NywxNzguMzMzIDEwNi42NjcsMTUwIDEzNi42NjcsMTIwIAkiLz4NCjwvZz4NCjwvc3ZnPg0K" class="project-type-icon"> -->
+                            <span>Software</span>
+                        </td>
+                        <td class="cell-type-url" data-cell-type="url">
+
+                            No URL
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="lead">
+
+                            <a class="user-hover" rel="rahul" id="view_DOP_projects_rahul" href="#">Name</a>
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="default-assignee">
+
+                            Project Lead
+
+                        </td>
+                        <td class="cell-type-category" data-cell-type="category">
+
+                        </td>
+                        <td data-cell-type="operations">
+                            <ul class="operations-list">
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">edit</i> </a>
+                                    <!--<a class="trigger-dialog stacked-dialog edit-project" id="edit-project-10200" href="#">
+                                        Edit
+                                    </a>-->
+                                </li>
+
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">delete</i> </a>
+                                    <!--<a class="delete-project" id="delete_project_10200" href="#">Delete</a>-->
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr data-project-key="cc">
+
+                        <td data-cell-type="name">
+                            <a id="view-project-10000" href="#">AngularJavaApp</a>
+                        </td>
+                        <td data-cell-type="key">cc</td>
+                        <td class="cell-type-project-type" data-cell-type="project-type">
+                            <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDMwMCAzMDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwMCAzMDA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJMYXllcl8yIj4NCgk8cGF0aCBzdHlsZT0iZmlsbDojRjc5MjMyOyIgZD0iTTE1MCwwQzY2LjY2NywwLDAsNjYuNjY3LDAsMTUwczY2LjY2NywxNTAsMTUwLDE1MHMxNTAtNjYuNjY3LDE1MC0xNTBTMjMzLjMzMywwLDE1MCwweg0KCQkgTTEzNi42NjcsMTc4LjMzM0wxMjUsMTkwbC00MS42NjctNDBMOTUsMTM4LjMzM2wzMC0zMEwxMzYuNjY3LDEyMGwtMzAsMzBMMTM2LjY2NywxNzguMzMzeiBNMjA1LDE2MS42NjdsLTMwLDMwTDE2My4zMzMsMTgwDQoJCWwzMC0zMGwtMzAtMzBMMTc1LDEwOC4zMzNMMjE2LjY2NywxNTBMMjA1LDE2MS42Njd6Ii8+DQo8L2c+DQo8Zz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojRkZGRkZGOyIgcG9pbnRzPSIxNzUsMTkxLjY2NyAyMDUsMTYxLjY2NyAyMTYuNjY3LDE1MCAxNzUsMTA4LjMzMyAxNjMuMzMzLDEyMCAxOTMuMzMzLDE1MCAxNjMuMzMzLDE4MCAJIi8+DQoJPHBvbHlnb24gc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHBvaW50cz0iMTI1LDEwOC4zMzMgOTUsMTM4LjMzMyA4My4zMzMsMTUwIDEyNSwxOTAgMTM2LjY2NywxNzguMzMzIDEwNi42NjcsMTUwIDEzNi42NjcsMTIwIAkiLz4NCjwvZz4NCjwvc3ZnPg0K" class="project-type-icon"> -->
+                            <span>Software</span>
+                        </td>
+                        <td class="cell-type-url" data-cell-type="url">
+
+                            No URL
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="lead">
+
+                            <a class="user-hover" rel="devopsadmin" id="view_TSTP_projects_devopsadmin" href="#">Admin</a>
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="default-assignee">
+
+                            Unassigned
+
+                        </td>
+                        <td class="cell-type-category" data-cell-type="category">
+
+                        </td>
+                        <td data-cell-type="operations">
+                            <ul class="operations-list">
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">edit</i> </a>
+                                    <!--<a class="trigger-dialog stacked-dialog edit-project" id="edit-project-10000" href="#">
+                                        Edit
+                                    </a>-->
+                                </li>
+
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">delete</i> </a>
+                                    <!--<a class="delete-project" id="delete_project_10000" href="#">Delete</a>-->
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr data-project-key="dd">
+                        <td data-cell-type="name">
+                            <a id="view-project-10300" href="#">AngularJavaApp</a>
+                        </td>
+                        <td data-cell-type="key">dd</td>
+                        <td class="cell-type-project-type" data-cell-type="project-type">
+                            <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDMwMCAzMDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwMCAzMDA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJMYXllcl8yIj4NCgk8cGF0aCBzdHlsZT0iZmlsbDojRjc5MjMyOyIgZD0iTTE1MCwwQzY2LjY2NywwLDAsNjYuNjY3LDAsMTUwczY2LjY2NywxNTAsMTUwLDE1MHMxNTAtNjYuNjY3LDE1MC0xNTBTMjMzLjMzMywwLDE1MCwweg0KCQkgTTEzNi42NjcsMTc4LjMzM0wxMjUsMTkwbC00MS42NjctNDBMOTUsMTM4LjMzM2wzMC0zMEwxMzYuNjY3LDEyMGwtMzAsMzBMMTM2LjY2NywxNzguMzMzeiBNMjA1LDE2MS42NjdsLTMwLDMwTDE2My4zMzMsMTgwDQoJCWwzMC0zMGwtMzAtMzBMMTc1LDEwOC4zMzNMMjE2LjY2NywxNTBMMjA1LDE2MS42Njd6Ii8+DQo8L2c+DQo8Zz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojRkZGRkZGOyIgcG9pbnRzPSIxNzUsMTkxLjY2NyAyMDUsMTYxLjY2NyAyMTYuNjY3LDE1MCAxNzUsMTA4LjMzMyAxNjMuMzMzLDEyMCAxOTMuMzMzLDE1MCAxNjMuMzMzLDE4MCAJIi8+DQoJPHBvbHlnb24gc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHBvaW50cz0iMTI1LDEwOC4zMzMgOTUsMTM4LjMzMyA4My4zMzMsMTUwIDEyNSwxOTAgMTM2LjY2NywxNzguMzMzIDEwNi42NjcsMTUwIDEzNi42NjcsMTIwIAkiLz4NCjwvZz4NCjwvc3ZnPg0K" class="project-type-icon"> -->
+                            <span>Software</span>
+                        </td>
+                        <td class="cell-type-url" data-cell-type="url">
+
+                            No URL
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="lead">
+
+                            <a class="user-hover" rel="devopsadmin" id="view_TES_projects_devopsadmin" href="#">Admin</a>
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="default-assignee">
+
+                            Unassigned
+
+                        </td>
+                        <td class="cell-type-category" data-cell-type="category">
+
+                        </td>
+                        <td data-cell-type="operations">
+                            <ul class="operations-list">
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">edit</i> </a>
+                                    <!--<a class="trigger-dialog stacked-dialog edit-project" id="edit-project-10300" href="#">
+                                        Edit
+                                    </a>-->
+                                </li>
+
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">delete</i> </a>
+                                    <!--<a class="delete-project" id="delete_project_10300" href="#">Delete</a>-->
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr data-project-key="ee">
+
+                        <td data-cell-type="name">
+                            <a id="view-project-10202" href="#">AngularJavaApp</a>
+                        </td>
+                        <td data-cell-type="key">ee</td>
+                        <td class="cell-type-project-type" data-cell-type="project-type">
+                            <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDMwMCAzMDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwMCAzMDA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJMYXllcl8yIj4NCgk8cGF0aCBzdHlsZT0iZmlsbDojRjc5MjMyOyIgZD0iTTE1MCwwQzY2LjY2NywwLDAsNjYuNjY3LDAsMTUwczY2LjY2NywxNTAsMTUwLDE1MHMxNTAtNjYuNjY3LDE1MC0xNTBTMjMzLjMzMywwLDE1MCwweg0KCQkgTTEzNi42NjcsMTc4LjMzM0wxMjUsMTkwbC00MS42NjctNDBMOTUsMTM4LjMzM2wzMC0zMEwxMzYuNjY3LDEyMGwtMzAsMzBMMTM2LjY2NywxNzguMzMzeiBNMjA1LDE2MS42NjdsLTMwLDMwTDE2My4zMzMsMTgwDQoJCWwzMC0zMGwtMzAtMzBMMTc1LDEwOC4zMzNMMjE2LjY2NywxNTBMMjA1LDE2MS42Njd6Ii8+DQo8L2c+DQo8Zz4NCgk8cG9seWdvbiBzdHlsZT0iZmlsbDojRkZGRkZGOyIgcG9pbnRzPSIxNzUsMTkxLjY2NyAyMDUsMTYxLjY2NyAyMTYuNjY3LDE1MCAxNzUsMTA4LjMzMyAxNjMuMzMzLDEyMCAxOTMuMzMzLDE1MCAxNjMuMzMzLDE4MCAJIi8+DQoJPHBvbHlnb24gc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHBvaW50cz0iMTI1LDEwOC4zMzMgOTUsMTM4LjMzMyA4My4zMzMsMTUwIDEyNSwxOTAgMTM2LjY2NywxNzguMzMzIDEwNi42NjcsMTUwIDEzNi42NjcsMTIwIAkiLz4NCjwvZz4NCjwvc3ZnPg0K" class="project-type-icon"> -->
+                            <span>Software</span>
+                        </td>
+                        <td class="cell-type-url" data-cell-type="url">
+
+                            No URL
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="lead">
+
+                            <a class="user-hover" rel="devopsadmin" id="view_WEB_projects_devopsadmin" href="#">Admin</a>
+
+
+                        </td>
+                        <td class="cell-type-user" data-cell-type="default-assignee">
+
+                            Unassigned
+
+                        </td>
+                        <td class="cell-type-category" data-cell-type="category">
+
+                        </td>
+                        <td data-cell-type="operations">
+                            <ul class="operations-list">
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">edit</i> </a>
+                                    <!--<a class="trigger-dialog stacked-dialog edit-project" id="edit-project-10202" href="#">
+                                        Edit
+                                    </a>-->
+                                </li>
+
+
+                                <li>
+                                    <a href="#"> <i class="material-icons">delete</i> </a>
+                                    <!--<a class="delete-project" id="delete_project_10202" href="#">Delete</a> -->
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+
+
+        </section>
+
+    </div>
+</div>
+
+<!-- General -->
+<div class="aui-navgroup aui-navgroup-container">
+    <div>
+        <nav class="aui-navgroup aui-navgroup-vertical">
+            <div class="aui-navgroup-inner">
+                <div class="admin-menu-links">
+                    <ul class="aui-nav" resolved>
+                        <li class="aui-nav-selected">
+                            <a href="#">Http proxy</a>
+                        </li>
+
+                        <li class="aui-nav-selected">
+                            <a href="#">Http proxy</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+</div>
+
+
+<!-- ALM Tools -->
+<div class="aui-navgroup aui-navgroup-container">
+    <div>
+        <nav class="aui-navgroup aui-navgroup-vertical">
+            <div class="aui-navgroup-inner">
+                <div class="admin-menu-links">
+                    <ul class="aui-nav" resolved>
+                        <li class="aui-nav-selected">
+                            <a href="#">Source Control</a>
+                        </li>
+
+                        <li class="aui-nav-selected">
+                            <a href="#">Planning</a>
+                        </li>
+
+                        <li class="aui-nav-selected">
+                            <a href="#">Development</a>
+                        </li>
+
+                        <li class="aui-nav-selected">
+                            <a href="#">Testing</a>
+                        </li>
+
+                        <li class="aui-nav-selected">
+                            <a href="#">Code Analysis</a>
+                        </li>
+
+                        <li class="aui-nav-selected">
+                            <a href="#">Binary Repository</a>
+                        </li>
+
+                        <li class="aui-nav-selected">
+                            <a href="#">Continuous Integration</a>
+                        </li>
+
+                        <li class="aui-nav-selected">
+                            <a href="#">Deployment</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+
+</div>
+
+<!--blank table-->
+<div class="row">
+    <div class="col-md-6 table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <td>User-Name</td>
+                    <td>Role</td>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+
+                <td colspan="2"> No User Added </td>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- General form	-->
+
+<div class="container-fluid">
+    <h3>General</h3> <br>
+    <form>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="proxyName">Enter Proxy</label>
+                <input class=" col-md-5" placeholder="Enter http proxy" type="text" name="proxyName" />
+                <br> <br>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="urlAddress">Enter URL</label>
+                <input class=" col-md-5" placeholder="Enter proxy URL" type="text" name="urlAddress" />
+            </div>
+        </div> <br> <br>
+
+
+        <h4> Required Proxy Authentication </h4> <br>
+        <input type="checkbox" name="proxy" value="Yes"> Yes <br>
+        <input type="checkbox" name="proxy" value="No"> No <br> <br>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="userName">Enter Username</label>
+                <input class=" col-md-5" placeholder="Enter Usrename" type="text" name="userName" />
+                <br> <br>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="password">Enter Password</label>
+                <input class=" col-md-5" placeholder="Enter Password" type="text" name="password" />
+            </div>
+        </div>
+
+    </form>
+</div> <br> <br>
+
+
+<!-- ALM TOOLS form -->
+
+<div class="container-fluid">
+    <h3>Planning</h3> <br>
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="tool">Tool Name</label>
+                <select name="tool" class=" col-md-5">
+                        <option value="" selected disabled>Select Tool</option>
+                        <option value="bitbucket">Bitbucket</option>
+                        <option value="github">GitHub</option>
+						<option value="gitlab">GitLab</option>
+                        <option value="tfs">TFS</option>
+						<option value="vsts">VSTS</option>
+                    </select><br> <br>
+            </div>
+
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="version">Version</label>
+                <select name="version" class="col-md-5">
+                        <option value="" selected disabled>Select Version</option> 
+                        <option value="1.0">1.0</option>
+                        <option value="2.0">2.0</option> 
+                    </select><br>
+            </div><br>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="toolurl">Tool URL</label>
+                <input class=" col-md-5" placeholder="Enter tool URL" type="text" name="toolurl" />
+                <br> <br>
+            </div> <br><br>
+
+            <div class="col-md-8">
+                <h4> Required Proxy Authentication </h4> <br>
+                <input type="checkbox" name="proxy" value="Yes"> Yes <br>
+                <input type="checkbox" name="proxy" value="No"> No <br> <br>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="authentication">Tool Authentication</label>
+                <select name="version" class="col-md-5">
+                        <option value="" selected disabled>Select auth. type</option> 
+                        <option value="password">Password</option>
+                        <option value="token">Token</option> 
+                    </select><br> <br>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="col-md-4" for="userName">Enter Username</label>
+                    <input class=" col-md-5" placeholder="Enter Usrename" type="text" name="userName" />
+                    <br> <br>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="col-md-4" for="password">Enter Password</label>
+                    <input class=" col-md-5" placeholder="Enter Password" type="text" name="password" />
+                </div><br>
+
+                <div class="col-md-6">
+                    <label class="col-md-4" for="token">Enter Token</label>
+                    <input class=" col-md-5" placeholder="Enter Token" type="text" name="token" />
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div> <br> <br>
+
+        <!--<div class="row">
+            <div class="col-md-6">
+                <button type="submit">Save</button>
+            </div>
+        </div>-->
+    </form>
+</div>
+
+<!--Development-->
+
+<div class="container-fluid">
+    <h3>Development</h3> <br>
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="platform">Platform</label>
+                <select name="tool" class=" col-md-5">
+                        <option value="" selected disabled>Select Platform</option>
+                        <option value="java">Java</option>
+                        <option value="node">Node</option>
+						<option value="dotnet">dotNET</option>
+                    </select><br> <br>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="pversion">Platform Version</label>
+                <select name="pversion" class="col-md-5">
+                        <option value="" selected disabled>Select Version</option> 
+                        <option value="1.0">1.0</option>
+                        <option value="2.0">2.0</option> 
+                    </select><br><br>
+            </div><br> <br>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="buildtool">Build Tool</label>
+                <select name="buildtool" class="col-md-5">
+                        <option value="" selected disabled>Select Build Tool</option> 
+                        <option value="maven">Maven</option>
+                        <option value="ant">Ant</option> 
+						<option value="gradle">Gradle</option> 
+						<option value="npm">npm</option> 
+						<option value="msbuild">MSBuild</option> 
+						 </select><br><br>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="bversion">Build Tool Version</label>
+                <select name="bversion" class="col-md-5">
+                        <option value="" selected disabled>Select Tool Version</option> 
+                        <option value="1.0">1.0</option>
+                        <option value="2.0">2.0</option> 
+                    </select><br><br>
+            </div><br> <br>
+        </div>
+    </form>
+</div>
+
+
+<!--Testing-->
+
+<div class="container-fluid">
+    <h3>Testing</h3> <br>
+    <form>
+        <h4>Unit testing </h4>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="framework">Framework</label>
+                <select name="framework" class=" col-md-5">
+                        <option value="" selected disabled>Select Framework</option>
+                        <option value="junit">JUnit</option>
+                        <option value="qunit">QUnit</option>
+						<option value="nunit">NUnit</option>
+						<option value="karma">Karma</option>
+						<option value="mstest">MSTest</option>
+                    </select><br> <br>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="fversion">Framework Version</label>
+                <select name="fversion" class="col-md-5">
+                        <option value="" selected disabled>Select Framework Version</option> 
+                        <option value="1.0">1.0</option>
+						<option value="2.0">2.0</option> 
+                    </select><br><br>
+            </div><br> <br>
+        </div> <br> <br>
+
+        <h4> Functional Testing </h4>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="driver">Driver</label>
+                <select name="driver" class="col-md-5">
+                        <option value="" selected disabled>Select Driver</option> 
+                        <option value="selenium">Selenium</option>
+						<option value="selenium">Selenium</option> 
+                    </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="framework">Framework</label>
+                <select name="framework" class=" col-md-5">
+                        <option value="" selected disabled>Select Framework</option>
+                        <option value="protractor">Protractor</option>
+                        <option value="java">Java</option>
+					
+                    </select><br> <br>
+            </div>
+
+            <div class="col-md-6">
+                <label class="col-md-4" for="mode">Mode</label>
+                <select name="mode" class=" col-md-5">
+                        <option value="" selected disabled>Select Mode</option>
+                        <option value="headless">Headless</option>
+                        <option value="browser">Browser</option>
+					
+                    </select><br> <br>
+            </div>
+
+        </div>
+
+
+
+    </form>
+</div>
+
+
+<!--User Management-->
+<!--Roles-->
+
+<div class="container-fluid">
+    <h3>Roles</h3>
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="role_name">Role Name</label>
+                <input name="role_name" class="col-md-5" placeholder="Select Role Name">
+            </div>
+            <div class="col-md-6">
+                <label class="col-md-4" for="role_id">Role</label>
+                <select name="role_id" class="col-md-5">
+                        <option value="" selected disabled>Select Role</option> 
+                        <option value="1">Admin</option>
+                        <option value="2">Member</option> 
+                    </select>
+            </div>
+        </div><br>
+    </form>
+</div>
+
+<!--User Directory-->
+
+<div class="container-fluid">
+    <h3>User Directory</h3>
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="userDirectory_name">User Directory Name</label>
+                <input name="userDirectory_name" class="col-md-5" placeholder="Enter User Directory Name">
+            </div>
+            <div class="col-md-6">
+                <label class="col-md-4" for="role_id">User Directory Type</label>
+                <select name="role_id" class="col-md-5">
+                        <option value="" selected disabled>Select User Directory Type</option> 
+                        <option value="ad">AD</option>
+                        <option value="ldap">LDAP</option> 
+                    </select>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="userDirectory_url">User Directory URL</label>
+                <input name="userDirectory_url" class="col-md-5" placeholder="Enter User Directory URL">
+            </div>
+            <div class="col-md-6">
+                <label class="col-md-4" for="userDirectory_search_base">User Directory SearchBase</label>
+                <input name="userDirectory_search_base" class="col-md-5" placeholder="Enter User Directory Search Base">
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="userDirectory_search_base">User Name</label>
+                <input name="userDirectory_search_base" class="col-md-5" placeholder="Enter User Name">
+            </div>
+            <div class="col-md-6">
+                <label class="col-md-4" for="userDirectory_search_base">Password</label>
+                <input name="userDirectory_search_base" class="col-md-5" type="password" placeholder="Enter Password">
+            </div>
+        </div><br>
+    </form>
+</div>
+
+<!--User Directory-->
+
+<div class="container-fluid">
+    <h3>Users</h3>
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="userDirName">User Directory Names</label>
+                <select name="userDirName" class="col-md-5">
+                        <option value="" selected disabled>Select User Directory Names</option> 
+                        <option value="ad">AD</option>
+                        <option value="ldap">LDAP</option> 
+                    </select>
+            </div>
+            <div class="col-md-6">
+                <label class="col-md-4" for="searchType">Search Type</label>
+                <select name="searchType" class="col-md-5">
+                        <option value="" selected disabled>Select Search Type</option> 
+                        <option value="ad">Full Name</option>
+                        <option value="userid">User ID</option> 
+                        <option value="email">Email</option> 
+                    </select>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="searchValue">Search</label>
+                <input name="searchValue" class="col-md-5" placeholder="Search here">
+            </div>
+            <button>Search</button>
+        </div><br>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-4" for="userDirectory_search_base">Search Results</label>
+                <select name="searchType" class="col-md-5">
+                        <option value="" selected disabled>Select User</option> 
+                        <option value="ad">Full Name</option>
+                        <option value="userid">User ID</option> 
+                        <option value="email">Email</option> 
+                    </select>
+            </div>
+            <button>Save</button>
+        </div>
+    </form>
+</div>

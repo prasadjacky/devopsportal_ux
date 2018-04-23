@@ -1,0 +1,27 @@
+<div class="myCard">
+    <div class="myCard-header">
+        Project Builds
+    </div>
+    <div class="myCardBlock">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <chart02></chart02>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12" style=" text-align: center;">
+                <chart03></chart03>
+                <div class="row" style="padding-top:8px;">
+                    <div class="col-md-12">
+                        <span class="myHeader1">Latest Build </span>
+                        <span class="value1">#{{number}}</span><span class="value2"> {{builds?.projectBuildSummary?.latestBuild?.time_since}}</span><br>
+                        <span class="myHeader2">Average Build Duration</span>
+                        <span class="value1">{{builds?.projectBuildSummary?.averageDuration}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

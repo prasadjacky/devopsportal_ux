@@ -1,0 +1,67 @@
+<div class="myCard">
+    <div class="myCard-header">
+        Deployment
+    </div>
+    <div class="myCardBlock">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6" style="margin-left: 10px;">
+                <chart05></chart05>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-5 col-sm-6 col-xs-6" style="margin-left: 10px;">
+                <div class="row ml">
+                    <div class="css3input col-xs-11">
+                        <select name="environment_name" [ngModel]="environmentSelected" (ngModelChange)="onSelect($event)" required>
+                            <option *ngFor="let dep of deployment.projectDeploymentStats">{{dep.environment_name}}</option>
+                        </select>
+                        <label>Select Environment</label>
+                    </div>
+                </div>
+                <br>
+                <div class="row ml" *ngFor="let dep of deployment.projectDeploymentStats">
+                    <div class="css3input col-xs-11" *ngIf="environmentSelected==dep.environment_name">
+                        <input type="text" name="latestDeployment" [ngModel]="dep.latestDeployment" readonly>
+                        <label>Latest Deployment</label>
+                    </div>
+                </div>
+                <br>
+                <div class="row ml" *ngFor="let dep of deployment.projectDeploymentStats">
+                    <div class="css3input col-xs-11" *ngIf="environmentSelected==dep.environment_name">
+                        <input name="deploymentFrequency" [ngModel]="dep.deploymentFrequency" readonly>
+                        <label>Deployment Frequency</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6" style="margin-left: 10px;align-content:center;">
+                <chart08></chart08>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-5 col-sm-6 col-xs-6" style="margin-left: 10px;align-content:center;">
+                <div class="row ml">
+                    <div class="css3input col-xs-11">
+                        <input type="date" #startDate name="startDate" (change)="onStartDateChange($event)">
+                        <label>Start Date</label>
+                    </div>
+                </div>
+                <br>
+                <div class="row ml">
+                    <div class="css3input col-xs-11">
+                        <input type="date" #endDate name="endDate" (change)="onEndDateChange($event)">
+                        <label>End Date</label>
+                    </div>
+                </div>
+                <br>
+                <div class="row ml">
+                    <div class="css3btn-group2 col-xs-11">
+                        <button class="css3btn2 css3btn-body2" (click)="applyDateRange()">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

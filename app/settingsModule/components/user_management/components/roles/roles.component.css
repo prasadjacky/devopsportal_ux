@@ -1,0 +1,79 @@
+.container-fluid{
+    height: 380px;
+    background-color: white;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.pad{
+    padding-top: 10px
+}
+
+.lead{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.modal-header, .btn-info{
+    background-color: #2980b9;
+    color:white;
+}
+
+select{
+    height: 26px;
+}
+
+i{
+    cursor: pointer;
+    color:#2980b9;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 12px;
+    /*line-height: 3;*/
+}
+
+.scroll{
+    max-height: 290px;
+    overflow-y: auto;
+}
+
+/*validation style*/
+.validationIcon {
+    position: relative;
+    display: inline-block;
+    color: #e74c3c;
+}
+
+.fa{
+    color:#e74c3c!important;
+}
+
+.validationIcon .validationMessage {
+    visibility: hidden;
+    width: 300px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    right: 50%;
+    margin-right: -12px;
+}
+
+.validationIcon .validationMessage::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 3%;
+    margin-right: -3px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #e74c3c transparent transparent transparent;
+}
+
+.validationIcon:hover .validationMessage {
+    visibility: visible;
+}

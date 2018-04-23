@@ -1,0 +1,184 @@
+<div class="col-md-12" style="padding-top: 2px;">
+    <span id="view-projects-header" class="lead">Users</span>
+    <div class="css3btn-group" role="group" aria-label="..." data-toggle="modal" data-target="#myUsersModal">
+        <button class="css3btn css3btn-head"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button class="css3btn css3btn-body">Users</button>
+    </div>
+</div>
+<br><br><br>
+<div class="scroll1" style="margin: 0 15px">
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2">User</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userArray; let i=index;">
+                <td colspan="2">{{user.user_full_name}}</td>
+                <td>
+                    <i class="material-icons link" data-toggle="modal" data-target="#editUserModal" (click)="onView(user)">remove_red_eye</i>&nbsp;
+                    <i data-toggle="modal" data-target="#confirmDeletionModal" class="material-icons link" (click)="confirmDelete(user)">delete</i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--Delete Confirmation Modal-->
+<div class="modal fade" tabindex="-1" id="confirmDeletionModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Delete User</h4>
+            </div>
+            <div class="modal-body text-center cd">
+                <p>Are you sure you want to delete user <strong>{{viewObj.user_full_name}}</strong>?</p>
+            </div>
+            <div class="modal-footer" style="padding-right: 5px;">
+                <div class="css3btn-group mw" role="group" aria-label="..." data-dismiss="modal" (click)="onDelete(viewObj)">
+                    <button class="css3btn css3btn-head mw1"><i class="fa fa-lg fa-check" aria-hidden="true"></i></button>
+                    <button class="css3btn css3btn-body mw2">Yes</button>
+                </div>
+                <div class="css3btn-group-outline mw" role="group" aria-label="..." data-dismiss="modal" (click)="onCancel()">
+                    <button class="css3btn css3btn-head mw1"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                    <button class="css3btn css3btn-body mw2">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" id="myUsersModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">User</h4>
+            </div>
+            <div class="modal-body">
+                <form #userForm="ngForm" novalidate>
+                    <div class="row">
+                        <div class="css3input col-xs-5">
+                            <select name="searchBy" [(ngModel)]="Search.searchBy" #searchByRef="ngModel" required>
+                                <option value="" selected disabled></option>
+                                <option value="fullname">Name</option>
+                                <option value="userid">User ID</option> 
+                                <option value="mail">Email</option> 
+                            </select>
+                            <label>Search By</label>
+                            <div *ngIf="searchByRef.invalid && showValidations" class="errorMessageNew">Please select search type</div>
+                        </div>
+                        <div class="css3input col-xs-4">
+                            <input name="searchText" [(ngModel)]="Search.searchText" #searchTextRef="ngModel" required autocomplete="off" />
+                            <label>Search Text</label>
+                            <div *ngIf="searchTextRef.invalid && showValidations" class="errorMessageNew">Please enter search text</div>
+                        </div>
+                        <div class="col-xs-1">
+                            <div class="css3btn-group" role="group" aria-label="..." (click)="onSearch(userForm.value)">
+                                <button class="css3btn css3btn-head"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div [hidden]="!flag" class="row">
+                        <div id="scroll" class="col-md-12">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4">Search Results</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>User-id</th>
+                                        <th>Email</th>
+                                        <th>Add</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of usersDb;let i=index">
+                                        <td>{{user.user_full_name}}</td>
+                                        <td>{{user.user_id}}</td>
+                                        <td>{{user.email_id}}</td>
+                                        <td><button class="css3btn css3btn-head ab" (click)="pushUser(i,user)"><i class="fa fa-plus" aria-hidden="true"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row err">
+                        <div class="text-center col-md-12">
+                            No Results Found...Try Again
+                        </div>
+                    </div>
+                    <div class="row overflow">
+                        <div class="col-xs-12">
+                            <div class="css3btn-group-outline bg" role="group" aria-label="..." data-dismiss="modal" *ngFor="let user of tempArray;let i=index;">
+                                <button class="css3btn css3btn-body b1">{{user.user_full_name}}</button>
+                                <button class="css3btn css3btn-head b2" (click)="popUser(i,user)"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-xs-5 userAddErr">
+                    <div *ngIf="addErr1" class="userAddErr">User already exists</div>
+                    <div *ngIf="addErr2" class="userAddErr">User already added to list</div>
+                </div>
+                <div class="css3btn-group" role="group" aria-label="..." (click)="onSave($event)">
+                    <button class="css3btn css3btn-head"><i class="fa fa-lg fa-check" aria-hidden="true"></i></button>
+                    <button class="css3btn css3btn-body">Save</button>
+                </div>
+                <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal" (click)="onCancel()">
+                    <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                    <button class="css3btn css3btn-body">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--View Modal-->
+<div class="modal fade" tabindex="-1" id="editUserModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="css3input top col-xs-6">
+                        <label>Name</label>
+                        <input type="text" name="name" [ngModel]="viewObj.user_full_name" readonly/>
+                    </div>
+
+                    <div class="css3input top col-xs-6">
+                        <label>User-id</label>
+                        <input type="text" name="userid" [ngModel]="viewObj.user_id" readonly />
+                    </div>
+                </div><br>
+                <div class="row">
+                    <!--<div class="css3input top col-xs-6">
+                        <label>Directory</label>
+                        <input type="text" name="directory" [value]="ldap" readonly />
+                    </div>-->
+                    <div class="css3input top col-xs-6">
+                        <label>Email</label>
+                        <input type="text" name="email" [ngModel]="viewObj.email_id" readonly/>
+                    </div>
+                </div><br>
+            </div>
+            <div class="modal-footer">
+                <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal">
+                    <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                    <button class="css3btn css3btn-body">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

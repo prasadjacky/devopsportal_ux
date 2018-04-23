@@ -1,0 +1,17 @@
+#UsersTable {
+    font-size: 15px;
+    background: white;
+    margin: 23px 0px 0px;
+}
+
+#urf {
+    padding: 15px;
+    margin-top: 5px;
+    min-height: 275px;
+    border: 1px solid #e9e9e9;
+}
+
+div#userSelTable {
+    height: 163px;
+    overflow-y: auto;
+}

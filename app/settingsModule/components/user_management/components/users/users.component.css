@@ -1,0 +1,112 @@
+#scroll{
+    max-height: 170px !important;
+    overflow-y: auto;
+}
+
+.scroll1{
+    padding: 15px;
+    border: 1px solid #efefef;
+    min-height: 270px;
+    max-height: 290px;
+    overflow-y: auto;
+}
+
+.glyphicon{
+    cursor: pointer;
+    color: #8e8989;
+}
+
+tbody{
+    font-size: 11px!important;
+}
+
+
+.overflow{
+    max-height: 80px;
+    overflow-y: auto;
+}
+
+#box{
+    background-color: #a4c39a;
+    color: white;
+    font-size: 11px;
+    padding: 3px;
+    margin: 0 3px 0 3px;
+    border-radius: 5px;
+}
+
+span.glyphicon-remove {
+    color: white;
+    cursor: pointer;
+}
+
+.bubble{
+    float: left;
+    height: 20px;
+    font-size: 11px;
+    background-color: #a4c39a;
+}
+
+.ab{
+    background-color: #3498db;
+    color: white;
+    border: 0px;
+}
+
+.err{
+    color: #ce2020;
+}
+
+.bg{
+    float: left;
+    font-size: 9px;
+    background-color: #99ca99;
+    height: 24px;
+    margin-top: 3px;
+}
+
+.b2{
+    color: white!important;
+    background-color: #5e8e5e!important;
+}
+
+.userAddErr{
+    color: #ce2020;
+    float: left;
+}
+/*
+i{
+    font-size: 20px;
+    color: #808080;
+    cursor: pointer;
+}*/
+
+.scroll1 .table {
+    margin-bottom: 0px;
+    table-layout: fixed;
+}
+
+.scroll1 th {
+    font-size: larger;
+    height: 40px;
+    padding-top: 0px !important;
+    vertical-align: top !important;
+    border-bottom: 2px solid #ddd !important;
+}
+
+.scroll1 td {
+    padding: 0px 8px 6px !important;
+    height: 40px !important;
+    vertical-align: bottom !important;
+}
+
+.scroll1 th:last-child,
+.scroll1 td:last-child {
+    text-align: center;
+}
+
+.scroll1 td i.link {
+    font-size: 20px;
+    color: #808080;
+    cursor: pointer;
+}

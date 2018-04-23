@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <form class="loginForm" [formGroup]="loginFormGroup" novalidate (ngSubmit)='login()'>
+        <h2 class="loginHead">DevOps Portal</h2><br>
+        <h5 class="loginHead">Please Sign In to continue</h5><br>
+        <div class="css3input">
+            <input id="user_id" name="user_id" formControlName="user_id" (input)="checkUsername($event.target.value)" required/>
+            <label for="user_id">User ID</label>
+            <div class="errorMessageNew" style="display:block;">{{userIdError}}</div>
+        </div>
+        <div class="css3input">
+            <input name="password"  type="password" id="password"  formControlName="password" (input)="checkPassword($event.target.value)" required/>
+            <label for="password">Password</label>
+            <div class="errorMessageNew" style="display:block;">{{passwordError}}</div>
+        </div>
+        <!-- <div class="css3input">
+            <select name="domain" formControlName="domain" required>
+                <option value="" selected disabled></option>
+                <option value="nmumarl">nmumarl</option>
+                <option value="powaiodc">powaiodc</option>
+            </select>
+            <label>Domain</label>
+        </div> -->
+        <div class="errorMessageNew" style="display:block;">{{errorMessage}}</div>
+        <button class="css3button" type="submit">Sign In</button>
+    </form>
+</div>

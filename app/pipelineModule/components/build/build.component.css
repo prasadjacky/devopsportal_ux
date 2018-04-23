@@ -1,0 +1,627 @@
+.divFix{
+    width: 1140px;
+}
+
+.myCardBlock {
+    padding: 0px;
+    border: 1px solid #dcd9d9;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .1);
+}
+
+.myCard-header {
+    padding: 0px;
+    padding-left: 5px;
+    font-size: small;
+    background-color: #eaebed;
+    border: 0px;
+    font-weight: 600;
+    color: #716e6e;
+}
+
+.myCard {
+    margin-top: 7px;
+    border: 0px;
+    background-color: white;
+}
+
+.title {
+    padding-top: 5px;
+}
+
+.legend {
+    padding: 40px 0 0 0;
+}
+
+.divColor {
+    background-color: #eaebed;
+    padding-bottom: 20px;
+}
+
+.color0 {
+    padding-top: 5px;
+    font-size: small;
+    color: black;
+}
+
+.color1 {
+    color: #f75456;
+    background-clip: content-box;
+}
+
+.color2 {
+    color: cornflowerblue;
+    font-size: 28px;
+    background-clip: content-box;
+}
+
+.block{
+    background-clip: content-box;
+    border-bottom: 1px solid #dcd9d9;
+    transform: scale(0.89);
+}
+
+.c11 {
+    color: #fd7225;
+}
+
+.c12 {
+    color: #0FD6CC;
+}
+
+.c21 {
+    color: #E8713F;
+}
+
+.c22 {
+    color: #52C5F2;
+}
+
+.c31 {
+    color: #0FD6CC;
+}
+
+.c32 {
+    color: #E89E15;
+}
+
+.c33 {
+    color: #1793EB;
+}
+
+.c34 {
+    color: #47C9F5;
+}
+
+.c41 {
+    color: #1793EB;
+}
+
+.c42 {
+    color: #0870C4;
+}
+
+.c43 {
+    color: #0FD6CC;
+}
+
+.c44 {
+    color: #07918A;
+}
+
+.c51 {
+    color: #E6C809;
+}
+
+.c52 {
+    color: #D68A06;
+}
+
+.c53 {
+    color: #47C9F5;
+}
+
+.c54 {
+    color: #0AB2C4;
+}
+.no-arrow{
+ color: white
+}
+.value1 {
+    font-size: 35px;
+}
+
+.value2 {
+    padding-left: 20px;
+    font-size: 35px;
+}
+
+.text {
+    font-size: 15px;
+    position: relative;
+    top: -5px;
+}
+
+sup {
+    font-size: 12px;
+    top: -16px;
+}
+
+.unit {
+    font-size: 17px;
+}
+
+.col-md-2 {
+    width: 20%;
+}
+/*
+.col-md-3 {
+    width: 18%;
+}
+*/
+.pad {
+    padding: 5px 0 5px 0;
+}
+
+@media screen and (max-width:1072px) and (min-width:992px) {
+    .color0,
+    .color1,
+    .color2 {
+        height: 75px;
+    }
+}
+
+@media screen and (max-width:997px) {
+    .c1,
+    .c2,
+    .c3,
+    .c4,
+    .c5 {
+        width: 100%;
+    }
+    .legend {
+        text-align: center;
+    }
+    .rb {
+        display: none;
+    }
+    li.build1 {
+        height: 60px!important;
+        margin-top: 0px!important;
+    }
+    li.build1::after {
+        border-top: 30px solid transparent!important;
+        border-bottom: 30px solid transparent!important;
+    }
+    li.build1::before {
+        border-top: 30px solid transparent!important;
+        border-bottom: 30px solid transparent!important;
+    }
+    li.commits1,
+    li.uat1,
+    li.prod1 {
+        height: 50px !important;
+    }
+    .commits1::after,
+    .uat1::after,
+    .prod1::after {
+        border-top: 25px solid transparent!important;
+        border-bottom: 25px solid transparent!important;
+    }
+    .commits1::before,
+    .uat1::before,
+    .prod1::before {
+        border-top: 25px solid transparent!important;
+        border-bottom: 25px solid transparent!important;
+    }
+}
+
+@media screen and (max-width:1150px) and (min-width:730px) {
+    .c1,
+    .c2,
+    .c3 {
+        width: 33.33%;
+    }
+    .c4,
+    .c5 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:633px) and (min-width:340px) {
+    .divFix {
+        width: 633px;
+    }
+}
+
+
+/***** BREADCRUMB *****/
+
+.sRow {
+    margin: 0 0 0 0;
+}
+
+li a {
+    display: flex;
+    justify-content: space-around;
+}
+
+.uat1,
+.commits1,
+.prod1 {
+    margin-top: 5px!important;
+}
+
+.build1 {
+    height: 60px!important;
+    padding-top: 15px!important;
+    margin-top: 0 !important;
+}
+
+.build1::after {
+    height: 50px !important;
+    border-top: 30px solid transparent!important;
+    border-bottom: 30px solid transparent!important;
+}
+
+.build1::before {
+    height: 50px!important;
+    border-top: 30px solid transparent!important;
+    border-bottom: 30px solid transparent!important;
+}
+
+.steps {
+    padding: 0;
+    overflow: hidden;
+}
+
+.steps a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.steps li {
+    float: left;
+    margin-left: 0;
+    width: 20%;
+    height: 50px;
+    list-style-type: none;
+    padding: 10px 5px 5px 30px;
+    border-right: 10px solid white;
+    position: relative;
+}
+
+.steps li:first-child {
+    padding-left: 5px;
+}
+
+.steps li:nth-child(n+2)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-left: 20px solid white;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+.steps li::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    display: block;
+    border-left: 20px solid #C8F57F;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+.steps li:last-child::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    display: block;
+    border-left: 0px solid #C8F57F;
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+.steps li {
+    background-color: #C8F57F;
+}
+
+.steps li::after {
+    border-left-color: #C8F57F;
+}
+
+.steps li div {
+    color: #33691E;
+}
+
+.commits1 {
+    background: #C8F57F !important;
+}
+
+li.failed div {
+    color: white !important;
+}/*
+li.commits1 div
+ {
+    color: white !important;
+}*/
+
+.commits1::after {
+    border-left-color: #C8F57F !important;
+}
+
+.empty {
+    display: none;
+}
+/*....*/
+.steps li.success:nth-child(n+2)::before {
+    border-left: 20px solid white;
+    
+}
+
+.steps li.success::after {
+    z-index: 1;
+    border-left: 20px solid #C8F57F !important;
+    
+}
+
+.steps li.success:last-child::after {
+    z-index: 1;
+    border-left: 0px solid #C8F57F !important;
+    
+}
+.steps li.failure:nth-child(n+2)::before {
+    border-left: 20px solid white;
+    
+}
+
+.steps li.failure::after {
+    z-index: 1;
+    border-left: 20px solid #E57373 !important;
+    
+}
+
+.steps li.failure:last-child::after {
+    z-index: 1;
+    border-left: 0px solid #E57373 !important;
+    
+}
+.steps li.success:last-child{
+   
+    border-right: 0px solid #C8F57F !important;
+    
+}
+.steps li.failure:last-child{
+   
+    border-right: 0px solid #E57373 !important;
+    
+}
+.steps li.success{
+background-color: #C8F57F !important;
+}
+.steps li.failure{
+background-color: #E57373 !important;
+}
+ .failure div{
+   color: white !important;
+}
+
+/*....*/
+/*
+#breadcrumb{
+    padding: 0;
+    overflow: hidden;
+    
+}
+
+#breadcrumb td {
+ 
+    margin-left: 0;
+    width:25%;
+    padding: 0px 5px 0px 30px;
+    border-right: 10px solid white;
+    position:relative;
+    
+}
+
+#breadcrumb td::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    display: block;
+    border-left: 20px solid #a9dc6a !important;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+#breadcrumb td:first-child::after {
+    z-index: 1;
+    
+    border-left: 20px solid #686B6D !important;
+    
+}
+#breadcrumb td:nth-child(n+2)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-left: 20px solid white;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+#breadcrumb td:last-child::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    display: block;
+    border-left: 0px solid #a9dc6a !important;
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+.commits {
+    background: #686B6D !important;
+
+}
+
+.commits div {
+    color: white !important;
+}
+
+.commits::after {
+    border-left-color: #686B6D !important;
+}
+
+#breadcrumb td.failure::after {
+   
+    border-left: 20px solid #E57373 !important;
+   
+}
+
+#breadcrumb td.failure:nth-child(n+2)::before {
+    
+    border-left: 20px solid white;
+    
+}
+#breadcrumb td.failure:last-child::after {
+  
+    border-left: 0px solid #E57373 !important;
+    
+}
+#breadcrumb td.success::after {
+    z-index: 1;
+    position: absolute;
+    
+    border-left: 20px solid #a9dc6a !important;
+   
+}
+
+#breadcrumb td.success:nth-child(n+2)::before {
+    
+    border-left: 20px solid white;
+    
+}
+#breadcrumb td.success:last-child::after {
+  
+    border-left: 0px solid #a9dc6a !important;
+    
+}
+#breadcrumb div{
+    padding:10px 0px 5px 45px;
+    
+}
+#breadcrumb td.failure:last-child{
+    border-right: 0px solid #E57373 !important;
+}
+#breadcrumb td.success:last-child {
+    border-right: 0px solid #a9dc6a !important;
+}*/
+
+/*////////////button//////*/
+#ProjectsButtonsWrapper3 {
+    margin: 0px 15px ;
+    left:80px;
+}
+
+#ProjectsButtonsWrapper3 #ProjectsButtons3 {
+    display: flex;
+    /*margin: 5px 0px;*/
+    justify-content: flex-end;
+}
+
+.css3btn-group3 {
+    background: #34aae8;
+}
+
+.css3btn-group-outline3 {
+    background: rgba(0, 0, 0, .1);
+}
+
+.css3btn-group-outline3{
+    background: rgba(0, 0, 0, .1);
+}
+
+.css3btn-group-outline3>.css3btn3 {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+.css3btn-group-outline3 .css3btn-head3 {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/*.css3btn-group-outline .css3btn-body {
+    min-width: 120px;
+}*/
+
+.css3btn-group3>.css3btn3 {
+    border-radius: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: larger;
+}
+
+.css3btn-group3 .css3btn-head3 {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.css3btn-group3 .css3btn-body3 {
+    min-width: 120px;
+}
+/* hover*/
+.steps li.success:hover{
+    background: #a9dc6a !important;
+}
+.steps li.success:hover:after{
+     border-left-color: #a9dc6a !important;
+}
+.steps li.failure:hover{
+    background: #d25656 !important;
+}
+.steps li.failure:hover:after{
+     border-left-color: #d25656 !important;
+}
+.steps li.commits1:hover{
+    background: #a9dc6a !important;
+}
+.steps li.commits1:hover:after{
+     border-left-color: #a9dc6a !important;
+}

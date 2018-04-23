@@ -1,0 +1,240 @@
+<!--<div class="row">
+
+    <div class="col-md-12" data-toggle="modal" data-target="#myModal" style="padding-left: 290px;">
+        <canvas baseChart width="760" height="250" [datasets]="chart1Data" [labels]="chart1Labels" [options]="chart1Options" [legend]="chart1Legend" [chartType]="chart1Type" [colors]="chart1Colors">
+            </canvas>
+    </div>
+
+   
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+         
+            <div class="modal-content" style="    border-radius: 0px !important;">
+                <div class="modal-header">
+                   
+                    <h4 class="modal-title"><b>Sprint 5</b></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <canvas baseChart id="modalChart" [datasets]="chart0Data" [labels]="chart0Labels" [options]="chart0Options" [colors]="chart0Colors" [legend]="chart0Legend" [chartType]="chart0Type">
+                                        </canvas>
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-top: 15px;">
+                                <div class="col-md-12">
+                                    <span class="text" style="padding-left: 10px;">Overall sprint progress</span><span style="font-size: 12px;">(Story Points)</span><br>
+
+                                    <div class=" col-md-12 col-sm-12 col-xs-12 dd">
+                                        <div class="blue mytooltip" style="width: 20%;">5
+                                            <span class="tooltiptext"><i class="fa fa-square t1"></i>&nbsp;To Do: 5</span>
+                                        </div>
+                                        <div class="yellow mytooltip" style="width: 30%;">8
+                                            <span class="tooltiptext"><i class="fa fa-square t2"></i>&nbsp;In Progress: 8</span>
+                                        </div>
+                                        <div class="green mytooltip" style="width: 50%;">20
+                                            <span class="tooltiptext"><i class="fa fa-square t3"></i>&nbsp;Done: 20</span>
+                                        </div>
+                                    </div><br>
+
+                                    <div class="row" style="padding:10px;">
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                                            <span class="color">90%</span><br>
+                                            <span class="text">Time Elapsed</span>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                                            <span class="color">73%</span><br>
+                                            <span class="text">Work Complete</span>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                                            <span class="color">18%</span><br>
+                                            <span class="text">Scope Changed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          
+
+
+                            <div class="row">
+                                <div class="col-md-12" id="Wrapped">
+                                    <table class="table" id="myTable">
+                                        <thead class="thead">
+                                            <th>Type</th>
+                                            <th>Summary</th>
+                                            <th>Assignee</th>
+                                            <th>Story Points</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of data">
+                                                <td>
+                                                    <i *ngIf="data.Type == 'Epic'" class="fa fa-star-o ico" aria-hidden="true" style="color: limegreen;font-size: 12px!important;"></i>
+                                                    <i *ngIf="data.Type == 'Story'" class="fa fa-list-alt ico" aria-hidden="true" style="color: saddlebrown;font-size: 12px!important;"></i>
+                                                    <i *ngIf="data.Type == 'Bug'" class="fa fa-bug ico" aria-hidden="true" style="color: deeppink;font-size: 12px!important;"></i>
+                                                </td>
+                                                <td>{{data.Summary}}</td>
+                                                <td>{{data.Assignee}}</td>
+                                                <td>{{data.Story_Points}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal">
+                        <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body">Close</button>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div>
+
+    <div data-toggle="modal" data-target="#myModal">
+        <!--class="chart-container"-->
+        <canvas baseChart height="200" width="230" [datasets]="chart1Data" [labels]="chart1Labels" [options]="chart1Options" [legend]="chart1Legend"
+            [chartType]="chart1Type" [colors]="chart1Colors">
+        </canvas>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="    border-radius: 0px !important;">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">
+                        <b>Sprint 2</b>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <canvas baseChart id="modalChart" [datasets]="chart0Data" [labels]="chart0Labels" [options]="chart0Options" [colors]="chart0Colors"
+                                        [legend]="chart0Legend" [chartType]="chart0Type">
+                                    </canvas>
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-top: 15px;">
+                                <div class="col-md-12">
+                                    <span class="text" style="padding-left: 10px;">Overall sprint progress</span>
+                                    <span style="font-size: 12px;">(Story Points)</span>
+                                    <br>
+
+                                    <div class=" col-md-12 col-sm-12 col-xs-12 dd">
+                                        <div class="blue mytooltip" style="width: 20%;">5
+                                            <span class="tooltiptext">
+                                                <i class="fa fa-square t1"></i>&nbsp;To Do: 5</span>
+                                        </div>
+                                        <div class="yellow mytooltip" style="width: 30%;">8
+                                            <span class="tooltiptext">
+                                                <i class="fa fa-square t2"></i>&nbsp;In Progress: 8</span>
+                                        </div>
+                                        <div class="green mytooltip" style="width: 50%;">20
+                                            <span class="tooltiptext">
+                                                <i class="fa fa-square t3"></i>&nbsp;Done: 20</span>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row" style="padding:10px;">
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                                            <span class="color">90%</span>
+                                            <br>
+                                            <span class="text">Time Elapsed</span>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                                            <span class="color">73%</span>
+                                            <br>
+                                            <span class="text">Work Complete</span>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                                            <span class="color">18%</span>
+                                            <br>
+                                            <span class="text">Scope Changed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!--<div class="row">
+                                <div class="col-md-12" style="font-size:13px !important;">
+                                    <label class="radio-inline"><input type="radio" name="optradio1">Work Completed</label>
+                                    <label class="radio-inline"><input type="radio" name="optradio1" checked>Work Remaining</label>
+                                    <label class="radio-inline"><input type="radio" name="optradio1">Work Added</label>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <button type="button" class="btn btn-default btn-sm">Epics&nbsp;<i class="fa fa-star-o ico" aria-hidden="true" style="color: limegreen;font-size: 15px!important;"></i></button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button" class="btn btn-default btn-sm">Stories&nbsp;<i class="fa fa-list-alt ico" aria-hidden="true" style="color: saddlebrown;font-size: 15px!important;"></i></button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button" class="btn btn-default btn-sm">Bugs&nbsp;<i class="fa fa-bug ico" aria-hidden="true" style="color: deeppink;font-size: 15px!important;"></i></button>
+                                </div>
+                            </div><br>-->
+
+
+                            <div class="row">
+                                <div class="col-md-12" id="Wrapped">
+                                    <table class="table" id="myTable">
+                                        <thead class="thead">
+                                            <th>Type</th>
+                                            <th>Summary</th>
+                                            <th>Assignee</th>
+                                            <th>Story Points</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of data">
+                                                <td>
+                                                    <i *ngIf="data.Type == 'Epic'" class="fa fa-star-o ico" aria-hidden="true" style="color: limegreen;font-size: 12px!important;"></i>
+                                                    <i *ngIf="data.Type == 'Story'" class="fa fa-list-alt ico" aria-hidden="true" style="color: saddlebrown;font-size: 12px!important;"></i>
+                                                    <i *ngIf="data.Type == 'Bug'" class="fa fa-bug ico" aria-hidden="true" style="color: deeppink;font-size: 12px!important;"></i>
+                                                </td>
+                                                <td>{{data.Summary}}</td>
+                                                <td>{{data.Assignee}}</td>
+                                                <td>{{data.Story_Points}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="css3btn-group-outline" role="group" aria-label="..." data-dismiss="modal">
+                        <button class="css3btn css3btn-head">
+                            <i class="fa fa-lg fa-times" aria-hidden="true"></i>
+                        </button>
+                        <button class="css3btn css3btn-body">Close</button>
+                    </div>
+                    <!--<button type="button" class="btn btn-default highlight1" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+        </div>
+    </div>

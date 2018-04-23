@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <!--<div class="row myHeader"> 
+        <div class=" col-md-2 col-sm-12 col-xs-12">
+            <i class="fa fa-television"></i>
+            <span class="label1">DevOps</span>
+        </div>
+
+        <div class="col-md-5 col-sm-12 col-xs-12">
+            <span style="font-size: 25px;">GNP</span>&nbsp;
+            
+            <div class="myBadge">
+                <i class="fa fa-circle"></i>
+                <span>Smooth</span>
+                <i class="fa fa-desktop"></i>
+            </div>
+        </div>
+        
+    </div>  -->
+
+    <div class="container-fluid">
+        <div class="row" style="margin-bottom: 10px; padding-top: 10px;">
+
+            <div class="col-md-5">
+                <span id="ptitle">{{thisProject.project_name}}</span>&nbsp;&nbsp;
+                <span>Manager:&nbsp;{{thisProject.project_organization.manager}}</span>&nbsp;&nbsp;
+                <span>Application ID:&nbsp;{{thisProject.project_key}}</span>
+            </div>
+
+            <div class="col-md-4"></div>
+
+            <!--<div class="col-md-2 text-right">
+                <a [routerLink]="['../pipeline']" class="link">View Pipeline</a>
+            </div>-->
+            <div class="col-md-3 pipelineBtn2">
+                <div *ngIf="isAdmin" class="css3btn-group2" [routerLink]="['/Dashboard']" role="group" aria-label="...">
+                    <!--<div class="css3btn-group" [routerLink]="['../../pipeline']" role="group" aria-label="...">-->
+                    <button class="css3btn2 css3btn-head2">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="css3btn2 css3btn-body2">Back to Dashboard</button>
+                </div>
+                <div class="css3btn-group2" [routerLink]="['../pipeline']" role="group" aria-label="...">
+                    <!--<div class="css3btn-group" [routerLink]="['../../pipeline']" role="group" aria-label="...">-->
+                    <button class="css3btn2 css3btn-body2">View Pipeline</button>
+                    <button class="css3btn2 css3btn-head2">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <!--<a [routerLink]="['/Dashboard']" class="link">Back To Dashboard</a>-->
+            </div>
+        </div>
+
+        <div class="row divColor ">
+            <div class="col-md-2 col-sm-12 col-xs-12 c1 ">
+                <project-planning></project-planning>
+            </div>
+
+            <div class="col-md-3 col-sm-12 col-xs-12 pad c2 ">
+                <builds></builds>
+            </div>
+
+            <div class="col-md-2 col-sm-12 col-xs-12 pad c3 ">
+                <code-quality></code-quality>
+            </div>
+
+            <div class="col-md-5 col-sm-12 col-xs-12 pad c4 ">
+                <deployment></deployment>
+            </div>&nbsp;
+        </div>
+    </div>
+</div>

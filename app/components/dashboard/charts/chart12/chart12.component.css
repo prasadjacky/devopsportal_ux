@@ -1,0 +1,10 @@
+canvas {
+    width: 100% !important;
+    height: 4vw !important;
+    vertical-align: top;
+    display: inline-block;
+    background-color: rgba(220, 121, 121, 0.32);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    z-index:1 !important;
+}

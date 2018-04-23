@@ -1,0 +1,79 @@
+<div id="filterTab1">
+    <div class="row">
+        <div class="col-lg-6 col-md6">
+            <form role="form">
+                <div class="form-group has-feedback">
+                    <label class="control-label">Change:</label>
+                    <select class="form-control" #timeChange (change)="onTimeChange($event)">
+                        <!-- <option value="" selected disabled></option> -->
+                        <option value="Monthly" selected>Monthly</option>
+                        <option value="Quarterly">Quarterly</option>
+                        <option value="Yearly">Yearly</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="changeTypeQuarterly" class="col-lg-6 col-md6">
+            <div class="form-group">
+                <label class="control-label">Quarter Type:</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
+                    <label class="custom-control-label" for="customRadio1">Regular</label>
+
+                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="margin-left: 10px;">
+                    <label class="custom-control-label" for="customRadio2">Financial</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md6">
+            <form role="form">
+                <div class="form-group has-feedback">
+                    <label class="control-label">Year:</label>
+                    <select class="form-control" #yearFilter name="year_filter" (change)="onYearChange($event)">
+                        <!-- <option value="" selected disabled></option> -->
+                        <option value="2017">2017</option>
+                        <option value="2018" selected>2018</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div #monthFilterDiv id="monthFilterDiv" class="col-lg-6 col-md6">
+            <form role="form">
+                <div class="form-group has-feedback">
+                    <label class="control-label">Month:</label>
+                    <select class="form-control" #monthFilter name="year_month" (change)="onMonthChange($event)">
+                        <!-- <option value="" selected disabled></option> -->
+                        <option selected>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="changeTypeQuarterly" #quarterFilterDiv id="quarterFilterDiv" class="col-lg-6 col-md6">
+            <form role="form">
+                <div class="form-group has-feedback">
+                    <label class="control-label">Quarter:</label>
+                    <select class="form-control">
+                        <!-- <option value="" selected disabled></option> -->
+                        <option value="Q1">Q1</option>
+                        <option value="Q2">Q2</option>
+                        <option value="Q3">Q3</option>
+                        <option value="Q4">Q4</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

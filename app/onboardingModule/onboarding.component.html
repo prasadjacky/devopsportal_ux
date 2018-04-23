@@ -1,0 +1,124 @@
+<div class="container">
+    <div id="IconsWrapper">
+        <div class="selectorTab" id="ProjectInformation">
+            <div class="selector current">
+                <img src="app/resources/images/onboarding/Winfo.png" />
+            </div>
+            <div class="selectorLabel">
+                <div>Project</div>
+                <!--<div>Information</div>-->
+            </div>
+            <div class="arrow visible"></div>
+        </div>
+        <div class="connector"></div>
+        <div class="selectorTab" id="UserManagement">
+            <div class="selector">
+                <img src="app/resources/images/userManagement.png" />
+            </div>
+            <div class="selectorLabel">
+                <div>Users</div>
+                <!--<div>Management</div>-->
+            </div>
+            <div class="arrow"></div>
+        </div>
+        <div class="connector"></div>
+        <div class="selectorTab" id="ALM">
+            <div class="selector">
+                <img src="app/resources/images/onboarding/Wtools.png" />
+            </div>
+            <div class="selectorLabel">ALM</div>
+            <div class="arrow"></div>
+        </div>
+        <div class="connector"></div>
+        <div class="selectorTab" id="Environments">
+            <div class="selector">
+                <img src="app/resources/images/onboarding/Wenvironments.png" />
+            </div>
+            <div class="selectorLabel">Environments</div>
+            <div class="arrow"></div>
+        </div>
+        <div class="connector"></div>
+        <div class="selectorTab" id="OnboardingSummary">
+            <div class="selector">
+                <img src="app/resources/images/onboarding/Wrocket.png" />
+            </div>
+            <div class="selectorLabel">
+                <div>Onboarding</div>
+                <!--<div>Summary</div>-->
+            </div>
+            <div class="arrow"></div>
+        </div>
+    </div>
+    <div id="TabsWrapper">
+        <div class="tab-pane active" id="ProjectInformationTab">
+            <projectInformation #projectInformation></projectInformation>
+        </div>
+        <div class="tab-pane" id="UserManagementTab">
+            <userManagement #userManagement></userManagement>
+        </div>
+        <div class="tab-pane" id="ALMTab">
+            <alm #alm></alm>
+        </div>
+        <div class="tab-pane" id="EnvironmentsTab">
+            <environments #environments></environments>
+        </div>
+        <div class="tab-pane" id="OnboardingSummaryTab">
+            <onboardingSummary #onboardingSummary></onboardingSummary>
+        </div>
+    </div>
+    <br>
+    <div id="ButtonWrapper">
+
+        <div id="NextButton" class="css3btn-group" role="group" aria-label="...">
+            <button class="css3btn css3btn-head">
+                <i class="fa fa-lg fa-arrow-right" aria-hidden="true"></i>
+            </button>
+            <button class="css3btn css3btn-body">Next</button>
+        </div>
+        <div id="saveTemplate" class="css3btn-group" data-toggle="modal" data-target="#exampleModalCenter">
+            <button id="saveTemplateButton" class="css3btn css3btn-body" style="padding-top: 7px !important; min-width: 120px !important;
+            min-height: 30px!important; display: none !important;">Save As Template</button>
+        </div>
+        <div id="BackButton" class="css3btn-group" role="group" aria-label="...">
+            <button class="css3btn css3btn-head">
+                <i class="fa fa-lg fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button class="css3btn css3btn-body">Back</button>
+        </div>
+        <!--<button  class="btn">Next</button>
+        <button  class="btn">Back</button>-->
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal centered-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog-centered" role="document" style="margin:auto !important; width:400px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #3498db; padding:8px !important; border-top-right-radius: 6px; border-top-left-radius: 6px;">
+                <h5 class="modal-title" id="exampleModalLongTitle" style="float:left; font-weight: bolder; font-size: 16px; color:white;">Save Template</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="height:80px;">
+                <div class="modalTemplateContainer">
+                    <div class=row style="padding:2px;">
+                        <label>Template Name: </label>
+                        <input name="templateName" [(ngModel)]="template_name" #templateName="ngModel" (input)="checkInput($event.target.value)"
+                            autocomplete="off" required>
+                        <div class="errorMessageNew">{{showError}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding: 8px !important;">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id=saveButton type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveTemplate(template_name)">Save Template</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="snackbarSuccess">Template Successfully Created</div>
+<div id="snackbarDuplicateError">Template Name not available!</div>
+<div id="snackbarError">Failed!! Please try again</div>

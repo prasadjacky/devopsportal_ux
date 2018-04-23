@@ -1,0 +1,312 @@
+<dashboard (timeFilterEvent)="timeFilterOnKPI($event)" (dashboardEvent)="filterProjectTable2($event)"></dashboard>
+<div id="ProjectsButtonsWrapper">
+    <div id="ProjectsButtons">
+        <div class="css3btn-group1" data-toggle="modal" data-target="#templateModal" role="group" aria-label="...">
+            <button class="css3btn1 css3btn-head1">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+            <button *ngIf="isRlmApplication" class="css3btn1 css3btn-body1">New Application</button>
+            <button *ngIf="!isRlmApplication" class="css3btn1 css3btn-body1">New Project</button>
+        </div>
+        <!--<button id="OnboardingButton" class="btn" [routerLink]="['/onboarding']">Onboard New Project</button>-->
+        <!-- Modal -->
+        <div class="modal fade centered-modal" id="templateModal" tabindex="-1" role="dialog" aria-labelledby="templateModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document" style="margin:auto;">
+                <div class="modal-content" style="width: 500px;">
+                    <div class="modal-header" style="background-color: #3498db; padding: 10px !important; ">
+                        <h5 class="modal-title" id="templateModalLabel" style="float:left; font-weight: bolder; font-size: 19px; color:white; margin-left: 10px;">Select one template</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="background-color:rgb(255, 255, 255); max-height: calc(100vh - 210px);
+            overflow-y: auto;">
+                        <div class="modalContainer">
+                            <div class=row>
+                                <div class="css3input col-xs-6">
+                                    <div class="template-group1" (click)="clearProject()" [routerLink]="['/onboarding']" role="group" aria-label="...">
+                                        <div class="templateClass">
+                                            <i class="material-icons">&#xE873;</i>
+                                            <div class="templateLabel">
+                                                <span class="templateLabelSpan">Blank Template</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="css3input col-xs-6" *ngFor="let name of templateName; let ind = index">
+                                    <div class="template-group1" role="group" aria-label="...">
+                                        <div class="templateClass" (click)="templateProject(name)" [routerLink]="['/onboarding']">
+                                            <i class="material-icons">&#xE873;</i>
+                                            <div class="templateLabel" (click)="templateProject(name)" [routerLink]="['/onboarding']">
+                                                <span class="templateLabelSpan">{{name}}</span>
+                                            </div>
+                                        </div>
+                                        <span (click)="deleteTemplate(name)" class="closeIcon">
+                                            <i class="material-icons" style="font-size:22px !important;">&#xE5CD;</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="footer-button" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-group" id="ProjectsTablePanel">
+    <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#collapse1" style="cursor: pointer;">
+            <h4 class="panel-title">
+                <a *ngIf="isRlmApplication">Applications</a>
+                <a *ngIf="!isRlmApplication">Projects</a>
+                <i class="chevron down icon pull-right"></i>
+            </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div id="ProjectsTableWrapper">
+                    <table class="table table-hover" id="ProjectsTable">
+                        <thead>
+                            <td colspan="1"></td>
+                            <td *ngIf="isRlmApplication" colspan="9">
+                                <!--<div class="superthead"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<input id="SearchField" placeholder="Search"></div> class="thead"-->
+                                Application Name
+                            </td>
+                            <td *ngIf="!isRlmApplication" colspan="9">
+                                <!--<div class="superthead"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<input id="SearchField" placeholder="Search"></div> class="thead"-->
+                                Project Name
+                            </td>
+                            <td colspan="5">Version Completion
+                                <div class="subthead">%</div>
+                            </td>
+                            <td colspan="5">Velocity
+                                <div class="subthead">Story Points</div>
+                            </td>
+                            <td colspan="5">Bug Ratio
+                                <div class="subthead">%</div>
+                            </td>
+                            <td colspan="5">Code Coverage
+                                <div class="subthead">%</div>
+                            </td>
+                            <!--<td colspan="5">Work Completed
+                                            <div class="subthead">%</div>
+                                        </td>-->
+                            <td colspan="3" style="padding: 0px;">
+                                <div id="GridView" class="css3btn-group5 hidden" style="font-size: smaller;max-width: 120px;">
+                                    <button class="css3btn5 css3btn-head5">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="css3btn5 css3btn-body5" style="min-width: 75px;">Back</button>
+                                </div>
+                            </td>
+                            <!--<td colspan="3"><i id="GridView" class="material-icons hidden">undo</i></td>-->
+                        </thead>
+                        <!--<tbody *ngIf="filterSelected==null" class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)">-->
+                        <tbody>
+                            <tr *ngFor="let project of projects | paginate: { itemsPerPage: 10, currentPage: page, id: '1' };">
+                                <td class="projectDetailsTab projectIcon selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)"
+                                    colspan="1">
+                                    <!-- CLASS ::: selectableTab-->
+                                    <img *ngIf="project.project_type=='Development'" class="type-icon status" src="app/resources/images/icons/development.png">
+                                    <img *ngIf="project.project_type=='Maintenance'" class="type-icon status" src="app/resources/images/icons/maintainence.png">
+                                </td>
+                                <td class="projectDetailsTab projectName selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)"
+                                    colspan="4">
+                                    {{project?.project_name}}
+                                </td>
+                                <td class="projectDetailsTab projectStatus selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)"
+                                    colspan="3">
+                                    <div *ngIf="project?.project_health=='Stable'" class="status-card smooth-card">Stable</div>
+                                    <div *ngIf="project?.project_health=='Warning'" class="status-card warning-card">Warning</div>
+                                    <div *ngIf="project?.project_health=='At Risk'" class="status-card atRisk-card">At risk</div>
+                                    <div *ngIf="project?.project_health==undefined" class="status-card atRisk-card">At risk</div>
+                                </td>
+                                <td colspan="2" class=" selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)"></td>
+                                <!-- <td colspan="" class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)"
+                                    *ngIf="project?.project_metrics?.release_completion==null">
+                                    0
+                                </td> -->
+                                <td colspan="1" class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)">
+                                    <!--{{releaseCompletion?.releaseSprintVelocity}}%-->{{project?.project_metrics?.release_completion || 0}}
+                                </td>
+                                <td class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)" colspan="3">
+                                    <div *ngIf="project?.project_metrics?.release_stability=='Stable'" class="status-card smooth-card">Stable</div>
+                                    <div *ngIf="project?.project_metrics?.release_stability=='Warning'" class="status-card warning-card">Warning</div>
+                                    <div *ngIf="project?.project_metrics?.release_stability=='At Risk'" class="status-card atRisk-card">At risk</div>
+                                    <div *ngIf="project?.project_metrics==undefined" class="status-card atRisk-card">At risk</div>
+                                    <!--<i *ngIf="project.project_metrics.release_stability=='Smooth'" class="fa fa-circle fa-lg smooth-icon" aria-hidden="true"></i>
+                                                <i *ngIf="project.project_metrics.release_stability=='Warning'" class="fa fa-circle fa-lg warning-icon" aria-hidden="true"></i>
+                                                <i *ngIf="project.project_metrics.release_stability=='At Risk'" class="fa fa-circle fa-lg atRisk-icon" aria-hidden="true"></i>-->
+                                </td>
+                                <td colspan="1"></td>
+                                <!-- <td class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)" colspan="5"
+                                    *ngIf="project?.project_metrics?.sprint_velocity ==null">
+                                    0
+                                </td> -->
+                                <td class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)" colspan="5">
+                                    <!--{{sprint.story_points.points_completed}}-->{{project?.project_metrics?.sprint_velocity || 0}}
+                                </td>
+                                <!-- <td class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)" colspan="5"
+                                    *ngIf="project?.project_metrics?.bug_ratio ==null">
+                                    0
+                                </td> -->
+                                <td class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)" colspan="5">
+                                    <!--{{bugratio}}%-->{{project?.project_metrics?.bug_ratio || 0}}
+                                </td>
+                                <!-- <td class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)" colspan="5"
+                                    *ngIf="project?.project_metrics?.test_coverage ==null">
+                                    0
+                                </td> -->
+                                <td class="selectableTab versionDetailsTab" (click)="updateSelProj(project,project._id,project.project_key)" colspan="5">
+                                    <!--{{codeQuality.code_coverage}}%-->{{project?.project_metrics?.test_coverage || 0}}
+                                </td>
+                                <!--<td class="" colspan="5">-->
+                                <!--{{project.project_metrics.work_completion}}%No Data</td>-->
+                                <td colspan="3">
+                                    <!--<button id="detailsBtn" style="outline:0px">
+                                                    <i [routerLink]="['/details',project.project_key]" class="material-icons link" (click)="updateSelProj(project,project._id,project.project_key)">open_in_new</i></button>-->
+                                    <button data-toggle="tooltip" data-placement="right" title="Project Details" id="detailsBtn" style="outline:0px">
+                                        <i [routerLink]="['/details']" class="material-icons link" (click)="updateSelProj(project,project._id,project.project_key)">open_in_new</i>
+                                    </button>
+                                    <i data-toggle="tooltip" data-placement="left" title="View" [routerLink]="['/project_settings']" class="material-icons link"
+                                        (click)="updateSelProj(project,project._id,project.project_key)">remove_red_eye</i>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td id="ProjectDetailsRow" class="detailsRow" colspan="33">Project Details
+
+                                </td>
+                            </tr>
+                            <tr style="display:flex;flex-direction: row">
+                                <td id="VersionDetailsRow" class="detailsRow" colspan="33">
+                                    <div style="display:flex;flex-direction: row">
+                                        <div id="ChartContainer">
+                                            <chart13></chart13>
+                                        </div>
+                                        <div id="ChartContainer">
+                                            <chart1></chart1>
+                                        </div>
+                                        <div id="ChartContainer">
+                                            <chart3></chart3>
+                                        </div>
+                                        <div id="ChartContainer">
+                                            <chart2></chart2>
+                                        </div>
+
+                                        <div class="dropdown" style="float:left">
+                                            <button (click)="myFunction()" class="dropbtn">
+                                                <!-- <i (click)="myFunction()" class="fa fa-filter" aria-hidden="true"></i> -->
+                                                <i class="filter icon"></i>
+                                            </button>
+                                            <div *ngIf="!timeFilteringDropdownIsHidden" id="myDropdown" class="dropdown-content">
+                                                <form #charttype="ngForm" novalidate class="css3input0" id="charttype">
+                                                    <div style="display: flex;flex-direction: column">
+                                                        <div>
+                                                            <label>Year :</label>
+                                                            <select name="chartyear" style="width:100px" [ngModel]="selectedValueYear" (ngModelChange)="onChangeYear($event)" required>
+                                                                <option [ngValue]="year" *ngFor="let year of years"> {{year}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <label>Month :</label>
+                                                            <select name="chartmonth" style="width:100px" [ngModel]="selectedValueMonth" (ngModelChange)="onChangeMonth($event)" required>
+                                                                <option [ngValue]="month" *ngFor="let month of months"> {{month}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <label>Change :</label>
+                                                            <select name="charttype" style="width:100px" [ngModel]="selectedValue" (ngModelChange)="onChange($event)" required>
+                                                                <option [ngValue]="type" *ngFor="let type of types"> {{type}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="css3input0" style="float:left">
+                                            <div *ngIf="(selectedValue=='Quarterly')" id="ChartContainer">
+                                                <chart4></chart4>
+                                            </div>
+                                            <div *ngIf="(selectedValue=='Montly')" id="ChartContainer">
+                                                <chart6></chart6>
+                                            </div>
+                                            <div *ngIf="(selectedValue=='Weekly')" id="ChartContainer">
+                                                <chart7></chart7>
+                                            </div>
+                                            <div id="ChartContainer" style="float:left" *ngIf="((selectedValue!=('Montly')) && (selectedValue!=('Quarterly')) && (selectedValue!=('Weekly')))">
+                                                <chart8></chart8>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="VelocityDetailsRow" class="detailsRow" colspan="33">
+                                    <chart3></chart3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="BugDetailsRow" class="detailsRow" colspan="33">
+                                    <chart2></chart2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="CodeDetailsRow" class="detailsRow" colspan="33">
+                                    <div class="css3input0 col-xs-11">
+                                        <form #charttype="ngForm" novalidate id="charttype">
+                                            <div class="row" style="margin-top:40px">
+                                                <div class="col-lg-4">
+                                                    <label>Year :</label>
+                                                    <select name="chartyear" style="width:180px" [ngModel]="selectedValueYear" (ngModelChange)="onChangeYear($event)" required>
+                                                        <option [ngValue]="year" *ngFor="let year of years"> {{year}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label>Month :</label>
+                                                    <select name="chartmonth" style="width:180px" [ngModel]="selectedValueMonth" (ngModelChange)="onChangeMonth($event)" required>
+                                                        <option [ngValue]="month" *ngFor="let month of months"> {{month}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label>Change :</label>
+                                                    <select name="charttype" style="width:180px" [ngModel]="selectedValue" (ngModelChange)="onChange($event)" required>
+                                                        <option [ngValue]="type" *ngFor="let type of types"> {{type}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <div *ngIf="(selectedValue=='Quarterly')">
+                                            <chart4></chart4>
+                                        </div>
+                                        <div *ngIf="(selectedValue=='Montly')">
+                                            <chart6></chart6>
+                                        </div>
+                                        <div *ngIf="(selectedValue=='Weekly')">
+                                            <chart7></chart7>
+                                        </div>
+                                        <div *ngIf="((selectedValue!=('Montly')) && (selectedValue!=('Quarterly')) && (selectedValue!=('Weekly')))">
+                                            <chart8></chart8>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div *ngIf="projects?.length>0" class="pointer0">
+                        <pagination-controls (pageChange)="page = $event" id="1" maxSize="5" directionLinks="true" autoHide="true"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>

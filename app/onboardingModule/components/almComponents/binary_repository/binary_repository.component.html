@@ -1,0 +1,108 @@
+<h4>Binary Repository</h4>
+<div class="toggle">
+    <div class="switch">
+        <input id="enable_br" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="disabled" (change)="toggleCheck()">
+        <label for="enable_br"></label>
+    </div>
+    <div class="text">Disable</div>
+</div>
+<div *ngIf="BinaryRepository.configured">
+    <form #binaryRepositoryForm="ngForm" id="brf">
+        <div class="row">
+            <div class="css3input col-xs-6">
+                <select name="tool" [(ngModel)]="BinaryRepository.tool" #tool="ngModel" required>
+                    <option value="" selected disabled></option>
+                    <option value="Artifactory">Artifactory</option>
+                    <option value="S3">S3</option>
+                </select>
+                <label>Repository Tool</label>
+                <div *ngIf="tool.invalid && showValidations" class="errorMessageNew">Please select a repository tool</div>
+            </div>
+            <div *ngIf="BinaryRepository.tool==='Artifactory'" class="css3input col-xs-6">
+                <select name="platform_tool" [(ngModel)]="BinaryRepository.platform_tool" #platform_tool="ngModel" required>
+                    <option value="" selected disabled></option>
+                    <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+                </select>
+                <label>Tool Instance</label>
+                <div *ngIf="platform_tool.invalid && showValidations" class="errorMessageNew">Please select a tool instance</div>
+            </div>
+            <div *ngIf="BinaryRepository.tool==='S3'" class="css3input col-xs-6">
+                <input name="bucket_name" [(ngModel)]="BinaryRepository.bucket_name" #bucket_name="ngModel" required autocomplete="off">
+                <label>Bucket Name</label>
+                <div *ngIf="bucket_name.invalid && showValidations" class="errorMessageNew">Please enter bucket name</div>
+            </div>
+        </div>
+        <div class="row">
+                <div *ngIf="BinaryRepository.tool==='S3'" class="css3input col-xs-6">
+                    <input name="template_file" [(ngModel)]="BinaryRepository.template_file" #template_file="ngModel" required autocomplete="off">
+                    <label>Template File</label>
+                    <div *ngIf="template_file.invalid && showValidations" class="errorMessageNew">Please enter template file</div>
+                </div>
+            <div *ngIf="BinaryRepository.tool==='Artifactory'" class="css3input col-xs-6">
+                <select name="artifact_type" [(ngModel)]="BinaryRepository.artifact_type" #artifact_type="ngModel" required>
+                    <option value="" selected disabled></option>
+                        <option value="war">WAR</option>
+                        <option value="jar">JAR</option> 
+                        <option value="ear">EAR</option>
+                </select>
+                <label>Artifact Type</label>
+                <div *ngIf="artifact_type.invalid && showValidations" class="errorMessageNew">Please select an artifact type</div>
+            </div>
+            <div *ngIf="BinaryRepository.tool==='Artifactory'" class="css3input col-xs-6">
+                <input name="storage_path" [(ngModel)]="BinaryRepository.storage_path" #storage_path="ngModel" (input)="onChange($event.target.value)" required autocomplete="off">
+                <label>Storage Path</label>
+                <div *ngIf="storage_path.invalid && showValidations" class="errorMessageNew">Please enter a storage path</div>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="BinaryRepository.tool==='Artifactory'" class="css3input col-xs-6">
+                <input name="artifact_name" [(ngModel)]="BinaryRepository.artifact_name" #artifact_name="ngModel" required autocomplete="off">
+                <label>Artifact Name</label>
+                <div *ngIf="artifact_name.invalid && showValidations" class="errorMessageNew">Please enter artifact name</div>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <label class="col-md-2" for="tool">Repo Tool</label>
+                    <select name="tool" class=" col-md-4" [(ngModel)]="BinaryRepository.tool" #tool="ngModel" required>
+                        <option value="" selected disabled>Select Tool</option>
+                        <option value="Artifactory">Artifactory</option>
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="tool.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-2" for="toolInstance">Tool Instance</label>
+                    <select name="toolInstance" class="col-xs-4" [(ngModel)]="BinaryRepository.platform_tool" #toolInstance="ngModel" required>
+                        <option value="" selected disabled>Select Tool Instance</option>
+                        <option *ngFor="let item of ToolInstance" [value]="item._id">{{item.tool_instance_name}}</option>
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="toolInstance.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2" for="artifact_type">Artifact Type</label>
+                    <select name="artifact_type" class="col-md-4" [(ngModel)]="BinaryRepository.artifact_type" #artifact_type="ngModel" required>
+                        <option value="" selected disabled>Select Artifact Type</option> 
+                        <option value="war">WAR</option>
+                        <option value="jar">JAR</option> 
+                        <option value="ear">EAR</option> 
+                    </select>
+                    <div class="col-md-1 validation" *ngIf="artifact_type.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Artifact Type</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2" for="storage_path">Storage Path</label>
+                    <input class=" col-md-4" placeholder="Enter Storage Path" name="storage_path" [(ngModel)]="BinaryRepository.storage_path" #storage_path="ngModel" required />
+                    <div class="col-md-1 validation" *ngIf="storage_path.invalid && showValidations">
+                        <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Storage Path</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </form>
+</div>

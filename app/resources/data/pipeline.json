@@ -1,0 +1,717 @@
+{
+    "environments": [
+        
+    ],
+    "pipelines": [
+        {
+            "_id": "59ca4a71edf3b634f8a21535",
+            "updatedAt": "2017-10-06T12:39:19.917Z",
+            "createdAt": "2017-10-06T12:39:13.795Z",
+            "build": {
+                "_id": "59ca4a66edf3b634f8a21534",
+                "updatedAt": "2017-10-06T12:39:02.584Z",
+                "createdAt": "2017-10-06T12:39:02.584Z",
+                "build_number": 23,
+                "build_fullDisplayName": "Demo » AngularJavaApp-Pipeline #163",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "SUCCESS",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/Demo/job/AngularJavaApp-Pipeline/163/",
+                "build_timestamp": "2017-10-06T17:50:26.261Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_test": {
+                    "totalCount": 22,
+                    "failCount": 0,
+                    "skipCount": 0,
+                    "testsResult": "PASS"
+                },
+                "build_commit_set": [1,2,3],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-26T12:39:13.794Z",
+            "project_key": "DOP",
+            "current_stage": "Demo",
+            "result": "Success",
+            "status": "Inactive",
+            "__v": 0,
+            "end_timestamp": "2017-09-26T12:39:19.915Z",
+            "deployments": [
+                
+            ]
+        },
+        {
+            "_id": "59ca48c7edf3b634f8a21530",
+            "updatedAt": "2017-10-06T12:32:27.037Z",
+            "createdAt": "2017-10-06T12:32:07.104Z",
+            "build": {
+                "_id": "59ca48c0edf3b634f8a2152f",
+                "updatedAt": "2017-09-26T12:32:00.944Z",
+                "createdAt": "2017-09-26T12:32:00.944Z",
+                "build_number": 22,
+                "build_fullDisplayName": "Demo » AngularJavaApp-Pipeline #162",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "SUCCESS",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/Demo/job/AngularJavaApp-Pipeline/162/",
+                "build_timestamp": "2017-09-26T17:43:24.329Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_test": {
+                    "totalCount": 22,
+                    "failCount": 0,
+                    "skipCount": 0,
+                    "testsResult": "PASS"
+                },
+                "build_commit_set": [1],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-26T12:32:07.103Z",
+            "project_key": "DOP",
+            "current_stage": "Demo",
+            "result": "Success",
+            "status": "Inactive",
+            "__v": 0,
+            "end_timestamp": "2017-09-26T12:32:27.035Z",
+            "deployments": [
+              
+            ]
+        },
+        {
+            "_id": "59c5019ae53d552ec03b55c6",
+            "updatedAt": "2017-10-06T12:27:15.924Z",
+            "createdAt": "2017-10-06T12:27:06.286Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 21,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "SUCCESS",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [1,2],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T12:27:06.285Z",
+            "project_key": "DOP",
+            "current_stage": "Demo",
+            "result": "Success",
+            "status": "Inactive",
+            "__v": 0,
+            "end_timestamp": "2017-09-22T12:27:15.921Z",
+            "deployments": [
+                {
+                    "_id": "59c501a3e53d552ec03b55c8",
+                    "deployment": {
+                        "_id": "59c501a3e53d552ec03b55c7",
+                        "deployment_number": "4",
+                        "deployment_cause": "Started by upstream project \"DevopsPortal_Demo\" build number 45",
+                        "deployment_result": null,
+                        "deployment_timestamp": "2017-09-22T17:39:21.725Z",
+                        "deployment_project_key": "DOP",
+                        "deployment_approved_by": "Triggered",
+                        "deployment_approval_timestamp": "2017-09-22T17:39:21.725Z"
+                    },
+                    "environment": {
+                        "_id": "58ee2d2f180b721984d68abc",
+                        "environment_name": "Demo",
+                        "environment_type": "PREPROD",
+                        "environment_project_key": "DOP"
+                    }
+                }
+            ]
+        },
+        {
+            "_id": "59c4e1e9fc5d922d64454bee",
+            "updatedAt": "2017-10-05T10:11:55.755Z",
+            "createdAt": "2017-10-05T10:11:55.690Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 20,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "SUCCESS",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T10:11:41.067Z",
+            "project_key": "DOP",
+            "current_stage": "Demo",
+            "result": "Success",
+            "status": "Inactive",
+            "__v": 0,
+            "end_timestamp": "2017-09-22T10:11:55.752Z",
+            "deployments": [
+                {
+                    "_id": "59c4e1ebfc5d922d64454bf0",
+                    "deployment": {
+                        "_id": "59c4e1ebfc5d922d64454bef",
+                        "deployment_number": "39",
+                        "deployment_cause": "Started by user DevOps Admin",
+                        "deployment_result": null,
+                        "deployment_timestamp": "2017-09-22T15:23:25.749Z",
+                        "deployment_project_key": "DOP",
+                        "deployment_approved_by": "DevOps Admin",
+                        "deployment_approval_timestamp": "2017-09-22T15:23:25.749Z"
+                    },
+                    "environment": {
+                        "_id": "58ee2d2f180b721984d68abc",
+                        "environment_name": "Demo",
+                        "environment_type": "PREPROD",
+                        "environment_project_key": "DOP"
+                    }
+                }
+            ]
+        },
+        {
+            "_id": "59c4e199193b542f6024e490",
+            "updatedAt": "2017-10-05T10:10:34.527Z",
+            "createdAt": "2017-10-05T10:10:34.527Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 19,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "FAILURE",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [1],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T10:10:01.280Z",
+            "project_key": "DOP",
+            "current_stage": "Build",
+            "result": "Failure",
+            "status": "Inactive",
+            "end_timestamp": "2017-09-22T10:10:30.831Z",
+            "__v": 0,
+            "deployments": []
+        },
+        {
+            "_id": "59c4e109a2cc8b3328c0f896",
+            "updatedAt": "2017-10-05T10:08:09.129Z",
+            "createdAt": "2017-10-05T10:08:09.129Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 18,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "FAILURE",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T10:07:24.791Z",
+            "project_key": "DOP",
+            "current_stage": "Build",
+            "result": "Failure",
+            "status": "Inactive",
+            "end_timestamp": "2017-09-22T10:07:41.750Z",
+            "__v": 0,
+            "deployments": []
+        },
+        {
+            "_id": "59c4df8da2cc8b3328c0f891",
+            "updatedAt": "2017-10-05T10:01:49.632Z",
+            "createdAt": "2017-10-05T10:01:49.632Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 17,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "SUCCESS",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [1],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T10:01:49.631Z",
+            "project_key": "DOP",
+            "current_stage": "Build",
+            "result": "Success",
+            "status": "Inactive",
+            "end_timestamp": "2017-09-22T10:01:49.631Z",
+            "__v": 0,
+            "deployments": []
+        },
+        {
+            "_id": "59c4df5ea2cc8b3328c0f88c",
+            "updatedAt": "2017-10-05T10:01:02.087Z",
+            "createdAt": "2017-10-05T10:01:02.070Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 16,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "SUCCESS",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T10:01:02.069Z",
+            "project_key": "DOP",
+            "current_stage": "Demo",
+            "result": "Success",
+            "status": "Inactive",
+            "__v": 0,
+            "end_timestamp": "2017-09-22T10:01:02.085Z",
+            "deployments": [
+                {
+                    "_id": "59c4df5ea2cc8b3328c0f88e",
+                    "deployment": {
+                        "_id": "59c4df5ea2cc8b3328c0f88d",
+                        "deployment_number": "35",
+                        "deployment_cause": "Started by user DevOps Admin",
+                        "deployment_result": null,
+                        "deployment_timestamp": "2017-09-22T15:12:45.362Z",
+                        "deployment_project_key": "DOP",
+                        "deployment_approved_by": "DevOps Admin",
+                        "deployment_approval_timestamp": "2017-09-22T15:12:45.362Z"
+                    },
+                    "environment": {
+                        "_id": "58ee2d2f180b721984d68abc",
+                        "environment_name": "Demo",
+                        "environment_type": "PREPROD",
+                        "environment_project_key": "DOP"
+                    }
+                }
+            ]
+        },
+        {
+            "_id": "59c4de7e7c80481f202518ca",
+            "updatedAt": "2017-10-05T09:57:19.503Z",
+            "createdAt": "2017-10-05T09:57:19.503Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 15,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "SUCCESS",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T09:57:12.079Z",
+            "project_key": "DOP",
+            "current_stage": "Build",
+            "result": "Success",
+            "status": "Inactive",
+            "end_timestamp": "2017-09-22T09:57:16.822Z",
+            "__v": 0,
+            "deployments": []
+        },
+        {
+            "_id": "59c4dc44c223802d648fab28",
+            "updatedAt": "2017-10-05T09:55:23.272Z",
+            "createdAt": "2017-10-05T09:47:49.732Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 14,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "FAILURE",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [1],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T09:47:31.761Z",
+            "project_key": "DOP",
+            "current_stage": "Demo",
+            "result": "Failure",
+            "status": "Inactive",
+            "__v": 0,
+            "end_timestamp": "2017-09-22T09:55:23.268Z",
+            "deployments": [
+               
+            ]
+        },
+        {
+            "_id": "59c4d9b87babf5304cc40e4f",
+            "updatedAt": "2017-10-05T09:44:07.992Z",
+            "createdAt": "2017-10-05T09:37:01.283Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 13,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "SUCCESS",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T09:36:09.333Z",
+            "project_key": "DOP",
+            "current_stage": "Demo",
+            "result": "Success",
+            "status": "Inactive",
+            "__v": 0,
+            "end_timestamp": "2017-09-22T09:44:06.754Z",
+            "deployments": [
+                {
+                    "_id": "59c4db674bff7c3330937a56",
+                    "deployment": {
+                        "_id": "59c4db334bff7c3330937a54",
+                        "deployment_number": "31",
+                        "deployment_cause": "Started by user DevOps Admin",
+                        "deployment_result": null,
+                        "deployment_timestamp": "2017-09-22T14:54:27.012Z",
+                        "deployment_project_key": "DOP",
+                        "deployment_approved_by": "DevOps Admin",
+                        "deployment_approval_timestamp": "2017-09-22T14:54:27.012Z"
+                    },
+                    "environment": {
+                        "_id": "58ee2d2f180b721984d68abc",
+                        "environment_name": "Demo",
+                        "environment_type": "PREPROD",
+                        "environment_project_key": "DOP"
+                    }
+                }
+            ]
+        },
+        {
+            "_id": "59c4d8417babf5304cc40e4a",
+            "updatedAt": "2017-09-22T09:30:42.008Z",
+            "createdAt": "2017-09-22T09:30:41.979Z",
+            "build": {
+                "_id": "59c5019ae53d552ec03b55c5",
+                "updatedAt": "2017-09-22T12:27:06.275Z",
+                "createdAt": "2017-09-22T12:27:06.275Z",
+                "build_number": 12,
+                "build_fullDisplayName": "DevopsPortal_Demo #45",
+                "build_cause": "Started by user DevOps Admin",
+                "build_result": "FAILURE",
+                "build_url": "http://10.103.21.106:8080/jenkins/job/DevopsPortal_Demo/45/",
+                "build_timestamp": "2017-09-22T17:38:45.089Z",
+                "build_project_key": "DOP",
+                "build_duration": 0,
+                "__v": 0,
+                "build_commit_set": [1],
+                "build_bug_set": [],
+                "build_story_set": [],
+                "build_epic_set": []
+            },
+            "release": {
+                "_id": "59bbc3af84381632606a320f",
+                "updatedAt": "2017-09-15T12:12:31.449Z",
+                "createdAt": "2017-09-15T12:12:31.449Z",
+                "release_id": "10460",
+                "release_logical_name": "version 1.1.7",
+                "release_version": "version 1.1.7",
+                "released_status": false,
+                "release_project_key": "DOP",
+                "__v": 0,
+                "release_details": {
+                    "bugs": [],
+                    "stories": [],
+                    "deployments": [],
+                    "builds": [],
+                    "sprints": []
+                }
+            },
+            "start_timestamp": "2017-09-22T09:30:41.147Z",
+            "project_key": "DOP",
+            "current_stage": "Demo",
+            "result": "Failure",
+            "status": "Inactive",
+            "__v": 0,
+            "end_timestamp": "2017-09-22T09:30:42.001Z",
+            "deployments": [
+                {
+                    "_id": "59c4d8427babf5304cc40e4b",
+                    "deployment": {
+                        "_id": "59c4d8407babf5304cc40e49",
+                        "deployment_number": "27",
+                        "deployment_cause": "Started by user DevOps Admin",
+                        "deployment_result": null,
+                        "deployment_timestamp": "2017-09-22T14:41:55.513Z",
+                        "deployment_project_key": "DOP",
+                        "deployment_approved_by": "DevOps Admin",
+                        "deployment_approval_timestamp": "2017-09-22T14:41:55.513Z"
+                    },
+                    "environment": {
+                        "_id": "58ee2d2f180b721984d68abc",
+                        "environment_name": "Demo",
+                        "environment_type": "PREPROD",
+                        "environment_project_key": "DOP"
+                    }
+                }
+            ]
+        }
+    ],
+    "release": {
+        "release_logical_name": "version 1.1.7",
+        "release_version": "version 1.1.7"
+    }
+}

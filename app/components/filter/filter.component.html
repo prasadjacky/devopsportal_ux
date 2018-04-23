@@ -1,0 +1,261 @@
+<div id="FilterWrapper" class="container well well-sm">
+        <div id="FilterPanelHeader" class="panel-heading">
+            <div class="panel-title" style="cursor: pointer" (click)="collapseFilterPanel()" data-toggle="collapse" href="#searchItems">
+                Filters<span *ngIf="isTypeFilterApplied || isHealthFilterApplied || isManagerFilterApplied || isLobFilterApplied || isRegionFilterApplied" class="label label-info" style="margin-left: 20px;padding-bottom: 0px;">Filters are applied</span>
+                <img *ngIf="!isFilterCollapsed" class="filter-icon filter-panel-collapse pull-right" src="app/resources/images/icons/arrow_down.png" data-toggle="collapse" href="#searchItems" />
+                <img *ngIf="isFilterCollapsed" class="filter-icon filter-panel-collapse-up pull-right" src="app/resources/images/icons/arrow_up.png" data-toggle="collapse" href="#searchItems" />
+            </div>
+        </div>
+        <ul id="searchItems" class="nav navbar-nav navbar-left panel-collapse collapse">
+            <li>
+                <button id="btnFilterType" type="button" data-toggle="tooltip" data-placement="bottom" title="Filter on project types" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#typeFilterModal">
+                    Type
+                    <img class="filter-icon" src="app/resources/images/icons/maintenance.png"/>
+                </button>
+            </li>
+            <li>
+                <button type="button" id="btnHealthType" data-toggle="tooltip" data-placement="bottom" title="Filter on project health" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#healthFilterModal">
+                    Health
+                    <img class="filter-icon" src="app/resources/images/icons/health.png"/>
+                </button>
+            </li>
+            <li>
+                <button type="button" id="btnManagerType" data-toggle="tooltip" data-placement="bottom" title="Filter on project managers" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#managerFilterModal">
+                    Manager
+                    <img class="filter-icon" src="app/resources/images/icons/managers.png"/>
+                </button>
+            </li>
+            <li>
+                <button type="button" id="btnLobType" data-toggle="tooltip" data-placement="bottom" title="Filter on different line of businesses" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#lobFilterModal">
+                    LoB
+                    <img class="filter-icon" src="app/resources/images/icons/lob.png"/>
+                </button>
+            </li>
+            <li>
+                <button type="button" id="btnRegionType" data-toggle="tooltip" data-placement="bottom" title="Filter on regions" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#regionFilterModal">
+                    Region
+                    <img class="filter-icon" src="app/resources/images/icons/region.png"/>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div id="typeFilterModal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align:center;">
+                    <h3 class="modal-title">Type</h3>
+                </div>
+                <div class="modal-header">
+                    <table>
+                        <tr>
+                            <td>
+                                <h5 class="modal-title">Applied Filters :</h5>
+                            </td>
+                            <td align="left" style="padding-left: 5px;">
+                                <ul id="appliedFiltersList">
+                                    <li *ngFor="let filter of appliedTypeFilters; let i = index" style="padding: 3px; cursor: pointer;" (click)="removeAppliedFilter('Type',filter)">
+                                        {{filter}}
+                                        <span>
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-body">
+                    <filterchart1></filterchart1>
+                    <table class="table table-hover table-bordered" id="FilterType">
+                        <tr *ngFor="let filterValue of projectTypes; let i = index">
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="dynamicFilterElementType{{filterValue}}" type="checkbox" value={{filterValue}} (change)="typeAppliedFilter($event,'Type',filterValue)" style="width:100%;">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        {{filterValue}}
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="healthFilterModal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align:center;">
+                    <h3 class="modal-title">Health</h3>
+                </div>
+                <div class="modal-header">
+                    <table>
+                        <tr>
+                            <td>
+                                <h5 class="modal-title">Applied Filters :</h5>
+                            </td>
+                            <td align="left" style="padding-left: 5px;">
+                                <ul id="appliedFiltersList">
+                                    <li *ngFor="let filter of appliedHealthFilters; let i = index" style="padding: 3px; cursor: pointer;" (click)="removeAppliedFilter('Health',filter)">
+                                        {{filter}}
+                                        <span>
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-body">
+                    <filterchart2></filterchart2>
+                    <table class="table table-hover table-bordered" id="FilterHealth">
+                        <tr *ngFor="let filterValue of projectHealth; let i = index">
+                            <td>
+                                <div class="checkbox">
+                                    <label style="width:100%;">
+                                        <input id="dynamicFilterElementHealth{{filterValue}}" type="checkbox" value={{filterValue}} (change)="typeAppliedFilter($event,'Health',filterValue)" style="width:100%;">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        {{filterValue}}
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="managerFilterModal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align:center;">
+                    <h3 class="modal-title">Manager</h3>
+                </div>
+                <div class="modal-header">
+                    <table>
+                        <tr>
+                            <td>
+                                <h5 class="modal-title">Applied Filters :</h5>
+                            </td>
+                            <td align="left" style="padding-left: 5px;">
+                                <ul id="appliedFiltersList">
+                                    <li *ngFor="let filter of appliedManagerFilters; let i = index" style="padding: 3px; cursor: pointer;" (click)="removeAppliedFilter('Manager',filter)">
+                                        {{filter}}
+                                        <span>
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-body">
+                    <filterchart3></filterchart3>
+                    <table class="table table-hover table-bordered" id="FilterManagers">
+                        <tr *ngFor="let filterValue of projectManagers; let i = index">
+                            <td>
+                                <div class="checkbox">
+                                    <label style="width:100%;">
+                                        <input id="dynamicFilterElementManager{{filterValue}}" type="checkbox" value={{filterValue}} (change)="typeAppliedFilter($event,'Manager',filterValue)" style="width:100%;">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        {{filterValue}}
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="lobFilterModal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align:center;">
+                    <h3 class="modal-title">Line of Business</h3>
+                </div>
+                <div class="modal-header">
+                    <table>
+                        <tr>
+                            <td>
+                                <h5 class="modal-title">Applied Filters :</h5>
+                            </td>
+                            <td align="left" style="padding-left: 5px;">
+                                <ul id="appliedFiltersList">
+                                    <li *ngFor="let filter of appliedLoBFilters; let i = index" style="padding: 3px; cursor: pointer;" (click)="removeAppliedFilter('LoB',filter)">
+                                        {{filter}}
+                                        <span>
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-body">
+                    <filterchart4></filterchart4>
+                    <table class="table table-hover table-bordered" id="FilterLob">
+                        <tr *ngFor="let filterValue of projectLob; let i = index">
+                            <td>
+                                <div class="checkbox">
+                                    <label style="width:100%;">
+                                        <input id="dynamicFilterElementLoB{{filterValue}}" type="checkbox" value={{filterValue}} (change)="typeAppliedFilter($event,'LoB',filterValue)" style="width:100%;">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        {{filterValue}}
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="regionFilterModal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align:center;">
+                    <h3 class="modal-title">Region</h3>
+                </div>
+                <div class="modal-header">
+                    <table>
+                        <tr>
+                            <td>
+                                <h5 class="modal-title">Applied Filters :</h5>
+                            </td>
+                            <td align="left" style="padding-left: 5px;">
+                                <ul id="appliedFiltersList">
+                                    <li *ngFor="let filter of appliedRegionFilters; let i = index" style="padding: 3px; cursor: pointer;" (click)="removeAppliedFilter('Region',filter)">
+                                        {{filter}}
+                                        <span>
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-body">
+                    <filterchart5></filterchart5>
+                    <table class="table table-hover table-bordered" id="FilterRegion">
+                        <tr *ngFor="let filterValue of projectRegion; let i = index">
+                            <td>
+                                <div class="checkbox">
+                                    <label style="width:100%;">
+                                        <input id="dynamicFilterElementRegion{{filterValue}}" type="checkbox" value={{filterValue}} (change)="typeAppliedFilter($event,'Region',filterValue)" style="width:100%;">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        {{filterValue}}
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

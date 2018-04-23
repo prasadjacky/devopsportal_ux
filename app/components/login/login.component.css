@@ -1,0 +1,109 @@
+.loginForm {
+    width: 25%;
+    margin: 5% auto;
+    padding: 15px;
+    box-shadow: 0px 0px 3px 3px #EEE;
+    background: #fff;
+}
+
+.loginForm .loginHead {
+    text-align: center;
+    color: #3498db;
+}
+
+.loginForm .css3input {
+    height: 50px;
+}
+
+.loginForm .css3input input {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    padding-top: 12px;
+    height: 30px;
+    width: 100%;
+    transition: all 0.2s ease-out;
+    z-index: 3;
+}
+
+.loginForm .css3input input:focus {
+    border-bottom: 2px solid #3489db;
+    outline: none;
+}
+
+.loginForm .css3input input:focus+label,
+.loginForm .css3input input:valid+label {
+    color: #3498db;
+    top: -35px;
+    font-size: small;
+}
+
+.loginForm .css3input select {
+    /*-webkit-appearance: none;*/
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    padding-top: 12px;
+    height: 30px;
+    width: 100%;
+    z-index: 3;
+    transition: all 0.2s ease-out;
+}
+
+.loginForm .css3input select option:disabled {
+    display: none;
+}
+
+.loginForm .css3input select:focus {
+    outline: none;
+    border-bottom: 2px solid #3498db;
+}
+
+.loginForm .css3input select:focus+label,
+.loginForm .css3input select:valid+label {
+    color: #3498db;
+    top: -35px;
+    font-size: small;
+}
+
+.loginForm .css3input label {
+    font-weight: normal;
+    margin-bottom: 0px;
+    position: relative;
+    top: -20px;
+    color: #AAA;
+    z-index: 0;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.loginForm button.css3button:focus {
+    outline: none;
+}
+
+.loginForm button.css3button {
+    padding: 5px;
+    width: 100%;
+    background: #3498db;
+    color: white;
+    border: none;
+    font-size: large;
+}
+
+.loginForm .errorMessage {
+    background: #c0392b;
+    height: 35px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    margin: 15px 0px;
+}
+
+.loginForm .errorMessageNew {
+    position: relative;
+    top: -18px;
+    font-size: small;
+    color: red;
+}

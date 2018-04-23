@@ -1,0 +1,134 @@
+<h4>Development</h4>
+<form #buildForm="ngForm" id="df">
+    <div class="form-align"></div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="css3input col-xs-12">
+                    <select name="platform" [(ngModel)]="Build.platform" #platform="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option value="Java">Java</option>
+                        <option value="Android">Android</option>
+                    </select>
+                    <label>Build Platform</label>
+                    <div *ngIf="platform.invalid && showValidations" class="errorMessageNew">Please select a build platform</div>
+                </div><br>
+                <div  class="css3input col-xs-12">
+                    <select name="platform_version" [(ngModel)]="Build.platform_version" #platform_version="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option *ngIf="Build.platform==='Java'" value="1.7">1.7</option>
+                        <option *ngIf="Build.platform==='Java'" value="1.8">1.8</option> 
+                        <option *ngIf="Build.platform==='Android'" value="1.7">25</option>
+                        <option *ngIf="Build.platform==='Android'" value="1.8">26</option>
+                    </select>
+                    <label>Platform Version</label>
+                    <div *ngIf="platform_version.invalid && showValidations" class="errorMessageNew">Please select a platform version</div>
+                </div>
+                <!-- <div *ngIf="Build.platform==='Android'" class="css3input col-xs-12">
+                    <select name="platform_version" [(ngModel)]="Build.platform_version" #platform_version="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option value="1.7">25</option>
+                        <option value="1.8">26</option> 
+                    </select>
+                    <label>Platform Version</label>
+                    <div *ngIf="platform_version.invalid && showValidations" class="errorMessageNew">Please select a platform version</div>
+                </div> -->
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="css3input col-xs-12">
+                    <select name="build_tool" [(ngModel)]="Build.build_tool" #build_tool="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option *ngIf="Build.platform==='Java'" value="Maven">Maven</option>
+                        <option value="Gradle">Gradle</option>
+                    </select>
+                    <label>Build Tool</label>
+                    <div *ngIf="build_tool.invalid && showValidations" class="errorMessageNew">Please select a build tool</div>
+                </div><br>
+                <div class="css3input col-xs-12">
+                    <select name="build_tool_version" [(ngModel)]="Build.build_tool_version" #build_tool_version="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option *ngIf="Build.build_tool==='Maven'" value="3.4">3.4</option>
+                        <option *ngIf="Build.build_tool==='Maven'" value="3.5">3.5</option> 
+                        <option *ngIf="Build.build_tool==='Gradle'" value="3.0.1">3.0.1</option>
+                        <option *ngIf="Build.build_tool==='Gradle'" value="2.4.4">2.4.4</option> 
+                    </select>
+                    <label>Tool Version</label>
+                    <div *ngIf="build_tool_version.invalid && showValidations" class="errorMessageNew">Please select a tool version</div>
+                </div>
+                <!-- <div *ngIf="Build.build_tool==='Gradle'" class="css3input col-xs-12">
+                    <select name="build_tool_version" [(ngModel)]="Build.build_tool_version" #build_tool_version="ngModel" required>
+                        <option value="" selected disabled></option>
+                        <option value="3.0.1">3.0.1</option>
+                        <option value="2.4.4">2.4.4</option> 
+                    </select>
+                    <label>Tool Version</label>
+                    <div *ngIf="build_tool_version.invalid && showValidations" class="errorMessageNew">Please select a tool version</div>
+                </div> --><br>
+                <div class="toggle col-xs-12">
+                    <div class="text">Build Proxy Required</div>
+                    <div class="switch">
+                        <input id="build_proxy_required" name="build_proxy_required" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="Build.build_proxy_required">
+                        <label for="build_proxy_required"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <label class="col-md-3" for="platform">Platform</label>
+                <select name="platform" class="col-md-6" [(ngModel)]="Build.platform" #platform="ngModel" required>
+                    <option value="" selected disabled>Select Platform</option>
+                    <option value="Maven">Maven</option>
+                </select>
+                <div class="col-md-1 validation" *ngIf="platform.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Platform</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-3" for="platform_version">Version</label>
+                <select name="platform_version" class="col-md-6" [(ngModel)]="Build.platform_version" #platform_version="ngModel" required>
+                    <option value="" selected disabled>Select Platform Version</option>
+                    <option value="3.4">3.4</option>
+                    <option value="3.5">3.5</option> 
+                </select>
+                <div class="col-md-1 validation" *ngIf="platform_version.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Platform Version</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <label class="col-md-3" for="build_tool">Build Tool</label>
+                <select name="build_tool" class="col-md-6" [(ngModel)]="Build.build_tool" #build_tool="ngModel" required>
+                    <option value="" selected disabled>Select Build Tool</option>
+                    <option value="Maven">Maven</option>
+                </select>
+                <div class="col-md-1 validation" *ngIf="build_tool.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-3" for="build_tool_version">Version</label>
+                <select name="build_tool_version" class="col-md-6" [(ngModel)]="Build.build_tool_version" #build_tool_version="ngModel" required>
+                    <option value="" selected disabled>Select Tool Version</option>
+                    <option value="3.4">3.4</option>
+                    <option value="3.5">3.5</option> 
+                </select>
+                <div class="col-md-1 validation" *ngIf="build_tool_version.invalid && showValidations">
+                    <div class="validationIcon"><i class="fa fa-lg fa-exclamation-triangle" aria-hidden="true"></i><span class="validationMessage">Please Select a Tool Version</span></div>
+                </div>
+            </div>
+            <div class="toggle">
+                <div class="switch">
+                    <input id="build_proxy_required" name="build_proxy_required" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" [(ngModel)]="Build.build_proxy_required">
+                    <label for="build_proxy_required"></label>
+                </div>
+                <div class="text">Build Proxy Required</div>
+            </div>
+        </div>
+    </div>-->
+</form>

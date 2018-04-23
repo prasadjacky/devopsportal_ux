@@ -1,0 +1,152 @@
+<div class="container-fluid pagefix">
+    <div class="row" style="margin-bottom: 15px; padding-top: 10px;">
+        <div class="col-md-8">
+           <span id="ptitle">{{thisProject.project_name}}</span>&nbsp;&nbsp;
+                <span>Manager:&nbsp;{{thisProject.project_organization.manager}}</span>&nbsp;&nbsp;
+                <span>Project Key:&nbsp;{{thisProject.project_key}}</span>
+        </div>
+        <div id="ProjectsButtonsWrapper" class="col-md-3">
+          <div id="ProjectsButtons">
+        <div class="css3btn-group" [routerLink]="['/pipeline']"  role="group" aria-label="...">
+        <button  class="css3btn css3btn-head" ><i class="fa fa-arrow-left"></i></button>
+        <button  class="css3btn css3btn-body">Back To Pipeline</button></div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="row sRow"  *ngFor="let buildpipes of buildpipe">
+        <ul class="steps steps-5" *ngIf="buildpipes._id==pipelineId">
+            <li class="commits2" [routerLink]="['/summary']">
+                <a>
+                    <div>{{buildpipes.build?.build_commit_set.length}} Commits</div>
+                </a>
+            </li>
+            <li *ngIf="buildpipes.build?.build_result==='SUCCESS'" class="build2 success" [routerLink]="['/build']">
+                <a>
+                    <div >{{buildpipes.build?.build_number}}</div>
+                    <div  style="font-size: 12px;">
+                        {{buildpipes.build?.build_timestamp | date}}<br>{{buildpipes.build?.build_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+            </li>
+            <li *ngIf="buildpipes.build?.build_result==='FAILURE'" class="build2 failure" [routerLink]="['/build']">
+                <a>
+                    <div>{{buildpipes.build?.build_number}}</div>
+                    <div  style="font-size: 12px;">
+                        {{buildpipes.build?.build_timestamp | date}}<br>{{buildpipes.build?.build_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+            </li>
+           
+
+            <ng-container *ngFor="let deployp of buildpipes.deployments;let i=index"  >
+
+            <li class="success" [routerLink]="['/uat']"  *ngIf="deployp.deployment?.deployment_result==='SUCCESS'"  [ngClass]={uat2:clicks(i)} (click)=clicked(i)>
+
+                <a >
+                    <div>{{deployp.environment?.environment_name | uppercase}} 
+                        <!--#{{deployp.deployment?.deployment_number}}-->
+                        </div>
+                    <div style="font-size: 12px;">
+                       {{deployp.deployment?.deployment_timestamp | date}}<br> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+                
+            </li>
+
+            <li *ngIf="deployp.deployment?.deployment_result==='FAILURE'" class="failure" [routerLink]="['/uat']"  [ngClass]={uat2:clicks(i)}  (click)=clicked(i)> 
+           
+                 <a >
+                    <div>{{deployp.environment?.environment_name | uppercase}} 
+                        <!--#{{deployp.deployment?.deployment_number}}-->
+                        </div>
+                    <div style="font-size: 12px;">
+                       {{deployp.deployment?.deployment_timestamp | date}}<br> {{deployp.deployment?.deployment_timestamp | date:'shortTime'}}
+                    </div>
+                </a>
+                </li></ng-container>
+
+        </ul>
+    </div>
+<!--<table class="table" >
+        <tbody class="tbody" *ngFor="let buildpipes of buildpipe">
+      
+     
+             <tr  *ngIf="buildpipes._id==pipelineId" id="breadcrumb">
+              
+                 <td class="commits" [routerLink]="['/summary']">
+                        
+                            <div >{{buildpipes.build.build_commit_set.length}} Commits</div>
+                </td> 
+                 <td *ngIf="buildpipes.build.build_result==='SUCCESS'" class="success"  [routerLink]="['/build']">
+                        <div class="row"><span class="col-md-3"> #{{buildpipes.build.build_number}} </span><span class="col-md-5"> {{buildpipes.build.build_timestamp | date}} </span><span class="col-md-4"> {{buildpipes.build.build_timestamp | date:'shortTime'}}</span></div>
+                </td>   
+                <td *ngIf="buildpipes.build.build_result==='FAILURE'" class="failure"  [routerLink]="['/build']">    
+                        <div class="row"><span class="col-md-3"> #{{buildpipes.build.build_number}} </span><span class="col-md-5"> {{buildpipes.build.build_timestamp | date}} </span><span class="col-md-4"> {{buildpipes.build.build_timestamp | date:'shortTime'}}</span></div>    
+                               
+                </td>
+               
+                 <ng-container *ngFor="let deployp of buildpipes.deployments">
+                 <td  *ngIf="deployp.deployment.deployment_result==='SUCCESS'" class="success"  [routerLink]="['/uat']">
+                    <div class="row"><span class="col-md-3"> #{{deployp.deployment.deployment_number}} </span><span class="col-md-5"> {{deployp.deployment.deployment_timestamp | date}} </span><span class="col-md-4"> {{deployp.deployment.deployment_timestamp | date:'shortTime'}}</span></div>
+                 </td>  
+                 <td *ngIf="deployp.deployment.deployment_result==='FAILURE'" class="failure"  [routerLink]="['/uat']"> 
+                    <div class="row"><span class="col-md-3"> #{{deployp.deployment.deployment_number}} </span><span class="col-md-5"> {{deployp.deployment.deployment_timestamp | date}}  </span><span class="col-md-4"> {{deployp.deployment.deployment_timestamp | date:'shortTime'}}</span></div>
+                </td>
+                </ng-container>
+             </tr></tbody></table>
+   -->
+ <div class="container-fluid divColor">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <strong>Approval By:</strong>&nbsp;Shrikrishna
+            </div>
+            <div class="col-md-4">
+                <strong>Approval Timestamp:</strong>&nbsp;04/04/18&nbsp;5:40 PM
+            </div>
+            <div class="col-md-4">
+                <strong>Time Spent:</strong>&nbsp;3 days
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-4">
+                <strong>Sign-Off By:</strong>&nbsp;Laxman
+            </div>
+            <div class="col-md-4">
+                <strong>Sign-Off Timestamp:</strong>&nbsp;04/04/18&nbsp;8:00 PM
+            </div>
+            <div class="col-md-4">
+                <strong>Bugs Raised:</strong>&nbsp;0
+            </div>
+        </div>
+    </div><br>
+    <div id="tablewrapped">
+        <table class="table" id="myTable">
+            <thead>
+                <th>Summary</th>
+                <th>Reporter</th>
+                <th>Assignee</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2" style="padding:10px"><strong style="padding-left:511px">No Bugs Logged</strong></td>
+                </tr>
+                <tr>
+                    <td>{{summary.Type}}</td>
+                    <td>{{summary.Type}}</td>
+                    <td>{{summary.Type}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <!--<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center alert alert-success">
+                <strong>No Bugs Logged</strong>
+            </div>
+        </div>
+    </div>-->
+ </div>

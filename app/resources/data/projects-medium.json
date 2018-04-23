@@ -1,0 +1,193 @@
+[{
+        "project_name": "Honda CPSD",
+        "project_key": "HON",
+        "project_type": "Development",
+        "project_health": "Stable",
+        "project_metrics": {
+            "release_completion": "63",
+            "sprint_velocity": 46,
+            "defect_ratio": "17",
+            "test_coverage": "57",
+            "release_stability": "Stable",
+            "work_completion": "71"
+        },
+        "project_organization": {
+            "manager": "Shashank Gupta",
+            "line_of_business": "Automobiles",
+            "region":"India"
+        }
+    },{
+        "project_name": "Sapphire",
+        "project_key": "Sapphire",
+        "project_type": "Development",
+        "project_health": "Stable",
+        "project_metrics": {
+            "release_completion": "63",
+            "sprint_velocity": 46,
+            "defect_ratio": "17",
+            "test_coverage": "57",
+            "release_stability": "Warning",
+            "work_completion": "71"
+        },
+        "project_organization": {
+            "manager": "Chirag Sane",
+            "line_of_business": "Trade & Finance",
+            "region":"India"
+            
+        }
+    },
+    {
+        "project_name": "CampusNext",
+        "project_key": "CampusNext",
+        "project_type": "Maintenance",
+        "project_health": "Warning",
+        "project_metrics": {
+            "release_completion": "87",
+            "sprint_velocity": 45,
+            "defect_ratio": "07",
+            "test_coverage": "14",
+            "release_stability": "At Risk",
+            "work_completion": "15"
+        },
+        "project_organization": {
+            "manager": "Rahul Punjabi",
+            "line_of_business": "Education",
+            "region":"India"
+        }
+    },
+    {
+        "project_name": "Digicopy",
+        "project_key": "Digicopy",
+        "project_type": "Development",
+        "project_health": "Stable",
+        "project_metrics": {
+            "release_completion": "33",
+            "sprint_velocity": 12,
+            "defect_ratio": "02",
+            "test_coverage": "11",
+            "release_stability": "Stable",
+            "work_completion": "55"
+        },
+        "project_organization": {
+            "manager": "Nikhil Pujary",
+            "line_of_business": "Advertising",
+            "region":"South Africa"
+        }
+    },
+    {
+        "project_name": "HD Power",
+        "project_key": "HD",
+        "project_type": "Maintenance",
+        "project_health": "At Risk",
+        "project_metrics": {
+            "release_completion": "77",
+            "sprint_velocity": 11,
+            "defect_ratio": "10",
+            "test_coverage": "45",
+            "release_stability": "Stable",
+            "work_completion": "12"
+        },
+        "project_organization": {
+            "manager": "Chetali Patidar",
+            "line_of_business": "Electricals",
+            "region":"South Africa"
+        }
+    },
+    {
+        "project_name": "GNP",
+        "project_key": "GNP",
+        "project_type": "Maintenance",
+        "project_health": "Stable",
+        "project_metrics": {
+            "release_completion": "32",
+            "sprint_velocity": 33,
+            "defect_ratio": "8",
+            "test_coverage": "77",
+            "release_stability": "Warning",
+            "work_completion": "10"
+        },
+        "project_organization": {
+            "manager": "Shriya Chhajed",
+            "line_of_business": "Trade & Finance",
+            "region":"India"
+        }
+    },
+    {
+        "project_name": "HAVOC",
+        "project_key": "HAVOC",
+        "project_type": "Development",
+        "project_health": "Stable",
+        "project_metrics": {
+            "release_completion": "87",
+            "sprint_velocity": 52,
+            "defect_ratio": "10",
+            "test_coverage": "77",
+            "release_stability": "At Risk",
+            "work_completion": "10"
+        },
+        "project_organization": {
+            "manager": "Amruta Shetye",
+            "line_of_business": "Electricals",
+            "region":"Munich"
+        }
+    },
+    {
+        "project_name": "HAVOC2",
+        "project_key": "HAVOC2",
+        "project_type": "Development",
+        "project_health": "Warning",
+        "project_metrics": {
+            "release_completion": "87",
+            "sprint_velocity": 52,
+            "defect_ratio": "10",
+            "test_coverage": "77",
+            "release_stability": "At Risk",
+            "work_completion": "10"
+        },
+        "project_organization": {
+            "manager": "Amruta Shetye",
+            "line_of_business": "Electricals",
+            "region":"Munich"
+        }
+    }
+    },
+    {
+        "project_name": "CrossCheck",
+        "project_key": "CrossCheck",
+        "project_type": "Development",
+        "project_health": "Stable",
+        "project_metrics": {
+            "release_completion": "87",
+            "sprint_velocity": 52,
+            "defect_ratio": "10",
+            "test_coverage": "77",
+            "release_stability": "Stable",
+            "work_completion": "10"
+        },
+        "project_organization": {
+            "manager": "Prasad Amberkar",
+            "line_of_business": "IT Services",
+            "region":"Denmark"
+        }
+    }
+    },
+    {
+        "project_name": "ABSA",
+        "project_key": "ABSA",
+        "project_type": "Maintenance",
+        "project_health": "Warning",
+        "project_metrics": {
+            "release_completion": "87",
+            "sprint_velocity": 52,
+            "defect_ratio": "10",
+            "test_coverage": "77",
+            "release_stability": "At Risk",
+            "work_completion": "10"
+        },
+        "project_organization": {
+            "manager": "Prasad Amberkar",
+            "line_of_business": "Banking",
+            "region":"South Africa"
+        }
+    }
+]

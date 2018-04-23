@@ -1,0 +1,61 @@
+
+.myHeader1{
+    font-size: 14px;
+    font-weight: 600;
+    color: #049ccc;
+}
+
+.myHeader2{
+    font-size: 14px;
+    font-weight: 600;
+    color: #756d6d;
+}
+
+.value2{
+    font-size: 17px;
+    color: #888585;
+}
+
+.divAlign{
+    text-align: center;
+}
+
+span.value1{
+    font-size: 20px;
+    color: #ce1e82;
+}
+
+.myCardBlock{
+    padding: 0px;
+    min-height: 489px;
+    border: 1px solid #dcd9d9;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .1);
+    /*box-shadow: 5px 5px 5px #888888 !important;*/
+}
+
+.myCard-header{
+    padding:0px;
+    padding-left: 5px;
+    font-size: small;
+    background-color:#efefef;
+    border: 0px;
+    font-weight: 600;
+    color:#716e6e;
+}
+
+.myCard{
+	margin-top: 7px;
+	border:0px;
+    background-color: white;
+}
+
+#highlight{
+    background-color:"fff7d8";
+}
+
+/*@media screen and (max-width:997px){
+    
+    .myCard{
+        width: 466px;
+    }
+}*/

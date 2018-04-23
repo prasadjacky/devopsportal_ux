@@ -1,0 +1,100 @@
+<div id="filterTab1">
+    <!-- <div style="display: flex" *ngIf="appliedManagerFilters.length>0">
+        <div>
+            <h5 class="modal-title">Applied Filters :</h5>
+        </div>
+        <div>
+            <ul id="appliedFiltersList">
+                <li *ngFor="let filter of appliedTypeFilters; let i = index" (click)="removeAppliedFilter('Type',filter)">
+                    <span>
+                        <i class="remove thin icon"></i>
+                    </span>
+                    {{filter}}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="appliedTypeFilters.length>1" (click)="clearTypeAppliedFilterList()">
+            <span id="appliedFiltersListClearAll">
+                <i class="remove circle icon"></i>
+                <span style="font-size: 1vw;">
+                    CLEAR ALL
+                </span>
+            </span>
+        </div>
+    </div> -->
+    <div class="row" *ngIf="appliedTypeFilters.length>0" id="appliedFiltersContainer">
+        <div class="col-lg-2">
+            <h5 class="modal-title">Applied Filters :</h5>
+        </div>
+        <div class="col-lg-7" id="appliedFiltersDiv">
+            <ul id="appliedFiltersList">
+                <li *ngFor="let filter of appliedTypeFilters; let i = index" (click)="removeAppliedFilter('Type',filter)">
+                    <span>
+                        <i class="remove thin icon"></i>
+                    </span>
+                    {{filter}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-3" *ngIf="appliedTypeFilters.length>1" (click)="clearTypeAppliedFilterList()">
+            <span id="appliedFiltersListClearAll">
+                <i class="remove circle icon"></i>
+                <span style="font-size: 1vw;">
+                    CLEAR ALL
+                </span>
+            </span>
+        </div>
+    </div>
+    <!-- <div style="float: left;">
+        <table class="typeAppliedFilterTable">
+            <tr>
+                <td>
+                    <h5 class="modal-title">Applied Filters :</h5>
+                </td>
+                <td align="left" style="padding-left: 5px;">
+                    <ul id="appliedFiltersList">
+                        <li *ngFor="let filter of appliedTypeFilters; let i = index" (click)="removeAppliedFilter('Type',filter)">
+                            <span>
+                                <i class="remove thin icon"></i>
+                            </span>
+                            {{filter}}
+                        </li>
+                    </ul>
+                </td>
+                <td *ngIf="appliedTypeFilters.length>1">
+                    <span id="appliedFiltersListClearAll">
+                        <i class="remove circle icon"></i>
+                        <span style="font-size: 1vw;">
+                            CLEAR ALL
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div> -->
+    <div class="modal-body">
+        <div style="display: block" align="center">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                [chartType]="barChartType" [colors]="filterchart1Colors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+            </canvas>
+        </div>
+        <div class="filter-table">
+            <table class="table table-hover table-bordered" id="FilterType">
+                <tr *ngFor="let filterValue of projectTypes; let i = index">
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input id="dynamicFilterElementType{{filterValue}}" type="checkbox" value={{filterValue}} (change)="typeAppliedFilter($event,'Type',filterValue)"
+                                    style="width:100%;">
+                                <span class="cr">
+                                    <i class="cr-icon glyphicon glyphicon-ok"></i>
+                                </span>
+                                {{filterValue}}
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

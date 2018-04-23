@@ -1,0 +1,69 @@
+#chartTable tr th:first-child {
+    min-width: 160px;
+    text-align: center !important;
+}
+
+#chartTable tr td:first-child {
+    text-align: center !important;
+}
+
+#chartTable tr td:nth-child(2) {
+    text-align: center;
+}
+
+#chartTable tr td:nth-child(3) {
+    text-align: center;
+}
+
+.blue {
+    color: cornflowerblue;
+}
+
+#chartTable {
+    padding: 30px;
+}
+
+#chartTable th{
+    text-align: center;
+}
+
+#chartTableWrapped{
+    /*margin: 15px 15px 0px;
+    padding: 15px;*/
+    background: #FFF;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .1);
+}
+/*
+canvas{
+    height: 230px!important;
+    width: 412px!important;
+}*/
+#chartTableWrapped #chartTables{
+      margin-bottom: 0px;
+    table-layout: fixed;
+    width: 100%;  
+}
+
+#chartTableWrapped #chartTables thead th{
+    text-align: left;
+    font-weight: bold;
+    font-size: larger;
+    padding: 0px 5px 5px;
+    border-bottom: 2px solid #DDD;
+    vertical-align: top;
+}
+
+#chartTableWrapped #chartTables thead th .thead {
+    position: relative;
+    bottom: 20px;
+}
+#chartTableWrapped #chartTables tbody tr {
+    text-align: left;
+}
+
+#chartTableWrapped #chartTables tbody td {
+    /*height: 50px;*/
+    padding: 5px;
+    vertical-align: bottom;
+}

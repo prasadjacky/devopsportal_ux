@@ -1,0 +1,88 @@
+div#filterTab4 {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid #e9e9e9;
+    border-top: 0px;
+}
+
+canvas {
+    height: 100px !important;
+    width: 380px !important;
+}
+
+.checkbox label:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.checkbox .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: .5em;
+}
+
+.checkbox .cr .cr-icon {
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%;
+}
+
+.checkbox label input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox label input[type="checkbox"]+.cr>.cr-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+.checkbox label input[type="checkbox"]:checked+.cr>.cr-icon {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+}
+
+.checkbox label input[type="checkbox"]:disabled+.cr {
+    opacity: .5;
+}
+
+
+/*horizontal list*/
+.filter-table{
+    overflow:auto;
+    height:200px;    
+    padding-top: 10px;
+}
+
+#appliedFiltersList {
+    list-style: none;
+    margin-top: unset;
+    margin-bottom: unset;
+}
+
+#appliedFiltersList li {
+    display: inline;
+    padding: 3px; 
+    cursor: pointer;
+    background: #D7D7D7; 
+    border-radius: 0.5vw; 
+    margin-right: 1vw;
+    line-height: 2;
+}
+#appliedFiltersListClearAll{
+    border: solid 1px #D7D7D7;
+    border-radius: 0.5vw;
+    padding: 3px;
+}
+#appliedFiltersListClearAll:hover {
+    background: #D7D7D7;
+    color: black;
+    cursor: pointer;
+}

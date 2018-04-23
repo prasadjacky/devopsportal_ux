@@ -1,0 +1,128 @@
+<div class="container-fluid" style="margin: 0 15px 0 15px;">
+    <div class="row">
+        <h4 style="display: inline-block;">User Management</h4>
+        <!--<div style="float: right;" class="css3btn-group" role="group" aria-label="..." data-toggle="modal" data-target="#addUserModal" (click)="onCancel()">
+            <button class="css3btn css3btn-head"><i class="fa fa-lg fa-plus" aria-hidden="true"></i></button>
+            <button class="css3btn css3btn-body">User</button>
+        </div>-->
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-12 br">
+            <table id="UsersTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <!--<th style="text-align: center">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="Users.length <= 0">
+                        <td style="font-size: 12px;" colspan="4" class="text-center">No user added</td>
+                    </tr>
+                    <tr [hidden]="Users.length == 0" *ngFor="let user of Users; let i = index" style="background-color: white;font-size: 12px;">
+                        <td>{{this.user.user_full_name}}</td>
+                        <td *ngIf="this.user.role_id == '1'">Admin</td>
+                        <td *ngIf="this.user.role_id == '2'">Member</td>
+                        <!--<td style="padding: 7px 7px 0px; text-align: center">
+                            <i style="cursor: pointer" class="material-icons link" data-toggle="modal" data-target="#confirmUserDeletionModal" (click)="confirmDelete(i,user)">delete</i>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--Add user Modal-->
+    <div class="modal fade" tabindex="-1" id="addUserModal" role="dialog">
+        <div class="modal-dialog">
+            <form #userManagementForm="ngForm" novalidate>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                        <h4 class="modal-title">Add User</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>User-id</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let user of usersAvailable; let i = index" style="cursor: pointer" (click)="pushUser(user, i)">
+                                            <td>{{user.user_full_name}}</td>
+                                            <td>{{user.user_id}}</td>
+                                            <td>{{user.email_id}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="css3input col-xs-6">
+                                <input name="username" [(ngModel)]="UserManagement.user_full_name" #username="ngModel" required autocomplete="off" readonly>
+                                <label>Username</label>
+                                <div *ngIf="username.invalid && showValidations" class="errorMessageNew">Please select a username from table</div>
+                            </div>
+                            <div class="css3input col-xs-6">
+                                <select name="role_id" [(ngModel)]="UserManagement.role_id" #role_id="ngModel" required>
+                                    <option value = "" selected disabled></option>
+                                    <option value = "1">Admin</option>
+                                    <option value = "2">Member</option>
+                                </select>
+                                <label>Role</label>
+                                <div *ngIf="role_id.invalid && showValidations" class="errorMessageNew">Please select a role</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-xs-5 userAddErr">
+                            <div *ngIf="addErr" class="userAddErr">User already exists</div>
+                        </div>
+                        <div class="css3btn-group" role="group" aria-label="..." (click)="onSave($event)">
+                            <button class="css3btn css3btn-head"><i class="fa fa-lg fa-check" aria-hidden="true"></i></button>
+                            <button class="css3btn css3btn-body">Save</button>
+                        </div>
+                        <div class="css3btn-group-outline" role="group" aria-label="..." (click)="onCancel()" data-dismiss="modal">
+                            <button class="css3btn css3btn-head"><i class="fa fa-lg fa-times" aria-hidden="true"></i></button>
+                            <button class="css3btn css3btn-body">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Delete Confirmation Modal-->
+    <div class="modal fade" tabindex="-1" id="confirmUserDeletionModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">Delete User</h4>
+                </div>
+                <div class="modal-body text-center cd">
+                    <p>Are you sure you want to delete user <strong>{{userObj.user_full_name}}</strong>?</p>
+                </div>
+                <div class="modal-footer" style="padding-right: 5px;">
+                    <div class="css3btn-group mw" role="group" aria-label="..." data-dismiss="modal" (click)="onDelete()">
+                        <button class="css3btn css3btn-head mw1"><i class="fa fa-check" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body mw2">Yes</button>
+                    </div>
+                    <div class="css3btn-group-outline mw" role="group" aria-label="..." data-dismiss="modal" (click)="onCancel()">
+                        <button class="css3btn css3btn-head mw1"><i class="fa fa-times" aria-hidden="true"></i></button>
+                        <button class="css3btn css3btn-body mw2">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
